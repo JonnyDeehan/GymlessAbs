@@ -1,0 +1,655 @@
+<resources>
+    <string name="app_name">Gymless Abs</string>
+    <string name="title_activity_exercise_plan">ExercisePlanActivity</string>
+    <string name="large_text">
+
+    </string>
+    <string name="exercise_list"> 90 Degree Crunch\n
+30   45   60\n
+none\n
+ninety_degree_crunch\n
+Circle Crunches\n
+30   45   60\n
+none\n
+circle_crunches\n
+Floor Side to Sides\n
+30   45   60\n
+none\n
+floor_side_to_sides\n
+Alternating Kick Throughs\n
+30   45   60\n
+none\n
+alternating_kick_throughs\n
+Ball Cauldron Stirs\n
+30   45   60\n
+Exercise ball\n
+ball_cauldron_stirs\n
+Ball Circles\n
+30   45   60\n
+Exercise ball\n
+ball_circles\n
+Ball Knee Tucks\n
+30   45   60\n
+Exercise ball\n
+ball_knee_tucks\n
+Ball Pass\n
+30   45   60\n
+Exercise ball\n
+ball_pass\n
+Ball Pike\n
+30   45   60\n
+Exercise ball\n
+ball_pike\n
+Bent Knee Wipers\n
+30   45   60\n
+none\n
+bent_knee_wipers\n
+Bicycle Elbow to Knee Tucks\n
+30   45   60\n
+none\n
+bicycle_elbow_to_knee_tucks\n
+Circle Crunches\n
+30   45   60\n
+none\n
+circle_crunches\n
+Clapping Crunches\n
+30   45   60\n
+none\n
+clapping_crunches\n
+Elbow to Knee Tucks\n
+30   45   60\n
+none\n
+elbow_to_knee_tucks\n
+Figure of 8s\n
+30   45   60\n
+none\n
+figure_of_8s\n
+Flutters\n
+30   45   60\n
+none\n
+flutters\n
+Hand Raise Tucks\n
+30   45   60\n
+none\n
+hand_raise_tucks\n
+Hands Back Tucks\n
+30   45   60\n
+none\n
+hands_back_tucks\n
+Hanging Alternating Kick Outs\n
+30   45   60\n
+Chin up bar\n
+hanging_alternating_kick_outs\n
+Hanging Bicycles\n
+30   45   60\n
+Chin up bar\n
+hanging_bicycles\n
+Toe Touches\n
+30   45   60\n
+none\n
+toe_touches\n
+Heels up to the Ceiling\n
+30   45   60\n
+none\n
+heels_up_to_the_ceiling\n
+Isolated Reverse Crunch\n
+30   45   60\n
+none\n
+isolated_reverse_crunch\n
+Leg Raises\n
+30   45   60\n
+none\n
+leg_raises\n
+Marching Planks\n
+30   45   60\n
+none\n
+marching_planks\n
+One Legged Ball Circles\n
+30   45   60\n
+Exercise Ball\n
+one_legged_ball_circles\n
+One Legged Roll Ups\n
+30   45   60\n
+none\n
+one_legged_roll_ups\n
+Opposite Side Plank Tucks\n
+30   45   60\n
+none\n
+opposite_side_plank_tucks\n
+Pistol Crunches\n
+30   45   60\n
+none\n
+pistol_crunches\n
+Plank Touches\n
+30   45   60\n
+none\n
+plank_touches\n
+Praying Crunch\n
+30   45   60\n
+none\n
+praying_crunch\n
+Reverse Crunch\n
+30   45   60\n
+none\n
+reverse_crunch\n
+Rolling Jack Knvies\n
+30   45   60\n
+none\n
+rolling_jack_knives\n
+Same Side Plank Tucks\n
+30   45   60\n
+none\n
+same_side_plank_tucks\n
+Scissor V Ups\n
+30   45   60\n
+none\n
+scissor_v_ups\n
+Scissors\n
+30   45   60\n
+none\n
+scissors\n
+Hanging Knee To Elbows\n
+30   45   60\n
+Chin up bar\n
+hanging_knee_to_elbows\n
+Hanging Knee Ups\n
+30   45   60\n
+Chin up bar\n
+hanging_knee_ups\n
+Hanging Leg Raises\n
+30   45   60\n
+Chin up bar\n
+hanging_leg_raises\n
+Side Crunches\n
+30   45   60\n
+none\n
+side_crunches\n
+Sprinter Plank Kicks\n
+30   45   60\n
+none\n
+sprinter_plank_kicks\n
+Standing Ab Twist\n
+30   45   60\n
+none\n
+standing_ab_twist\n
+Standing Side to Side\n
+30   45   60\n
+none\n
+standing_side_to_side\n
+Star Twists\n
+30   45   60\n
+none\n
+star_twists\n
+Suspended Quad Reach\n
+30   45   60\n
+Chin up bar\n
+suspended_quad_reach\n
+V Up Hold\n
+30   45   60\n
+none\n
+v_up_hold\n
+V Up Twists\n
+30   45   60\n
+none\n
+v_up_twists\n
+V Up\n
+30   45   60\n
+none\n
+v_up\n
+Wall Plank Tucks\n
+30   45   60\n
+none\n
+wall_plank_tucks\n
+Wall Planks\n
+30   45   60\n
+none\n
+wall_planks\n
+Wide Plank Holds\n
+30   45   60\n
+none\n
+wide_plank_holds\n
+Wide V Up Crunch\n
+30   45   60\n
+none\n
+wide_v_up_crunch\n
+Wind Shield Wipers\n
+30   45   60\n
+none\n
+wind_shield_wipers\n
+Hanging Pike\n
+30   45   60\n
+Chin up bar\n
+hanging_pike\n
+Hanging Scissors\n
+30   45   60\n
+Chin up bar\n
+hanging_scissors\n
+Hanging V Up\n
+30   45   60\n
+Chin up bar\n
+hanging_v_up\n
+    </string>
+    <string name="meal_plan">Week 1\n
+Monday\n
+Breakfast: Scrambled egg and smoked salmon\n
+Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
+Lunch: Beef mince and mixed veggies\n
+Snack 2: Hard boiled eggs\n
+Dinner: Steak burger, sweet potato fries, asparagus\n
+Tuesday \n
+Breakfast: Poached egg with bacon and asparagus\n
+Snack 1: Sliced avocado wrapped in ham\n
+Lunch: Minced beef and salsa\n
+Snack 2: Chicken wings\n
+Dinner: Teriyaki Salmon steak, brown rice, broccoli\n
+Wednesday\n
+Breakfast: Hard boiled eggs and toasted sweet potato\n
+Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
+Lunch: Beef mince and mixed veggies\n
+Snack 2: Pepperoni slices\n
+Dinner: Chicken breast sliced peppers, rice noodles with mixed veg stir fry \n
+Thursday\n
+Breakfast: Steak and eggs\n
+Snack 1: Beef jerky\n
+Lunch: Tuna salad\n
+Snack 2: Ham and String cheese\n
+Dinner: Turkey sausages, sweet potato mash, mixed veg\n
+Friday\n
+Breakfast: Eggs benedict with spinach \n
+Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
+Lunch: Beef mince and mixed veggies\n
+Snack 2: Cheese strings and sliced cold meat\n
+Dinner: Pork Chop, baked sweet potato, apple sauce, green beans\n
+Saturday\n
+Breakfast: Sardines and hard boiled eggs\n
+Snack 1: Cold cut meat wrapped around cheese stick \n
+Lunch: Smoked salmon, rice noodles, broccoli, green beans and peas\n
+Snack 2: Sliced avocado wrapped in ham\n
+Dinner: Mackerel, mixed veg and quinoa\n
+Sunday\n
+Breakfast: Fried egg, bacon, sautéed veggies\n
+Snack 1: Chicken slices and olives\n
+Lunch: Chicken and green veggies\n
+Snack 2: Hard boiled eggs\n
+Dinner: Spare ribs, zuchini fries, mixed veg\n
+Week 2\n
+Monday\n
+Breakfast: Sausage and egg muffin\n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Tuna cheese melt\n
+Snack 2: Beef jerky\n
+Dinner: Baked tilapia and radish relish\n
+Tuesday\n
+Breakfast: Scrambled eggs with halloumi cheese \n
+Snack 1: Sliced avocado wrapped in ham\n
+Lunch: Chilli covered salmon and spinach \n
+Snack 2: Pepperoni slices \n
+Dinner: Thai green curry with cod and mixed veggies\n
+Wednesday\n
+Breakfast: Red pepper and spinach frittata \n
+Snack 1: Ham and cheese string\n
+Lunch: Beef stroganoff with zuchinni spirals\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex\n
+Dinner: Pork chops and blue cheese sauce with roast sweet potato\n
+Thursday\n
+Breakfast: Diary free latte \n
+Snack 1: Hard boiled eggs \n
+Lunch: Prawn and avocado salad \n
+Snack 2: Ham and cheese string\n
+Dinner: Garlic chicken, brown rice and mixed veggies \n
+Friday\n
+Breakfast: Chocolate chip banana pancakes\n
+Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
+Lunch: Avocado, bacon, and goats cheese salad\n
+Snack 2: Hard boiled eggs\n
+Dinner: Cheesy hamburger and sweet potato fries\n
+Saturday\n
+Breakfast: Poached eggs with spicy tomato sauce\n
+Snack 1: Beef jerky\n
+Lunch: Chicken breast with herb butter and veggies\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex\n
+Dinner: Meat pie and mixed veggies/ salad\n
+Sunday\n
+Breakfast: Minced beef, egg and avocado bowl\n
+Snack 1: Sliced avocado wrapped in ham\n
+Lunch: Minced beef and salsa\n
+Snack 2: Ham and cheese string\n
+Dinner: Pesto chicken casserole with feta and olives\n
+Week 3\n
+Monday\n
+Breakfast: Omelet with ham and peppers \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Chicken, bacon and avocado salad \n
+Snack 2: Ham and cheese string\n
+Dinner: Meat balls and zuchinni spaghetti \n
+Tuesday\n
+Breakfast: Chocolate chip espresso pancakes\n
+Snack 1: Ham and cheese string\n
+Lunch: Chipotle chicken and lettuce wrap\n
+Snack 2: Hard boiled eggs \n
+Dinner: Mac and cheese with rice pasta \n
+Wednesday\n
+Breakfast: Eggs, sausage and spinach \n
+Snack 1: Chicken slices and olives \n
+Lunch: Flat iron steak salad\n
+Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
+Dinner: Rosemary lamb burgers with pesto\n
+Thursday\n
+Breakfast: Bacon, sausage and egg bites\n
+Snack 1: Sliced avocado wrapped in ham \n
+Lunch: Almond butter and bacon bunless burger \n
+Snack 2: Beef jerky \n
+Dinner: Chicken and zuchinni noodle soup\n
+Friday\n
+Breakfast: Tomato and scrambled eggs \n
+Snack 1: Ham and cheese string\n
+Lunch: Pesto chicken salad\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Baked fish with veggies and jasmine rice \n
+Saturday\n
+Breakfast: Smoke salmon frittata \n
+Snack 1: Beef jerky \n
+Lunch: Stuffed avocado\n
+Snack 2: Hard boiled eggs \n
+Dinner: Roasted pork belly with vegetables \n
+Sunday\n
+Breakfast: Cinnamon and coconut pancakes \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Steak and chimichurri salad \n
+Snack 2: Beef jerky \n
+Dinner: Baked fish with veggies\n
+Week 4\n
+Monday\n
+Breakfast: Baked tomato and egg breakfast \n
+Snack 1: Beef jerky\n
+Lunch: Turkey and bacon wraps with basil mayo\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Roast turkey breast, with cranberry sauce, sliced almonds and baked sweet potato \n
+Tuesday\n
+Breakfast: Grain-free breakfast porridge with dairy free milk \n
+Snack 1: Hard boiled eggs \n
+Lunch: Prawn and noodle bowl\n
+Snack 2: Ham and cheese string\n
+Dinner: Seared yellowfin tuna steak, jasmine rice and wilted spinach \n
+Wednesday\n
+Breakfast: Baked eggs in avocado \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Steak and sriracha lettuce wrap\n
+Snack 2: Chicken slices and olives \n
+Dinner: Turkey sausage, red peppers, onions and sweet potato mash\n
+Thursday\n
+Breakfast: Italian scramble \n
+Snack 1: Sliced avocado wrapped in ham \n
+Lunch: Mexican Super Bowl\n
+Snack 2: Hard boiled eggs\n
+Dinner: Roast chicken breast with broccoli and lemon rice \n
+Friday\n
+Breakfast: Almond cereal with dairy free milk \n
+Snack 1: Hard boiled eggs \n
+Lunch: Avocado tuna salad\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Sirloin steak, Broccoli and sweet potato wedges\n
+Saturday\n
+Breakfast: Guacamole topped scrambled eggs  \n
+Snack 1: Beef jerky \n
+Lunch: BLT bowl\n
+Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
+Dinner: Lemon baked cod, quinoa and mixed veggies \n
+Sunday\n
+Breakfast: Spinach sausage and mushroom frittata \n
+Snack 1: Ham and cheese string\n
+Lunch: Prawn and avocado salad with miso \n
+Snack 2: Beef jerky \n
+Dinner: Chicken, Egg fried brown rice and wilted spinach \n
+Week 5\n
+Monday\n
+Breakfast: Baked egg in avocado centre with spinach and roasted garlic \n
+Snack 1: Beef jerky \n
+Lunch:  Burger with balsamic onion and avocado \n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Roasted pork belly with roast root vegetables  \n
+Tuesday\n
+Breakfast: Frosted “corn” flakes with dairy free milk\n
+Snack 1: Hard boiled eggs\n
+Lunch: Tuna nicoise salad\n
+Snack 2: Beef jerky \n
+Dinner: Baked cod in  butter, green beans and brown rice \n
+Wednesday\n
+Breakfast: Grilled mushroom, with feta, egg and rocket \n
+Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
+Lunch: Chicken, tomatoes and avocado \n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Baked fish with veggies and jasmine rice\n
+Thursday\n
+Breakfast: Beef and broccoli scramble \n
+Snack 1: Sliced avocado wrapped in ham \n
+Lunch: Spicy tuna and tomato burger\n
+Snack 2: Ham and cheese string\n
+Dinner: Rosemary lamb burgers with pesto\n
+Friday\n
+Breakfast: Cinnamon and coconut pancakes \n
+Snack 1: Hard boiled eggs \n
+Lunch: Chicken and zoodles\n
+Snack 2: Sliced avocado wrapped in ham\n
+Dinner:  Melted cheeseburger, carrot fries and mixed veggies\n
+Saturday\n
+Breakfast: Creamy kale baked eggs \n
+Snack 1: Beef jerky \n
+Lunch: Smoked salmon wrapped on sliced avocado \n
+Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
+Dinner: Teriyaki salmon, stir fried mixed veggies and sticky rice \n
+Sunday\n
+Breakfast: Sausage, leek and asparagus breakfast casserole \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Minced beef and salsa \n
+Snack 2: Ham and cheese string \n
+Dinner: Pork chops with blue cheese sauce and roast sweet potato chunks\n
+Week 6\n
+Monday\n
+Breakfast: Sardines and hard boiled egg\n
+Snack 1: Ham and cheese string\n
+Lunch: Chicken, sausage and vegetable stir fry \n
+Snack 2: Beef jerky \n
+Dinner: Sashimi with, edamame, brown rice and choice of salad or veggies \n
+Tuesday\n
+Breakfast: Sausage and peppers frittata \n
+Snack 1: Sliced avocado wrapped in ham \n
+Lunch: Prawn and noodle bowl\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Mackerel, mixed veg and quinoa \n
+Wednesday\n
+Breakfast: Easy nut and seed granola\n
+Snack 1: Ham and cheese strings\n
+Lunch: Chicken, bacon and avocado salad \n
+Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
+Dinner: Chicken and zuchinni noodle soup \n
+Thursday\n
+Breakfast: Breakfast porridge with dairy free milk\n
+Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
+Lunch: Smoked salmon, wrapped on thin slices of butter\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Sirloin steak, broccoli and sweet potato wedges\n
+Friday\n
+Breakfast: Feta and asparagus frittata\n
+Snack 1: Chicken slices and olives \n
+Lunch: Beef stroganoff with zuchinni spirals \n
+Snack 2: Hard boiled eggs \n
+Dinner: Baked cod in  butter, green beans and brown rice \n
+Saturday\n
+Breakfast: Kale and chive egg muffins \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: BLT bowl\n
+Snack 2: Beef jerky \n
+Dinner: Garlic chicken, brown rice and mixed veggies \n
+Sunday\n
+Breakfast: Chocolate chip banana pancakes \n
+Snack 1: Hard boiled eggs\n
+Lunch: Spicy tuna and tomato burger \n
+Snack 2: Ham and cheese string \n
+Dinner: Steak burger, sweet potato fries and asparagus \n
+Week 7\n
+Monday\n
+Breakfast: Sausage muffin\n
+Snack 1: Beef jerky \n
+Lunch: Mexican Super Bowl\n
+Snack 2: \n
+Handful of mixed nuts (Cashews, macadamias)\n
+Dinner: Roasted pork belly with roast root vegetables \n
+Tuesday\n
+Breakfast: Scrambled egg and smoked salmon\n
+Snack 1: Beef jerky\n
+Lunch: Tuna cheese melt \n
+Snack 2: Hard boiled eggs\n
+Dinner: Teriyaki salmon, stir fried mixed veggies and sticky rice \n
+Wednesday\n
+Breakfast: Fried egg, bacon and sautéed veggies \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Mexican Super Bowl\n
+Snack 2: Sliced avocado wrapped in ham \n
+Dinner: Chicken and melted mozzarella, brown rice and mixed veggies\n
+Thursday\n
+Breakfast: Strawberry granola \n
+Snack 1: Hard boiled eggs \n
+Lunch: Steak and chimichurri salad \n
+Snack 2: Ham and cheese string\n
+Dinner: Roast chicken breast, broccoli and lemon rice \n
+Friday\n
+Breakfast: Diary free latte \n
+Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
+Lunch: Turkey and bacon wraps with basil mayo\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Mac and cheese with rice pasta \n
+Saturday\n
+Breakfast: Avocado and bacon muffins \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Burger with balsamic onions and avocado \n
+Snack 2: Hard boiled eggs\n
+Dinner: Meat pie with mixed veggies/ salad\n
+Sunday\n
+Breakfast: Baked tomato and egg breakfast \n
+Snack 1: Beef jerky \n
+Lunch: Mixed green salad, with grilled/ baked  salmon\n
+Snack 2: Ham and cheese string\n
+Dinner: Grilled salmon steak, asparagus and brown rice \n
+Week 8\n
+Monday\n
+Breakfast: Red pepper and spinach frittata\n
+Snack 1: Ham and cheese string\n
+Lunch: Steak and sriracha lettuce wrap\n
+Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Dinner: Seared yellowfin tuna steak, jasmine rice and wilted spinach \n
+Tuesday\n
+Breakfast: Grain free cereal with dairy free milk\n
+Snack 1: Hard boiled eggs \n
+Lunch: Stuffed Avocado\n
+Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
+Dinner: Prawns, egg fried brown rice and wilted spinach \n
+Wednesday\n
+Breakfast: Creamy kale baked eggs \n
+Snack 1: Ham and cheese string\n
+Lunch: Almond butter and bacon bunless burger \n
+Snack 2: Beef jerky\n
+Dinner: Turkey sausage, red peppers, onions and sweet potato mash \n
+Thursday\n
+Breakfast: Baked eggs in avocado \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Chipotle chicken lettuce wrap\n
+Snack 2: Sliced avocado wrapped in ham \n
+Dinner: Chicken and melted mozzarella with brown rice and mixed veggies \n
+Friday\n
+Breakfast: Breakfast pizza frittata\n
+Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
+Lunch: Smoked salmon wrapped on sliced avocado \n
+Snack 2: Ham and cheese string\n
+Dinner: Sirloin steak, broccoli and sweet potato wedges\n
+Saturday\n
+Breakfast: Dairy free latte \n
+Snack 1: Beef jerky \n
+Lunch: Pesto chicken salad \n
+Snack 2: Hard boiled eggs \n
+Dinner: Melted cheeseburger, carrot fries and mixed veggies \n
+Sunday\n
+Breakfast: Grilled mushroom, with feta, egg and rocket \n
+Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Lunch: Turkey burger with onions, lettuce, tomato and cheese\n
+Snack 2: Beef jerky \n
+Dinner: Sashimi with, edamame, brown rice and choice of salad or veggies\n
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_meal_plan">MealPlanActivity</string>
+    <string name="title_activity_favourites">FavouritesActivity</string>
+    <string name="title_activity_progress_pictures">ProgressPicturesActivity</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+</resources>

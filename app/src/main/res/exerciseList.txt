@@ -1,0 +1,300 @@
+Exercise name 
+Reverse Crunch (bottom up)
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Ab V ups (bottom up)
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Scissor Kicks 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Hanging leg raises 
+Duration 
+30   45   60 
+Equipment needed 
+Chin up bar 
+Exercise name 
+Bicycles (top-down)
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Floor leg raises 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Bottoms up 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Butt ups 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Toe Touchers (up-down)
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Ab V holds
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Exercise ball Pike 
+Duration 
+30   45   60 
+Equipment needed 
+Physioball 
+Exercise name 
+Hanging Pike 
+Duration 
+30   45   60 
+Equipment needed 
+Chin up bar 
+Exercise name 
+90 degree crunch 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Figures of 8
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Circle crunches (obliques)
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Jack knife (Top-down)
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+X crunch (top and bottom) 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Leg Wind shield wipers (floor rotation)
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Praying crunches (up-down)
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Russian twist (oblique)
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Hand Back tucks 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Twisting Crunch 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Hands free tucks 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Isolated Reverse Crunch
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+March Plank 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Side plank drops (obliques)
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Elbow 2 Knee tucks 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Rolling Jacknife 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+V up Scissors 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Side Crunch 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Sprining Tucks 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Star Crunch 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Clap Crunch 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Same Side Tuck Planks 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Opposite Side Tuck planks 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Standing Ab twists 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Oblique Side to sides 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Side plank Lifts 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Ab circles 
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+Star Plank
+Duration 
+15   30   45 
+Equipment needed 
+none
+Exercise name 
+Spine Roll
+Duration 
+30   45   60 
+Equipment needed 
+none
+Exercise name 
+1 legged spine roll 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Suspended Quad Reach 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Pull-up kick 
+Duration 
+30   45   60 
+Equipment needed 
+Chin up bar 
+Exercise name 
+Hanging V up 
+Duration 
+30   45   60 
+Equipment needed 
+Chin up bar 
+Exercise name 
+Headstand tilt 
+Duration 
+30   45   60 
+Equipment needed 
+none 
+Exercise name 
+Ball passes 
+Duration 
+30   45   60 
+Equipment needed 
+physioball 
+Exercise name 
+Ball circles (around the worlds)
+Duration 
+30   45   60 
+Equipment needed 
+physioball 
+Exercise name 
+Knee tucks 
+Duration 
+30   45   60 
+Equipment needed 
+Physioball 
+Exercise name 
+Plank Touches 
+Duration 
+30   45   60 
+Equipment needed 
+none 
