@@ -22,12 +22,13 @@ public class ExercisePlanActivity extends AppCompatActivity {
             "Day 6", "Day 7"};
 
     private GlobalVariables appContext;
+    private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_plan);
-        appContext = (GlobalVariables) getApplicationContext();
+        appContext = GlobalVariables.getInstance();
 
         // Drop Down Week Selection
         final Spinner weekListSpinner = (Spinner) findViewById(R.id.weekSpinner);
@@ -57,11 +58,16 @@ public class ExercisePlanActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ExercisePlanActivity.this, WorkoutActivity.class);
                 appContext.setDaySelected(listView.getItemAtPosition(position).toString());
-                System.out.println(appContext.getDaySelected());
+                appContext.setWorkoutActivityType(NORMAL_WORKOUT_ACTIVITY_TYPE);
                 moveToActivity(intent);
             }
         });
     }
+
+    public void onBackButton(View view){
+        finish();
+    }
+
     private void moveToActivity(android.content.Intent intent){
         if(intent != null) {
             startActivity(intent);

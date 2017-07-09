@@ -3,14 +3,12 @@
     package="com.jdblogs.gymlessabs">
 
     <application
-        android:name=".datahandling.GlobalVariables"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.HomeActivity">
+        <activity android:name=".activities.main.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,23 +17,21 @@
         </activity>
         <activity
             android:name=".activities.meal.MealPlanActivity"
-            android:parentActivityName=".activities.HomeActivity" />
+            android:parentActivityName=".activities.main.HomeActivity" />
         <activity
             android:name=".activities.workout.FavouritesActivity"
-            android:parentActivityName=".activities.HomeActivity" />
+            android:parentActivityName=".activities.main.HomeActivity" />
         <activity
-            android:name=".activities.ProgressPicturesActivity"
-            android:parentActivityName=".activities.HomeActivity" />
-        <activity
-            android:name=".activities.SettingsActivity"
-            android:parentActivityName=".activities.HomeActivity" />
+            android:name=".activities.main.SettingsActivity"
+            android:parentActivityName=".activities.main.HomeActivity" />
         <activity android:name=".activities.workout.ExercisePlanActivity" />
         <activity android:name=".activities.workout.WorkoutActivity" />
         <activity android:name=".activities.workout.ShuffleWorkoutActivity" />
         <activity android:name=".activities.workout.VideoPlayerActivity" />
         <activity android:name=".activities.workout.SearchActivity" />
         <activity android:name=".activities.workout.StartWorkoutActivity" />
-        <activity android:name=".activities.meal.SelectMealDateActivity"></activity>
+        <activity android:name=".activities.meal.SelectMealDateActivity" />
+        <activity android:name=".activities.main.AboutPageActivity"></activity>
     </application>
 
 </manifest>

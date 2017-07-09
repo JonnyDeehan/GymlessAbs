@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAlternative"
-    tools:context="com.jdblogs.gymlessabs.activities.HomeActivity"
+    tools:context="com.jdblogs.gymlessabs.activities.main.HomeActivity"
     tools:layout_editor_absoluteY="25dp"
     tools:layout_editor_absoluteX="0dp">
 

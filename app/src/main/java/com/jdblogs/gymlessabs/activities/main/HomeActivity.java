@@ -1,8 +1,7 @@
-package com.jdblogs.gymlessabs.activities;
+package com.jdblogs.gymlessabs.activities.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,17 +14,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.jdblogs.gymlessabs.activities.meal.SelectMealDateActivity;
 import com.jdblogs.gymlessabs.activities.workout.ExercisePlanActivity;
 import com.jdblogs.gymlessabs.activities.workout.FavouritesActivity;
 import com.jdblogs.gymlessabs.activities.workout.SearchActivity;
-import com.jdblogs.gymlessabs.activities.workout.ShuffleWorkoutActivity;
 import com.jdblogs.gymlessabs.activities.workout.WorkoutActivity;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
-import com.jdblogs.gymlessabs.datahandling.LocalData;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.WorkoutGenerator;
+import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
+import com.jdblogs.gymlessabs.datahandling.sqldatabase.FavouritesLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
 
 import java.util.ArrayList;
@@ -33,26 +31,30 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private LocalData localData;
     private WorkoutGenerator workoutGenerator;
-    private GlobalVariables appContext;
+    private GlobalVariables globalVariables;
+    private ExerciseLocalData exerciseLocalData;
+    private FavouritesLocalData favouritesLocalData;
     private List<Exercise> exerciseList = new ArrayList<Exercise>();
     private String [] homeItemsList = new String[]{"Exercise Plan", "Meal Plan", "Shuffle Workout",
-            "Favourites", "Progress Pictures"};
+            "Favourites"};
     private TextView workoutWeek;
     private TextView workoutDay;
     private TextView titleTextView;
+    private GlobalVariables appContext;
+    private static final int SHUFFLE_WORKOUT_ACTIVITY_TYPE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        appContext = (GlobalVariables) getApplicationContext();
+        globalVariables = GlobalVariables.getInstance();
+        appContext = GlobalVariables.getInstance();
 
         workoutWeek = (TextView) findViewById(R.id.weekTextView);
         workoutDay = (TextView) findViewById(R.id.dayTextView);
-        workoutWeek.setText(appContext.getWeekSelected());
-        workoutDay.setText(appContext.getDaySelected());
+        workoutWeek.setText(globalVariables.getWeekSelected());
+        workoutDay.setText(globalVariables.getDaySelected());
 
         ListView listView = (ListView) findViewById(R.id.homeItemsList);
         CustomAdapter customAdapter = new CustomAdapter(this,homeItemsList);
@@ -70,38 +72,16 @@ public class HomeActivity extends AppCompatActivity {
         String exerciseData = getResources().getString(R.string.exercise_list);
         workoutGenerator = new WorkoutGenerator();
         exerciseList = workoutGenerator.generateListOfAllExercises(exerciseData);
+        exerciseLocalData = new ExerciseLocalData(this);
+        exerciseLocalData.initData(exerciseList);
+        exerciseLocalData.listAllExercises();
 
-        localData = new LocalData(this);
-        localData.initData(exerciseList);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        localData.closeDatabase();
-    }
-
-    // example reading data from local sqlite database
-    public void searchDatabase(int indexValue ) {
-
-        Cursor cursor = localData.selectRecord(indexValue);
-        if (cursor.moveToNext()) {
-            String name = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_NAME));
-            int experienceLevel = cursor.getInt(cursor.getColumnIndex(LocalData.EXERCISE_EXPERIENCE_LEVEL));
-            int duration = cursor.getInt(cursor.getColumnIndex(LocalData.EXERCISE_DURATION));
-            String equipment = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_EQUIPMENT));
-            String videoFileName = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_VIDEO_FILE_NAME));
-            logMessage("Exercise " + indexValue);
-            logMessage("Name: " + name);
-            logMessage("Experience Level: " + experienceLevel);
-            logMessage("Duration: " + duration);
-            logMessage("Equipment: " + equipment);
-            logMessage("VideoFileName: " + videoFileName);
-
-        } else {
-            Log.i(getClass().getSimpleName(), "Exercise not found");
-        }
-
+//        exerciseLocalData.closeDatabase();
     }
 
     // == onClick Methods =========================================================================
@@ -162,8 +142,6 @@ public class HomeActivity extends AppCompatActivity {
                 iconImage.setImageResource(R.drawable.ic_shuffle);
             } else if(homeItem.equals("Favourites")) {
                 iconImage.setImageResource(R.drawable.ic_favourite);
-            } else if(homeItem.equals("Progress Pictures")) {
-                iconImage.setImageResource(R.drawable.ic_camera);
             }
 
             Button homeItemButton = (Button) customView.findViewById(R.id.itemButton);
@@ -177,16 +155,13 @@ public class HomeActivity extends AppCompatActivity {
                         Intent intent = new Intent(HomeActivity.this, SelectMealDateActivity.class);
                         moveToActivity(intent);
                     } else if(homeItem.equals("Shuffle Workout")) {
-                        Intent intent = new Intent(HomeActivity.this, ShuffleWorkoutActivity.class);
+                        appContext.setWorkoutActivityType(SHUFFLE_WORKOUT_ACTIVITY_TYPE);
+                        Intent intent = new Intent(HomeActivity.this, WorkoutActivity.class);
                         moveToActivity(intent);
                     } else if(homeItem.equals("Favourites")) {
                         Intent intent = new Intent(HomeActivity.this, FavouritesActivity.class);
                         moveToActivity(intent);
-                    } else if(homeItem.equals("Progress Pictures")) {
-                        Intent intent = new Intent(HomeActivity.this, ProgressPicturesActivity.class);
-                        moveToActivity(intent);
                     }
-
                 }
             });
 

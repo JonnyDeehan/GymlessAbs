@@ -1,4 +1,4 @@
-package com.jdblogs.gymlessabs.datahandling;
+package com.jdblogs.gymlessabs.datahandling.sqldatabase;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -15,13 +15,12 @@ import java.util.List;
  * Created by jonathandeehan on 12/06/2017.
  */
 
-public class LocalData {
+public class ExerciseLocalData {
     private DatabaseAssistant dbHelper;
 
     private SQLiteDatabase database;
 
     public final static String EXERCISE_TABLE = "exercises"; // name of table
-    public final static String FAVOURITES = "favourites";   // favourites table
     public final static String EXERCISE_ID = "exerciseId";
     public final static String EXERCISE_NAME = "exerciseName";
     public final static String EXERCISE_EXPERIENCE_LEVEL = "exerciseLevel";
@@ -30,7 +29,7 @@ public class LocalData {
     public final static String EXERCISE_VIDEO_FILE_NAME = "exerciseVideoFileName";
 
 
-    public LocalData(Context context) {
+    public ExerciseLocalData(Context context) {
         dbHelper = new DatabaseAssistant(context);
         database = dbHelper.getWritableDatabase();
     }
@@ -53,8 +52,17 @@ public class LocalData {
                 EXERCISE_EXPERIENCE_LEVEL, EXERCISE_DURATION,
                 EXERCISE_EQUIPMENT, EXERCISE_VIDEO_FILE_NAME};
         return database.query(true, EXERCISE_TABLE, cols,
-                LocalData.EXERCISE_ID + "=" + exerciseId,
+                ExerciseLocalData.EXERCISE_ID + "=" + exerciseId,
                 null, null, null, null, null);
+    }
+
+    public Cursor searchExercises(String stringQuery){
+        String[] cols = new String[]{EXERCISE_ID, EXERCISE_NAME,
+                EXERCISE_EXPERIENCE_LEVEL, EXERCISE_DURATION,
+                EXERCISE_EQUIPMENT, EXERCISE_VIDEO_FILE_NAME};
+        return database.query(true, EXERCISE_TABLE, cols, EXERCISE_NAME + " LIKE ?",
+                new String[] {"%"+ stringQuery+ "%" }, null, null, null,
+                null);
     }
 
     public void closeDatabase(){
@@ -64,7 +72,7 @@ public class LocalData {
     public void initData(List<Exercise> exercises) {
         long count = DatabaseUtils.queryNumEntries(database, EXERCISE_TABLE);
         if (count == 0) {
-            Log.i("LocalData", "Initializing data");
+            Log.i("ExerciseLocalData", "Initializing data");
             for (Exercise exercise: exercises) {
 
                 createRecord(exercise.getExerciseId(), exercise.getName(),exercise.getExperienceLevel(),
@@ -72,8 +80,17 @@ public class LocalData {
                         exercise.getVideoFileName());
             }
         } else {
-            Log.i("LocalData", "Data already initialized with " + count + " rows");
+            Log.i("ExerciseLocalData", "Data already initialized with " + count + " rows");
         }
     }
 
+    public void listAllExercises(){
+        Cursor cursor = database.rawQuery("SELECT * FROM " + EXERCISE_TABLE, null);
+        while(cursor.moveToNext()){
+            Log.i(getClass().getSimpleName(), cursor.getString(1) + " :: " + cursor.getString(2)
+                    + " :: " + cursor.getString(3)
+                    + " :: " + cursor.getString(4)
+                    + " :: " + cursor.getString(5));
+        }
+    }
 }

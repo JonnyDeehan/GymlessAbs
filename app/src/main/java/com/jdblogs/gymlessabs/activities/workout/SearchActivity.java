@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,77 +16,101 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
-import com.jdblogs.gymlessabs.datahandling.LocalData;
 import com.jdblogs.gymlessabs.datahandling.WorkoutGenerator;
+import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
 
     private List<Exercise> exerciseList = new ArrayList<Exercise>();
-    private LocalData localData;
     private static final String DATABASE_NAME = "exercises";
     private WorkoutGenerator workoutGenerator;
     private GlobalVariables appContext;
+    private SearchActivity.CustomAdapter customAdapter;
+    private ExerciseLocalData exerciseLocalData;
+    private SearchView exerciseSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        appContext = (GlobalVariables) getApplicationContext();
+        appContext = GlobalVariables.getInstance();
 
-        createDatabase();
-        exerciseList = listAllExercises();
+        setUpDatabase();
 
         // Exercises List
         ListView listView = (ListView) findViewById(R.id.exerciseList);
-        SearchActivity.CustomAdapter customAdapter = new SearchActivity.CustomAdapter(this,exerciseList);
+        customAdapter = new SearchActivity.CustomAdapter(this,exerciseList);
         listView.setAdapter(customAdapter);
+
+        // Search View
+        exerciseSearch = (SearchView) findViewById(R.id.searchView);
+        exerciseSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener()
+        {
+            @Override
+            public boolean onQueryTextSubmit(String query)
+            {
+                customAdapter.clear();
+                customAdapter.addAll(listAllExercises(query));
+                customAdapter.notifyDataSetChanged();
+                exerciseSearch.clearFocus();
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText)
+            {
+                customAdapter.clear();
+                customAdapter.addAll(listAllExercises(newText));
+                customAdapter.notifyDataSetChanged();
+                return false;
+            }
+        });
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        localData.closeDatabase();
+        logMessage("Before Custom Adapter Object destroy, reference is: "  + customAdapter);
+        customAdapter = null;
+        logMessage("Did destroy Custom Adapter Object, reference is: "  + customAdapter);
+        exerciseLocalData.closeDatabase();
     }
 
-    private void createDatabase(){
+    private void setUpDatabase(){
         String exerciseData = getResources().getString(R.string.exercise_list);
         workoutGenerator = new WorkoutGenerator();
         exerciseList = workoutGenerator.generateListOfAllExercises(exerciseData);
-
-        localData = new LocalData(this);
-        localData.initData(exerciseList);
+        exerciseLocalData = new ExerciseLocalData(this);
     }
 
-    private List<Exercise> listAllExercises(){
-//        File databasePath = getApplicationContext().getDatabasePath(DATABASE_NAME);
-//        long dbSize = databasePath.length();
-
+    private List<Exercise> listAllExercises(String query){
         exerciseList.clear();
 
-        for(int index=1;index<=50;index++){
+        Cursor cursor = exerciseLocalData.searchExercises(query);
 
-            Cursor cursor = localData.selectRecord(index);
+        while(cursor.moveToNext()){
 
             try {
                 if (cursor.moveToNext()) {
-                    String name = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_NAME));
-                    int experienceLevel = cursor.getInt(cursor.getColumnIndex(LocalData.EXERCISE_EXPERIENCE_LEVEL));
-                    int duration = cursor.getInt(cursor.getColumnIndex(LocalData.EXERCISE_DURATION));
-                    String equipment = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_EQUIPMENT));
-                    String videoFileName = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_VIDEO_FILE_NAME));
+                    int id = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_ID));
+                    String name = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_NAME));
+                    int experienceLevel = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EXPERIENCE_LEVEL));
+                    int duration = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_DURATION));
+                    String equipment = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EQUIPMENT));
+                    String videoFileName = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_VIDEO_FILE_NAME));
 
-                    logMessage("Exercise " + index);
+                    logMessage("Exercise " + id);
                     logMessage("Name: " + name);
                     logMessage("Experience Level: " + experienceLevel);
                     logMessage("Duration: " + duration);
                     logMessage("Equipment: " + equipment);
                     logMessage("VideoFileName: " + videoFileName);
 
-                    exerciseList.add(new Exercise(index,name,experienceLevel,
+                    exerciseList.add(new Exercise(id,name,experienceLevel,
                             duration,equipment,videoFileName));
                 }
             } catch(Error e){
@@ -96,6 +121,10 @@ public class SearchActivity extends AppCompatActivity {
         return exerciseList;
     }
 
+    public void onBackButton(View view){
+        finish();
+    }
+
     private void moveToActivity(android.content.Intent intent){
         if(intent != null) {
             startActivity(intent);
@@ -103,26 +132,26 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     // TODO: implement relist of exercises based on search query
-    public void searchDatabase(int indexValue ) {
-
-        Cursor cursor = localData.selectRecord(indexValue);
-        if (cursor.moveToNext()) {
-            String name = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_NAME));
-            int experienceLevel = cursor.getInt(cursor.getColumnIndex(LocalData.EXERCISE_EXPERIENCE_LEVEL));
-            int duration = cursor.getInt(cursor.getColumnIndex(LocalData.EXERCISE_DURATION));
-            String equipment = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_EQUIPMENT));
-            String videoFileName = cursor.getString(cursor.getColumnIndex(LocalData.EXERCISE_VIDEO_FILE_NAME));
-            logMessage("Exercise " + indexValue);
-            logMessage("Name: " + name);
-            logMessage("Experience Level: " + experienceLevel);
-            logMessage("Duration: " + duration);
-            logMessage("Equipment: " + equipment);
-            logMessage("VideoFileName: " + videoFileName);
-
-        } else {
-            Log.i(getClass().getSimpleName(), "Exercise not found");
-        }
-    }
+//    public void searchDatabase(int indexValue ) {
+//
+//        Cursor cursor = exerciseLocalData.selectRecord(indexValue);
+//        if (cursor.moveToNext()) {
+//            String name = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_NAME));
+//            int experienceLevel = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EXPERIENCE_LEVEL));
+//            int duration = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_DURATION));
+//            String equipment = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EQUIPMENT));
+//            String videoFileName = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_VIDEO_FILE_NAME));
+//            logMessage("Exercise " + indexValue);
+//            logMessage("Name: " + name);
+//            logMessage("Experience Level: " + experienceLevel);
+//            logMessage("Duration: " + duration);
+//            logMessage("Equipment: " + equipment);
+//            logMessage("VideoFileName: " + videoFileName);
+//
+//        } else {
+//            Log.i(getClass().getSimpleName(), "Exercise not found");
+//        }
+//    }
 
     private class CustomAdapter extends ArrayAdapter<Exercise> {
 

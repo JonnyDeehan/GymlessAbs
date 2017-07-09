@@ -1,4 +1,4 @@
-package com.jdblogs.gymlessabs.activities;
+package com.jdblogs.gymlessabs.activities.main;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

@@ -1,22 +1,25 @@
 package com.jdblogs.gymlessabs.activities.workout;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
-import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.VideoView;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 import com.jdblogs.gymlessabs.models.Exercise;
 import java.util.List;
-import java.util.Locale;
+
+import static android.R.drawable.ic_media_pause;
 
 public class StartWorkoutActivity extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
     private TextView exerciseTimerTextView;
     private TextView dayTextView;
     private TextView exerciseNameTextView;
+    private ImageButton pausePlayButton;
 
     private GlobalVariables appContext;
     private List<Exercise> exerciseList;
@@ -31,30 +35,35 @@ public class StartWorkoutActivity extends AppCompatActivity {
     private Exercise currentExercise;
     private int currentExerciseDuration;
     private int currentExerciseIndex;
-    private boolean isCurrentWorkoutShuffleWorkout;
 
     private boolean workoutPaused;
     private boolean didBeginTimer;
+    private boolean didBeginCountdown;
     private int intermediateTime;
     private Handler timerHandler;
     private long startTime;
-    private TextToSpeech textToSpeech;
-    private int textToSpeechResult;
     private int countDownTimeLeft;
     private Context context;
+    private MediaPlayer mediaPlayer;
 
     private static final String SHUFFLE_WORKOUT_TITLE_TEXT = "Shuffle Workout";
     private static final String TEXT_TO_SPEECH_COUNTDOWN_GO = "Go";
     private static final int FIRST_EXERCISE_INDEX = 0;
     private static final int COUNTDOWN_BEFORE_TIMER_BEGINS = 5;
     private static final int MILLI_SECOND_CONVERSION = 1000;
+    private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
+    private static final int SHUFFLE_WORKOUT_ACTIVITY_TYPE = 1;
+    private static final int FAVOURITE_WORKOUT_ACTIVITY_TYPE = 2;
+
+    final int ic_media_pause = android.R.drawable.ic_media_pause;
+    final int ic_media_play = android.R.drawable.ic_media_play;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_workout);
 
-        appContext = (GlobalVariables) getApplicationContext();
+        appContext = GlobalVariables.getInstance();
         context = getApplicationContext();
 
         textToSpeechSetup();
@@ -68,10 +77,6 @@ public class StartWorkoutActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         appContext.setCurrentWorkout(exerciseList);
-        if(textToSpeech != null){
-            textToSpeech.stop();
-            textToSpeech.shutdown();
-        }
     }
 
     private void setupUIComponents(){
@@ -79,6 +84,17 @@ public class StartWorkoutActivity extends AppCompatActivity {
         exerciseTimerTextView = (TextView) findViewById(R.id.exerciseDurationTextView);
         dayTextView = (TextView) findViewById(R.id.dayTextView);
         exerciseNameTextView = (TextView) findViewById(R.id.exerciseNameTextView);
+        pausePlayButton = (ImageButton) findViewById(R.id.pause_playButton);
+
+        int activityType = appContext.getWorkoutActivityType();
+        // Title text
+        if( activityType== NORMAL_WORKOUT_ACTIVITY_TYPE) {
+            dayTextView.setText(currentDay);
+        } else if(activityType ==SHUFFLE_WORKOUT_ACTIVITY_TYPE){
+            dayTextView.setText(SHUFFLE_WORKOUT_TITLE_TEXT);
+        } else if(activityType == FAVOURITE_WORKOUT_ACTIVITY_TYPE){
+            dayTextView.setText("");
+        }
 
         //Video Loop
         exerciseVideo.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -93,16 +109,10 @@ public class StartWorkoutActivity extends AppCompatActivity {
     private void fetchWorkoutData(){
         exerciseList = appContext.getCurrentWorkout();
         currentDay = appContext.getDaySelected();
-        isCurrentWorkoutShuffleWorkout = appContext.isShuffleWorkout();
         currentExercise = exerciseList.get(FIRST_EXERCISE_INDEX);
     }
 
     private void updateUIInfo(){
-        // Title text
-        if(isCurrentWorkoutShuffleWorkout)
-            dayTextView.setText(SHUFFLE_WORKOUT_TITLE_TEXT);
-        else
-            dayTextView.setText(currentDay);
 
         // Exercise Info
         exerciseTimerTextView.setText(Integer.toString(currentExercise.getDuration()));
@@ -115,6 +125,11 @@ public class StartWorkoutActivity extends AppCompatActivity {
         exerciseVideo.requestFocus();
         exerciseVideo.start();
 
+        // Audio
+        if(mediaPlayer != null){
+            stopAudioMedia();
+        }
+
         // Countdown before timer
         currentExerciseDuration = currentExercise.getDuration();
         exerciseTimerTextView.setText(Integer.toString(currentExerciseDuration));
@@ -123,24 +138,11 @@ public class StartWorkoutActivity extends AppCompatActivity {
     }
 
     private void textToSpeechSetup(){
-        textToSpeech = new TextToSpeech(StartWorkoutActivity.this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if(status==TextToSpeech.SUCCESS){
-                    textToSpeechResult = textToSpeech.setLanguage(Locale.UK);
-                } else {
-                    logMessage("Feature not supported on this device");
-                }
-            }
-        });
-
-
+        mediaPlayer = MediaPlayer.create(this,R.raw.count_down);
     }
 
-
     public void onEndWorkout(View view){
-        Intent intent = new Intent(StartWorkoutActivity.this, WorkoutActivity.class);
-        moveToActivity(intent);
+        finish();
     }
 
     public void onNextExercise(View view){
@@ -152,6 +154,8 @@ public class StartWorkoutActivity extends AppCompatActivity {
             currentExerciseIndex++;
             currentExercise = exerciseList.get(currentExerciseIndex);
             updateUIInfo();
+        } else {
+            onCompletedWorkout();
         }
     }
 
@@ -168,17 +172,22 @@ public class StartWorkoutActivity extends AppCompatActivity {
     }
 
     public void onPausePlay(View view){
-        if(workoutPaused){ // Play
-            exerciseVideo.start();
-            currentExerciseDuration = intermediateTime;
-            startTime = System.currentTimeMillis();
-            timerHandler.postDelayed(timerRunnable, 0);
-        } else { // Pause
-            exerciseVideo.pause();
-            intermediateTime = Integer.parseInt(exerciseTimerTextView.getText().toString());
-            onPause();
+        if(didBeginTimer) {
+            if (workoutPaused) { // Play
+                exerciseVideo.start();
+                currentExerciseDuration = intermediateTime;
+                startTime = System.currentTimeMillis();
+                timerHandler.postDelayed(timerRunnable, 0);
+                pausePlayButton.setImageResource(ic_media_pause);
+
+            } else { // Pause
+                exerciseVideo.pause();
+                intermediateTime = Integer.parseInt(exerciseTimerTextView.getText().toString());
+                onPause();
+                pausePlayButton.setImageResource(ic_media_play);
+            }
+            workoutPaused = !workoutPaused;
         }
-        workoutPaused = !workoutPaused;
     }
 
     public void onResetExerciseTimer(View view){
@@ -204,16 +213,41 @@ public class StartWorkoutActivity extends AppCompatActivity {
         goToNextExercise();
     }
 
-    private void countdownTextToSpeech(){
-
-
-//        if(didBeginTimer){
-//            textToSpeech.speak(TEXT_TO_SPEECH_COUNTDOWN_GO,TextToSpeech.QUEUE_FLUSH,null);
-//        } else {
-//            textToSpeech.speak(Integer.toString(countDownTimeLeft),TextToSpeech.QUEUE_ADD,null);
-//        }
+    private void startAudioCountDown(){
+        if(!didBeginCountdown) {
+            didBeginCountdown = true;
+            mediaPlayer = MediaPlayer.create(this, R.raw.count_down);
+            mediaPlayer.start();
+        }
     }
 
+    private void stopAudioMedia(){
+        didBeginCountdown = false;
+        mediaPlayer.stop();
+    }
+
+    private void onCompletedWorkout(){
+        exerciseVideo.pause();
+        mediaPlayer.stop();
+        onPause();
+        mediaPlayer = MediaPlayer.create(this,R.raw.workout_completed);
+        mediaPlayer.start();
+
+        // Display PopUp Message
+        AlertDialog.Builder finishedWorkoutAlert = new AlertDialog.Builder(this);
+        finishedWorkoutAlert.setMessage("Workout Completed!\nYour progress has been logged")
+                            .setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                    exerciseVideo = null;
+                                    mediaPlayer.stop();
+                                    finish();
+                                }
+                            })
+                            .create();
+        finishedWorkoutAlert.show();
+    }
 
     Runnable timerRunnable = new Runnable() {
 
@@ -234,7 +268,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
                 long millis = System.currentTimeMillis() - startTime;
                 countDownTimeLeft = COUNTDOWN_BEFORE_TIMER_BEGINS -
                         ((int) millis / MILLI_SECOND_CONVERSION);
-                countdownTextToSpeech();
+                startAudioCountDown();
                 timerHandler.postDelayed(this, 500);
 
                 // When countdown ends, start the exercise timer
@@ -252,7 +286,6 @@ public class StartWorkoutActivity extends AppCompatActivity {
         timerHandler.removeCallbacks(timerRunnable);
     }
 
-
     public void logMessage(String message){
         Log.i(getClass().getSimpleName(), message);
     }
@@ -261,10 +294,10 @@ public class StartWorkoutActivity extends AppCompatActivity {
         return s.substring(1);
     }
 
-    private void moveToActivity(android.content.Intent intent){
-        if(intent != null) {
-            startActivity(intent);
+    public void onBackButton(View view){
+        if(mediaPlayer !=null){
+            mediaPlayer.stop();
         }
+        finish();
     }
-
 }

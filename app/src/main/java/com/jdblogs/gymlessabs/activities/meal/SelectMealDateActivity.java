@@ -22,7 +22,7 @@ public class SelectMealDateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_meal_date);
-        appContext = (GlobalVariables) getApplicationContext();
+        appContext = GlobalVariables.getInstance();
 
         // Week List
         ListAdapter dayAdapter = new ArrayAdapter<String>(this,
@@ -38,6 +38,11 @@ public class SelectMealDateActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onBackButton(View view){
+        finish();
+    }
+
     private void moveToActivity(android.content.Intent intent){
         if(intent != null) {
             startActivity(intent);

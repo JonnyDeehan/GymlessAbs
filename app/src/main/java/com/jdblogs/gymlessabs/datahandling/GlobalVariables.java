@@ -10,23 +10,29 @@ import java.util.List;
  * Created by jonathandeehan on 12/06/2017.
  */
 
-public class GlobalVariables extends Application{
+public class GlobalVariables{
 
-    private boolean exerciseReminder = false;
-    private int reminderTime = 8; // TODO: make into date format (currently in minutes)
     private String weekSelected = "Week 1";
     private String daySelected = "Day 1";
     private Exercise currentExerciseSelected;
     private List<Exercise> currentWorkout;
     private double currentTotalWorkoutDuration;
-    private boolean isShuffleWorkout;
+    private int workoutActivityType;    // 0 - Day/Week Workout 1 - Shuffle Workout 2 - Favourite
 
-    public boolean isShuffleWorkout() {
-        return isShuffleWorkout;
+    protected GlobalVariables(){};
+
+    public int getWorkoutActivityType() {
+        return workoutActivityType;
     }
 
-    public void setShuffleWorkout(boolean shuffleWorkout) {
-        this.isShuffleWorkout = shuffleWorkout;
+    public void setWorkoutActivityType(int workoutActivityType) {
+        this.workoutActivityType = workoutActivityType;
+    }
+
+    private static GlobalVariables ourInstance = new GlobalVariables();
+
+    public static GlobalVariables getInstance(){
+        return ourInstance;
     }
 
     public List<Exercise> getCurrentWorkout() {
@@ -69,20 +75,5 @@ public class GlobalVariables extends Application{
         this.daySelected = daySelected;
     }
 
-    public void setExerciseReminder(boolean state){
-        this.exerciseReminder = state;
-    }
-
-    public boolean getExerciseReminder(){
-        return this.exerciseReminder;
-    }
-
-    public void setReminderTime(int time){
-        this.reminderTime = time;
-    }
-
-    public int getReminderTime(){
-        return this.reminderTime;
-    }
 
 }

@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.MediaController;
 import android.widget.VideoView;
 import com.jdblogs.gymlessabs.R;
@@ -20,7 +21,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
 
-        appContext = (GlobalVariables) getApplicationContext();
+        appContext = GlobalVariables.getInstance();
         selectedExercise = appContext.getCurrentExerciseSelected();
 
         VideoView videoView = (VideoView)findViewById(R.id.videoView);
@@ -29,6 +30,9 @@ public class VideoPlayerActivity extends AppCompatActivity {
         videoView.setVideoURI(Uri.parse(path));
         videoView.requestFocus();
         videoView.setMediaController(new MediaController(this));
+
+        logMessage("Starting Video with path: " + path);
+
         try {
             videoView.start();
         } catch(Error e){
@@ -40,6 +44,10 @@ public class VideoPlayerActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         appContext.setCurrentExerciseSelected(selectedExercise);
+    }
+
+    public void onBackButton(View view){
+        finish();
     }
 
     private String removeFirstChar(String s){

@@ -12,10 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 import com.jdblogs.gymlessabs.datahandling.WorkoutGenerator;
+import com.jdblogs.gymlessabs.datahandling.sqldatabase.FavouritesLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,35 +23,59 @@ import java.util.List;
 public class WorkoutActivity extends AppCompatActivity {
 
     private List<Exercise> exerciseList = new ArrayList<Exercise>();
+    private List<List<Exercise>> workoutList = new ArrayList<List<Exercise>>();
     private GlobalVariables appContext;
+    private FavouritesLocalData favouritesLocalData;
     private WorkoutGenerator workoutGenerator;
     private String currentWeek;
     private String currentDay;
     private TextView currentDateText;
     private TextView totalWorkoutDurationTextView;
+    private ImageButton favouriteButton;
     private int totalWorkoutDuration;
+
+    private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
+    private static final int SHUFFLE_WORKOUT_ACTIVITY_TYPE = 1;
+    private static final int FAVOURITE_WORKOUT_ACTIVITY_TYPE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
-        appContext = (GlobalVariables) getApplicationContext();
+        appContext = GlobalVariables.getInstance();
 
         generateExerciseData();
         setupUIComponents();
     }
 
     private void generateExerciseData(){
-        currentWeek = appContext.getWeekSelected();
-        currentDay = appContext.getDaySelected();
-        workoutGenerator = new WorkoutGenerator(currentWeek,currentDay);
-        String exerciseData = getResources().getString(R.string.exercise_list);
-        exerciseList = workoutGenerator.generateWorkout(exerciseData);
+        int workoutActivityType = appContext.getWorkoutActivityType();
+        if(workoutActivityType == NORMAL_WORKOUT_ACTIVITY_TYPE) {
+            currentWeek = appContext.getWeekSelected();
+            currentDay = appContext.getDaySelected();
+            workoutGenerator = new WorkoutGenerator(currentWeek,currentDay);
+            String exerciseData = getResources().getString(R.string.exercise_list);
+            exerciseList = workoutGenerator.generateWorkout(exerciseData);
+        } else if(workoutActivityType == FAVOURITE_WORKOUT_ACTIVITY_TYPE){
+            currentDay = "";
+            currentWeek = "";
+            exerciseList = appContext.getCurrentWorkout();
+        } else if(workoutActivityType == SHUFFLE_WORKOUT_ACTIVITY_TYPE){
+            workoutGenerator = new WorkoutGenerator();
+            String exerciseData = getResources().getString(R.string.exercise_list);
+            exerciseList = workoutGenerator.createRandomWorkout(exerciseData);
+            currentDay = "";
+            currentWeek = "";
+        }
     }
 
     private void setupUIComponents(){
         currentDateText = (TextView) findViewById(R.id.currentDateText);
         currentDateText.setText(currentWeek + "\n" + currentDay);
+        favouriteButton = (ImageButton) findViewById(R.id.favouriteWorkoutButton);
+        if(appContext.getWorkoutActivityType() == FAVOURITE_WORKOUT_ACTIVITY_TYPE){
+            favouriteButton.setVisibility(View.INVISIBLE);
+        }
 
         // Exercises List
         ListView listView = (ListView) findViewById(R.id.exerciseList);
@@ -71,6 +95,32 @@ public class WorkoutActivity extends AppCompatActivity {
 
         Intent intent = new Intent(WorkoutActivity.this, StartWorkoutActivity.class);
         moveToActivity(intent);
+    }
+
+    public void onFavouriteWorkout(View view){
+        if(appContext.getWorkoutActivityType()!=FAVOURITE_WORKOUT_ACTIVITY_TYPE) {
+
+            int workoutId;
+            int exerciseId;
+            favouritesLocalData = new FavouritesLocalData(this);
+            int count = (int) favouritesLocalData.numberOfEntries();
+            if (count == 0) {
+                workoutId = 1;
+                exerciseId = 1;
+            } else {
+                workoutId = (int) (favouritesLocalData.numberOfEntries() / 7) + 1;
+                exerciseId = count + 1;
+            }
+
+            for (Exercise exercise : exerciseList) {
+                favouritesLocalData.createRecord(exerciseId, exercise.getName(), exercise.getExperienceLevel(),
+                        exercise.getDuration(), exercise.getEquipment(),
+                        exercise.getVideoFileName(), workoutId);
+                exerciseId++;
+                logMessage("Adding Exercise to Favourite Workout: " + exercise.getName());
+            }
+            favouritesLocalData.listAllExercises();
+        }
     }
 
     private class CustomAdapter extends ArrayAdapter<Exercise>{
@@ -110,6 +160,10 @@ public class WorkoutActivity extends AppCompatActivity {
         }
     }
 
+    public void onBackButton(View view){
+        finish();
+    }
+
     private void moveToActivity(android.content.Intent intent){
         if(intent != null) {
             startActivity(intent);
@@ -120,5 +174,3 @@ public class WorkoutActivity extends AppCompatActivity {
         Log.i(getClass().getSimpleName(), message);
     }
 }
-
-
