@@ -45,6 +45,7 @@ public class HomeActivity extends AppCompatActivity {
     private ExerciseLocalData exerciseLocalData;
     private SharedPreferences sharedPreferences;
 
+    private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
     private static final int SHUFFLE_WORKOUT_ACTIVITY_TYPE = 1;
 
     private String [] homeItemsList = new String[]{"Exercise Plan", "Meal Plan", "Shuffle Workout",
@@ -166,6 +167,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onCurrentWorkoutClick(View view){
+        globalVariables.setWorkoutActivityType(NORMAL_WORKOUT_ACTIVITY_TYPE);
         Intent intent = new Intent(HomeActivity.this, WorkoutActivity.class);
         moveToActivity(intent);
     }

@@ -19,6 +19,7 @@ public class FavouritesLocalData {
 
     private DatabaseAssistant dbHelper;
     private SQLiteDatabase database;
+    private List<List<Exercise>> workoutList = new ArrayList<List<Exercise>>();
 
     public final static String FAVOURITES_TABLE = "FAVOURITESTABLE"; // name of table
     public final static String EXERCISE_ID = "exerciseId";
@@ -28,6 +29,7 @@ public class FavouritesLocalData {
     public final static String EXERCISE_EQUIPMENT = "exerciseEquipment";
     public final static String EXERCISE_VIDEO_FILE_NAME = "exerciseVideoFileName";
     public final static String WORKOUT_ID = "workoutId";
+    private final static int NUMBER_OF_EXERCISES_IN_WORKOUT = 7;
 
     public FavouritesLocalData(Context context) {
         dbHelper = new DatabaseAssistant(context);
@@ -90,8 +92,6 @@ public class FavouritesLocalData {
 
 
     public List<List<Exercise>> getAllFavourites(){
-        List<List<Exercise>> workoutList = new ArrayList<List<Exercise>>();
-        int currentWorkout=1;
         Cursor cursor = database.rawQuery("SELECT * FROM " + FAVOURITES_TABLE, null);
         List<Exercise> exercises = new ArrayList<Exercise>();
         Log.i(getClass().getSimpleName(), "Proceed to getAllFavourites: ");
@@ -114,21 +114,12 @@ public class FavouritesLocalData {
             + "Video file name: " + videoFileName + "\n"
             + "WorkoutId: " + workoutId);
 
-//            if(currentWorkout != workoutId){
-//                Log.i(getClass().getSimpleName(), "Identified next workoutId, " +
-//                        " adding exercises to workoutList and clearing exercises for next workout set ");
-//                currentWorkout++;
-//                workoutList.add(exercises);
-//                exercises.clear();
-//            }
             exercises.add(new Exercise(id,name,experienceLevel,duration,equipment,videoFileName));
 
-            // If exercises equals number of exercises in workout
-            // or make a check for the exercise id
-            if(exercises.size() == 7){
+            if(exercises.size() == NUMBER_OF_EXERCISES_IN_WORKOUT){
                 Log.i(getClass().getSimpleName(), "WorkoutList Size before adding exercise list: "
                         + workoutList.size());
-                workoutList.add(exercises);
+                addWorkoutToWorkoutList(exercises);
                 Log.i(getClass().getSimpleName(), "WorkoutList Size after adding exercise list: "
                         + workoutList.size());
                 exercises.clear();
@@ -141,5 +132,11 @@ public class FavouritesLocalData {
         Log.i(getClass().getSimpleName(), "WorkoutList Size before returning: " + workoutList.size());
 
         return workoutList;
+    }
+
+    // ensure we pass by final value after original reference is cleared
+    private void addWorkoutToWorkoutList(final List<Exercise> workout){
+        List<Exercise> workoutCopy = new ArrayList(workout);
+        workoutList.add(workoutCopy);
     }
 }

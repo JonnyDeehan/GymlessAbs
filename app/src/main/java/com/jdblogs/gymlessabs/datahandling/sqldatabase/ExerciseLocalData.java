@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -60,9 +61,36 @@ public class ExerciseLocalData {
         String[] cols = new String[]{EXERCISE_ID, EXERCISE_NAME,
                 EXERCISE_EXPERIENCE_LEVEL, EXERCISE_DURATION,
                 EXERCISE_EQUIPMENT, EXERCISE_VIDEO_FILE_NAME};
-        return database.query(true, EXERCISE_TABLE, cols, EXERCISE_NAME + " LIKE ?",
+        Cursor searchCursor = database.query(true, EXERCISE_TABLE, cols, EXERCISE_NAME + " LIKE ?",
                 new String[] {"%"+ stringQuery+ "%" }, null, null, null,
                 null);
+        if(searchCursor!=null){
+            searchCursor.moveToFirst();
+        }
+        return searchCursor;
+    }
+
+    public Cursor fetchExerciseByName(String inputText) throws SQLException {
+        Log.w(getClass().getSimpleName(), inputText);
+        Cursor mCursor = null;
+        String[] cols = new String[]{EXERCISE_ID, EXERCISE_NAME,
+                EXERCISE_EXPERIENCE_LEVEL, EXERCISE_DURATION,
+                EXERCISE_EQUIPMENT, EXERCISE_VIDEO_FILE_NAME};
+        if (inputText == null  ||  inputText.length () == 0)  {
+            mCursor = database.query(EXERCISE_TABLE, cols,
+                    null, null, null, null, null);
+
+        }
+        else {
+            mCursor = database.query(true, EXERCISE_TABLE, cols,
+                    EXERCISE_NAME + " like '%" + inputText + "%'", null,
+                    null, null, null, null);
+        }
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+
     }
 
     public void clearExerciseTableEntries(){
@@ -95,6 +123,13 @@ public class ExerciseLocalData {
                     + " :: " + cursor.getString(3)
                     + " :: " + cursor.getString(4)
                     + " :: " + cursor.getString(5));
+        }
+    }
+
+    public void getAllExercises(){
+        Cursor cursor = database.rawQuery("SELECT * FROM " + EXERCISE_TABLE, null);
+        while(cursor.moveToNext()){
+
         }
     }
 }

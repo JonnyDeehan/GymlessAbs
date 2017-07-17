@@ -144,6 +144,9 @@ public class StartWorkoutActivity extends AppCompatActivity {
     }
 
     public void onEndWorkout(View view){
+        if(mediaPlayer !=null){
+            mediaPlayer.stop();
+        }
         finish();
     }
 

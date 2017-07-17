@@ -39,6 +39,33 @@ public class FavouritesActivity extends AppCompatActivity {
         setUpListAdapter();
     }
 
+    private void fetchDataFromDatabase(){
+        favouritesLocalData = new FavouritesLocalData(this);
+        workoutList = favouritesLocalData.getAllFavourites();
+
+        Log.i(getClass().getSimpleName(), "WorkoutList fetched from FavouritesLocalData has size: "
+                + workoutList.size());
+
+        int workoutNum=1;
+
+        for(List<Exercise> workout: workoutList){
+            Log.i(getClass().getSimpleName(), "Adding workout " + workoutNum);
+            favouritesList.add("Workout: " + workoutNum);
+            for (Exercise exercise: workout) {
+                Log.i(getClass().getSimpleName(), "Adding exercise to workoutList ");
+                Log.i(getClass().getSimpleName(), exercise.getName() + " " +
+                        exercise.getVideoFileName());
+            }
+            workoutNum++;
+        }
+
+        if(workoutList.size()==0){
+            noFavouritesTextView.setText("No Workouts Favourited");
+        } else {
+            noFavouritesTextView.setText("Favourites");
+        }
+    }
+
     private void setUpListAdapter(){
         ListAdapter adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,favouritesList);
@@ -58,33 +85,7 @@ public class FavouritesActivity extends AppCompatActivity {
         });
     }
 
-    private void fetchDataFromDatabase(){
-        favouritesLocalData = new FavouritesLocalData(this);
-        workoutList = favouritesLocalData.getAllFavourites();
 
-        Log.i(getClass().getSimpleName(), "WorkoutList fetched from FavouritesLocalData has size: "
-        + workoutList.size());
-
-        int workoutNum=1;
-
-        for(List<Exercise> workout: workoutList){
-            Log.i(getClass().getSimpleName(), "Adding workout " + workoutNum);
-            favouritesList.add("Workout: " + workoutNum);
-            for (Exercise exercise: workout) {
-                Log.i(getClass().getSimpleName(), "Adding exercise to workoutList ");
-                Log.i(getClass().getSimpleName(), exercise.getName() + " " +
-                        exercise.getVideoFileName());
-            }
-            workoutNum++;
-        }
-
-
-        if(workoutList.size()==0){
-            noFavouritesTextView.setText("No Workouts Favourited");
-        } else {
-            noFavouritesTextView.setText("");
-        }
-    }
 
     public void onBackButton(View view){
         finish();

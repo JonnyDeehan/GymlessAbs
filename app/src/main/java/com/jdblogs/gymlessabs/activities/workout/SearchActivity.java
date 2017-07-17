@@ -95,18 +95,31 @@ public class SearchActivity extends AppCompatActivity {
     private List<Exercise> listAllExercises(String query){
         exerciseList.clear();
 
-        Cursor cursor = exerciseLocalData.searchExercises(query);
+//        if(query==""){
+//
+//        }
+
+        logMessage("ExerciseList size after clearing: " + exerciseList.size());
+
+//        Cursor cursor = exerciseLocalData.searchExercises(query);
+        Cursor cursor = exerciseLocalData.fetchExerciseByName(query);
 
         while(cursor.moveToNext()){
 
             try {
                 if (cursor.moveToNext()) {
-                    int id = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_ID));
-                    String name = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_NAME));
-                    int experienceLevel = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EXPERIENCE_LEVEL));
-                    int duration = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_DURATION));
-                    String equipment = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EQUIPMENT));
-                    String videoFileName = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_VIDEO_FILE_NAME));
+//                    int id = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_ID));
+//                    String name = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_NAME));
+//                    int experienceLevel = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EXPERIENCE_LEVEL));
+//                    int duration = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_DURATION));
+//                    String equipment = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EQUIPMENT));
+//                    String videoFileName = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_VIDEO_FILE_NAME));
+                    int id = cursor.getInt(0);
+                    String name = cursor.getString(1);
+                    int experienceLevel = cursor.getInt(2);
+                    int duration = cursor.getInt(3);
+                    String equipment = cursor.getString(4);
+                    String videoFileName = cursor.getString(5);
 
                     logMessage("Exercise " + id);
                     logMessage("Name: " + name);
@@ -122,6 +135,9 @@ public class SearchActivity extends AppCompatActivity {
                 logMessage(e.toString());
             }
         }
+        logMessage("=========================================================================");
+
+        logMessage("ExerciseList size before returning: " + exerciseList.size());
 
         return exerciseList;
     }
