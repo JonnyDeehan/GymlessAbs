@@ -9,15 +9,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import android.widget.TextView;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 import com.jdblogs.gymlessabs.datahandling.sqldatabase.FavouritesLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,12 +26,14 @@ public class FavouritesActivity extends AppCompatActivity {
     private FavouritesLocalData favouritesLocalData;
     private GlobalVariables appContext;
     private static final int WORKOUT_ACTIVITY_TYPE = 2;
+    private TextView noFavouritesTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
         appContext = GlobalVariables.getInstance();
+        noFavouritesTextView = (TextView) findViewById(R.id.noFavourites);
 
         fetchDataFromDatabase();
         setUpListAdapter();
@@ -51,6 +49,7 @@ public class FavouritesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(FavouritesActivity.this, WorkoutActivity.class);
+                Log.i(getClass().getSimpleName(), "WorkoutList size before sending: " + workoutList.size());
                 appContext.setCurrentWorkout(workoutList.get(position));
                 appContext.setWorkoutActivityType(WORKOUT_ACTIVITY_TYPE);
 
@@ -59,25 +58,33 @@ public class FavouritesActivity extends AppCompatActivity {
         });
     }
 
-
     private void fetchDataFromDatabase(){
-        Type type = new TypeToken<ArrayList<String>>() {}.getType();
-        Gson gson = new Gson();
-
         favouritesLocalData = new FavouritesLocalData(this);
         workoutList = favouritesLocalData.getAllFavourites();
+
+        Log.i(getClass().getSimpleName(), "WorkoutList fetched from FavouritesLocalData has size: "
+        + workoutList.size());
+
         int workoutNum=1;
 
         for(List<Exercise> workout: workoutList){
+            Log.i(getClass().getSimpleName(), "Adding workout " + workoutNum);
             favouritesList.add("Workout: " + workoutNum);
             for (Exercise exercise: workout) {
+                Log.i(getClass().getSimpleName(), "Adding exercise to workoutList ");
                 Log.i(getClass().getSimpleName(), exercise.getName() + " " +
                         exercise.getVideoFileName());
             }
             workoutNum++;
         }
-    }
 
+
+        if(workoutList.size()==0){
+            noFavouritesTextView.setText("No Workouts Favourited");
+        } else {
+            noFavouritesTextView.setText("");
+        }
+    }
 
     public void onBackButton(View view){
         finish();

@@ -1,5 +1,7 @@
 package com.jdblogs.gymlessabs.datahandling;
 
+import android.util.Log;
+
 import com.jdblogs.gymlessabs.models.Exercise;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +23,20 @@ public class WorkoutGenerator {
     private static final int NUMBER_OF_EXERCISES_IN_WORKOUT = 7;
     private static final int BEGINNER_EXPERIENCE_LEVEL = 1;
     private static final int INTERMEDIATE_EXPERIENCE_LEVEL = 2;
+    private static final int ADVANCED_EXPERIENCE_LEVEL = 3;
     private List<Exercise> exerciseList = new ArrayList<Exercise>();
+    // Equipment to select from: none [0], Exercise Ball [1], Chin Up Bar [2], both [3]
+    private int equipmentAvailable;
 
-    public WorkoutGenerator(String currentWeek, String currentDay){
+    public WorkoutGenerator(String currentWeek, String currentDay, int equipmentAvailable){
         this.currentWeek = currentWeek;
         this.currentDay = currentDay;
+        this.equipmentAvailable = equipmentAvailable;
     }
 
-    public WorkoutGenerator(){}
+    public WorkoutGenerator(int equipmentAvailable){
+        this.equipmentAvailable = equipmentAvailable;
+    }
 
     // Returns 7 exercises for the workout
     public List<Exercise> generateWorkout(String exerciseData){
@@ -49,7 +57,11 @@ public class WorkoutGenerator {
         int id;
         Scanner scanner = new Scanner(exerciseData);
 
+        Log.i(getClass().getSimpleName(), "generateListOfAllExercises: ");
+
         while (scanner.hasNextLine()) {
+            Log.i(getClass().getSimpleName(), "=================================");
+
             currentName = scanner.nextLine();
             String[] durationLevels = scanner.nextLine().split(" ");
             if(currentExperienceLevel == 0){
@@ -65,13 +77,51 @@ public class WorkoutGenerator {
 
             currentEquipment = scanner.nextLine();
 
-            // uncomment when you add all the video file names to the strings.xml
             videoFileName = scanner.nextLine();
 
             id = index+1;
-            exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
-                    currentDuration, currentEquipment, videoFileName));
-            index++;
+
+            Log.i(getClass().getSimpleName(), "Equipment:" + currentEquipment);
+            Log.i(getClass().getSimpleName(),"Equipment Available key: " + equipmentAvailable);
+
+            switch (equipmentAvailable){
+                case 0:
+                    if(currentEquipment.equals(" none")){
+                        Log.i(getClass().getSimpleName(), "No Equipment Selection...adding exercise...");
+                        exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
+                                currentDuration, currentEquipment, videoFileName));
+                        index++;
+                    }
+                    break;
+                case 1:
+                    if(currentEquipment.equals(" Exercise Ball") ||
+                            currentEquipment.equals(" none")){
+                        Log.i(getClass().getSimpleName(), "Exercise Ball Selection" +
+                                "...adding exercise...");
+                        exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
+                                currentDuration, currentEquipment, videoFileName));
+                        index++;
+                    }
+                    break;
+                case 2:
+                    if(currentEquipment.equals(" Chin Up Bar") ||
+                            currentEquipment.equals(" none")){
+                        Log.i(getClass().getSimpleName(), "Chin Up Bar Selection" +
+                                "...adding exercise...");
+                        exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
+                                currentDuration, currentEquipment, videoFileName));
+                        index++;
+                    }
+                    break;
+                case 3:
+                    Log.i(getClass().getSimpleName(), "All Equipment Selection...adding exercise...");
+                    exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
+                            currentDuration, currentEquipment, videoFileName));
+                    index++;
+                    break;
+                default:
+                    break;
+            }
         }
         scanner.close();
 
@@ -94,36 +144,59 @@ public class WorkoutGenerator {
     private void determineExperienceLevelForCurrentWeek(){
         switch (currentWeek){
             case "Week 1":
-                currentExperienceLevel =1;
+                currentExperienceLevel =BEGINNER_EXPERIENCE_LEVEL;
                 currentExerciseOffsetAmount = 0;
                 break;
             case "Week 2":
-                currentExperienceLevel =1;
+                currentExperienceLevel =BEGINNER_EXPERIENCE_LEVEL;
                 currentExerciseOffsetAmount = NUMBER_OF_EXERCISES_IN_WORKOUT;
+
                 break;
             case "Week 3":
-                currentExperienceLevel =1;
+                currentExperienceLevel =BEGINNER_EXPERIENCE_LEVEL;
                 currentExerciseOffsetAmount = 2*NUMBER_OF_EXERCISES_IN_WORKOUT;
                 break;
             case "Week 4":
-                currentExperienceLevel =2;
-                currentExerciseOffsetAmount = 3* NUMBER_OF_EXERCISES_IN_WORKOUT;
+                currentExperienceLevel =INTERMEDIATE_EXPERIENCE_LEVEL;
+                currentExerciseOffsetAmount = 3*NUMBER_OF_EXERCISES_IN_WORKOUT;
                 break;
             case "Week 5":
-                currentExperienceLevel =2;
+                currentExperienceLevel =INTERMEDIATE_EXPERIENCE_LEVEL;
                 currentExerciseOffsetAmount = 4*NUMBER_OF_EXERCISES_IN_WORKOUT;
                 break;
             case "Week 6":
-                currentExperienceLevel =2;
-                currentExerciseOffsetAmount = 5*NUMBER_OF_EXERCISES_IN_WORKOUT;
+                currentExperienceLevel =INTERMEDIATE_EXPERIENCE_LEVEL;
+                if(equipmentAvailable==0) {
+                    currentExerciseOffsetAmount = 4 * NUMBER_OF_EXERCISES_IN_WORKOUT;
+                }
+                else
+                    currentExerciseOffsetAmount = 5*NUMBER_OF_EXERCISES_IN_WORKOUT;
                 break;
             case "Week 7":
-                currentExperienceLevel =3;
-                currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
+                currentExperienceLevel =ADVANCED_EXPERIENCE_LEVEL;
+                if(equipmentAvailable==0){
+                    currentExerciseOffsetAmount = 5*NUMBER_OF_EXERCISES_IN_WORKOUT;
+                    currentExerciseOffsetAmount--;
+                } else if(equipmentAvailable==1){
+                    currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
+                    currentExerciseOffsetAmount=currentExerciseOffsetAmount-2;
+                } else
+                    currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
                 break;
             case "Week 8":
-                currentExperienceLevel =3;
-                currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
+                currentExperienceLevel =ADVANCED_EXPERIENCE_LEVEL;
+                if(equipmentAvailable==0){
+                    currentExerciseOffsetAmount = 5*NUMBER_OF_EXERCISES_IN_WORKOUT;
+                    currentExerciseOffsetAmount--;
+                }
+                else if(equipmentAvailable==1){
+                    currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
+                    currentExerciseOffsetAmount=currentExerciseOffsetAmount-2;
+                }
+                else if(equipmentAvailable==2)
+                    currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT + 1;
+                else if(equipmentAvailable == 3)
+                    currentExerciseOffsetAmount = 7*NUMBER_OF_EXERCISES_IN_WORKOUT;
         }
     }
 

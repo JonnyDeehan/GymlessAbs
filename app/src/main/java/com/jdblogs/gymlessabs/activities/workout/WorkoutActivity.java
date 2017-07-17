@@ -1,7 +1,10 @@
 package com.jdblogs.gymlessabs.activities.workout;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -50,18 +53,20 @@ public class WorkoutActivity extends AppCompatActivity {
 
     private void generateExerciseData(){
         int workoutActivityType = appContext.getWorkoutActivityType();
+        int equipmentAvailable = appContext.getEquipmentAvailable();
         if(workoutActivityType == NORMAL_WORKOUT_ACTIVITY_TYPE) {
             currentWeek = appContext.getWeekSelected();
             currentDay = appContext.getDaySelected();
-            workoutGenerator = new WorkoutGenerator(currentWeek,currentDay);
+            workoutGenerator = new WorkoutGenerator(currentWeek,currentDay,equipmentAvailable);
             String exerciseData = getResources().getString(R.string.exercise_list);
             exerciseList = workoutGenerator.generateWorkout(exerciseData);
         } else if(workoutActivityType == FAVOURITE_WORKOUT_ACTIVITY_TYPE){
             currentDay = "";
             currentWeek = "";
             exerciseList = appContext.getCurrentWorkout();
+            logMessage("Exercise List Size upon appContext retrieval: " + exerciseList.size());
         } else if(workoutActivityType == SHUFFLE_WORKOUT_ACTIVITY_TYPE){
-            workoutGenerator = new WorkoutGenerator();
+            workoutGenerator = new WorkoutGenerator(equipmentAvailable);
             String exerciseData = getResources().getString(R.string.exercise_list);
             exerciseList = workoutGenerator.createRandomWorkout(exerciseData);
             currentDay = "";
@@ -103,23 +108,52 @@ public class WorkoutActivity extends AppCompatActivity {
             int workoutId;
             int exerciseId;
             favouritesLocalData = new FavouritesLocalData(this);
+
+            logMessage("==========================================================");
+            logMessage("Favourites available before adding new favourite workout: ");
+            favouritesLocalData.listAllExercises();
+            logMessage("==========================================================");
+
             int count = (int) favouritesLocalData.numberOfEntries();
+
+            logMessage("Favourites Count: " + count);
+
             if (count == 0) {
+                logMessage("Count is 0");
                 workoutId = 1;
                 exerciseId = 1;
             } else {
+                logMessage("Count is not 0");
                 workoutId = (int) (favouritesLocalData.numberOfEntries() / 7) + 1;
                 exerciseId = count + 1;
+                logMessage("Workout id: " + workoutId);
+                logMessage("Exercise id: " + exerciseId);
             }
 
             for (Exercise exercise : exerciseList) {
                 favouritesLocalData.createRecord(exerciseId, exercise.getName(), exercise.getExperienceLevel(),
                         exercise.getDuration(), exercise.getEquipment(),
                         exercise.getVideoFileName(), workoutId);
+                logMessage("Adding Exercise to Favourite Workout: " + exercise.getName()
+                        + " with Workout Id: " + workoutId);
                 exerciseId++;
-                logMessage("Adding Exercise to Favourite Workout: " + exercise.getName());
             }
+            logMessage("==========================================================");
+            logMessage("Favourites available after adding new favourite workout: ");
             favouritesLocalData.listAllExercises();
+            logMessage("==========================================================");
+
+            // Added Favourite Pop Up
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Added Workout to Favourites")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create();
+            builder.show();
         }
     }
 

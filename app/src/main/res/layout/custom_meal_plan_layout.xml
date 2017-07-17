@@ -9,14 +9,16 @@
 
     <TextView
         android:id="@+id/mealPlanInfo"
-        android:layout_width="306dp"
-        android:layout_height="190dp"
+        android:layout_width="322dp"
+        android:layout_height="260dp"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="sans-serif-medium"
         android:text="MealPlan"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.454" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -45,6 +45,8 @@ public class FavouritesLocalData {
         values.put(EXERCISE_VIDEO_FILE_NAME,videoFileName);
         values.put(WORKOUT_ID,workoutId);
 
+        Log.i(getClass().getSimpleName(), "createRecord: " + exerciseId + " : " + name);
+
         return database.insert(FAVOURITES_TABLE, null, values);
     }
 
@@ -65,30 +67,16 @@ public class FavouritesLocalData {
         return DatabaseUtils.queryNumEntries(database, FAVOURITES_TABLE);
     }
 
-    public void initData(List<Exercise> exercises, int workoutId) {
-        long count = DatabaseUtils.queryNumEntries(database, FAVOURITES_TABLE);
-        if (count == 0) {
-            Log.i("FavouritesLocalData", "Initializing data");
-            for (Exercise exercise: exercises) {
-
-                createRecord((int)count++, exercise.getName(),exercise.getExperienceLevel(),
-                        exercise.getDuration(),exercise.getEquipment(),
-                        exercise.getVideoFileName(),workoutId);
-            }
-        } else {
-            Log.i("FavouritesLocalData", "Data already initialized with " + count + " rows");
-        }
-    }
-
     public void listAllExercises(){
         Cursor cursor = database.rawQuery("SELECT * FROM " + FAVOURITES_TABLE, null);
         while(cursor.moveToNext()){
-            Log.i(getClass().getSimpleName(), cursor.getString(1)
-                    + " :: " + cursor.getString(2)
-                    + " :: " + cursor.getString(3)
-                    + " :: " + cursor.getString(4)
-                    + " :: " + cursor.getString(5)
-                    + " :: " + cursor.getString(6));
+            Log.i(getClass().getSimpleName(), cursor.getString(0)
+                    + "\n" + cursor.getString(1)
+                    + "\n" + cursor.getString(2)
+                    + "\n" + cursor.getString(3)
+                    + "\n" + cursor.getString(4)
+                    + "\n" + cursor.getString(5)
+                    + "\n" + cursor.getString(6));
         }
     }
 
@@ -96,14 +84,17 @@ public class FavouritesLocalData {
 //        database.delete("FAVOURITES", "WORKOUT='" + workout + "'",null);
     }
 
+    public void clearFavouritesTableEntries(){
+        database.execSQL("delete from "+ FAVOURITES_TABLE);
+    }
+
 
     public List<List<Exercise>> getAllFavourites(){
         List<List<Exercise>> workoutList = new ArrayList<List<Exercise>>();
-        workoutList.clear();
         int currentWorkout=1;
-        int totalNumberOfWorkouts = (int)numberOfEntries();
         Cursor cursor = database.rawQuery("SELECT * FROM " + FAVOURITES_TABLE, null);
         List<Exercise> exercises = new ArrayList<Exercise>();
+        Log.i(getClass().getSimpleName(), "Proceed to getAllFavourites: ");
         while(cursor.moveToNext()){
 
             int id = cursor.getInt(0);
@@ -114,16 +105,41 @@ public class FavouritesLocalData {
             String videoFileName = cursor.getString(5);
             int workoutId = cursor.getInt(6);
 
-            if(currentWorkout != workoutId){ // cursor at this point is the problem
-                currentWorkout++;
-                workoutList.add(exercises);
-                exercises.clear();
-            }
+            Log.i(getClass().getSimpleName(), "==========================================================");
+            Log.i(getClass().getSimpleName(), "Exercise id: " + id + "\n"
+            + "Name: " + name + "\n"
+            + "Experience Level: " + experienceLevel + "\n"
+            + "Duration: " + duration + "\n"
+            + "Equipment: " + equipment + "\n"
+            + "Video file name: " + videoFileName + "\n"
+            + "WorkoutId: " + workoutId);
+
+//            if(currentWorkout != workoutId){
+//                Log.i(getClass().getSimpleName(), "Identified next workoutId, " +
+//                        " adding exercises to workoutList and clearing exercises for next workout set ");
+//                currentWorkout++;
+//                workoutList.add(exercises);
+//                exercises.clear();
+//            }
             exercises.add(new Exercise(id,name,experienceLevel,duration,equipment,videoFileName));
 
-            System.out.println("Exercise: " + name);
+            // If exercises equals number of exercises in workout
+            // or make a check for the exercise id
+            if(exercises.size() == 7){
+                Log.i(getClass().getSimpleName(), "WorkoutList Size before adding exercise list: "
+                        + workoutList.size());
+                workoutList.add(exercises);
+                Log.i(getClass().getSimpleName(), "WorkoutList Size after adding exercise list: "
+                        + workoutList.size());
+                exercises.clear();
+                Log.i(getClass().getSimpleName(), "WorkoutList Size after clearing exercise list: "
+                        + workoutList.size());
+            }
 
         }
+        Log.i(getClass().getSimpleName(), "Exercises size before returning: " + exercises.size());
+        Log.i(getClass().getSimpleName(), "WorkoutList Size before returning: " + workoutList.size());
+
         return workoutList;
     }
 }

@@ -63,7 +63,7 @@ Exercise ball Pike
 Duration 
 30   45   60 
 Equipment needed 
-Physioball 
+Exercise Ball
 Exercise name 
 Hanging Pike 
 Duration 
@@ -279,19 +279,19 @@ Ball passes
 Duration 
 30   45   60 
 Equipment needed 
-physioball 
+Exercise Ball
 Exercise name 
 Ball circles (around the worlds)
 Duration 
 30   45   60 
 Equipment needed 
-physioball 
+Exercise Ball
 Exercise name 
 Knee tucks 
 Duration 
 30   45   60 
 Equipment needed 
-Physioball 
+Exercise Ball
 Exercise name 
 Plank Touches 
 Duration 

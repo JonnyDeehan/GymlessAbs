@@ -12,14 +12,32 @@ import java.util.List;
 
 public class GlobalVariables{
 
-    private String weekSelected = "Week 1";
-    private String daySelected = "Day 1";
+    private String weekSelected;
+    private String daySelected;
     private Exercise currentExerciseSelected;
+    // Equipment to select from: none [0], Exercise Ball [1], Chin Up Bar [2], both [3]
+    private int equipmentAvailable;
     private List<Exercise> currentWorkout;
     private double currentTotalWorkoutDuration;
-    private int workoutActivityType;    // 0 - Day/Week Workout 1 - Shuffle Workout 2 - Favourite
+    // 0 - Day/Week Workout 1 - Shuffle Workout 2 - Favourite
+    private int workoutActivityType;
+
+    public static final String PREFS_NAME = "shared_prefs";
+    public static final String PREFERENCES_INITIAL_STATE_KEY = "initial_state";
+    public static final String PREFERENCES_CURRENT_WEEK_KEY = "current_week";
+    public static final String PREFERENCES_CURRENT_DAY_KEY = "current_day";
+    public static final String PREFERENCES_EQUIPMENT_KEY = "equipment";
 
     protected GlobalVariables(){};
+
+    public int getEquipmentAvailable() {
+        return equipmentAvailable;
+    }
+
+    public void setEquipmentAvailable(int equipmentAvailable) {
+        this.equipmentAvailable = equipmentAvailable;
+    }
+
 
     public int getWorkoutActivityType() {
         return workoutActivityType;

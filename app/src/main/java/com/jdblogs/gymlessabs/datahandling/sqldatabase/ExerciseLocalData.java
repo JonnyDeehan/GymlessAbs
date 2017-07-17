@@ -65,6 +65,10 @@ public class ExerciseLocalData {
                 null);
     }
 
+    public void clearExerciseTableEntries(){
+        database.execSQL("delete from "+ EXERCISE_TABLE);
+    }
+
     public void closeDatabase(){
         this.database.close();
     }

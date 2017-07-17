@@ -3,9 +3,11 @@ package com.jdblogs.gymlessabs.activities.workout;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -240,7 +242,8 @@ public class StartWorkoutActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
-                                    exerciseVideo = null;
+//                                    exerciseVideo = null;
+                                    incrementRoutineDate();
                                     mediaPlayer.stop();
                                     finish();
                                 }
@@ -299,5 +302,36 @@ public class StartWorkoutActivity extends AppCompatActivity {
             mediaPlayer.stop();
         }
         finish();
+    }
+
+    private void incrementRoutineDate(){
+        if(appContext.getWorkoutActivityType() == NORMAL_WORKOUT_ACTIVITY_TYPE) {
+            int weekNum = Integer.parseInt(String.valueOf(appContext.getWeekSelected().charAt(5)));
+            int dayNum = Integer.parseInt(String.valueOf(appContext.getDaySelected().charAt(4)));
+
+            logMessage("Week Num: " + weekNum);
+            logMessage("Day Num: " + dayNum);
+
+            dayNum++;
+            if(dayNum>7 && weekNum<8){
+                dayNum=1;
+                weekNum++;
+            } else if(weekNum==8 && dayNum>7) {
+                dayNum=1;
+                weekNum=1;
+            }
+
+            String newWeek = "Week " + weekNum;
+            String newDay = "Day " + dayNum;
+
+            Log.i(getClass().getSimpleName(), "New Week: " + newWeek);
+            Log.i(getClass().getSimpleName(), "New Day: " + newDay);
+
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+            settings.edit().putString(appContext.PREFERENCES_CURRENT_WEEK_KEY,newWeek).commit();
+            settings.edit().putString(appContext.PREFERENCES_CURRENT_DAY_KEY,newDay).commit();
+            appContext.setWeekSelected(newWeek);
+            appContext.setDaySelected(newDay);
+        }
     }
 }

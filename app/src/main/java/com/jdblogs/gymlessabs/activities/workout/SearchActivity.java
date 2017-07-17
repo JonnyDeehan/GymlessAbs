@@ -2,6 +2,7 @@ package com.jdblogs.gymlessabs.activities.workout;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,9 @@ public class SearchActivity extends AppCompatActivity {
     private SearchActivity.CustomAdapter customAdapter;
     private ExerciseLocalData exerciseLocalData;
     private SearchView exerciseSearch;
+
+    private static final String PREFS_NAME = "shared_prefs";
+    private static final String PREFERENCES_EQUIPMENT_KEY = "equipment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +85,9 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void setUpDatabase(){
+        int equipmentAvailable = appContext.getEquipmentAvailable();
         String exerciseData = getResources().getString(R.string.exercise_list);
-        workoutGenerator = new WorkoutGenerator();
+        workoutGenerator = new WorkoutGenerator(equipmentAvailable);
         exerciseList = workoutGenerator.generateListOfAllExercises(exerciseData);
         exerciseLocalData = new ExerciseLocalData(this);
     }
@@ -130,28 +135,6 @@ public class SearchActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-    // TODO: implement relist of exercises based on search query
-//    public void searchDatabase(int indexValue ) {
-//
-//        Cursor cursor = exerciseLocalData.selectRecord(indexValue);
-//        if (cursor.moveToNext()) {
-//            String name = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_NAME));
-//            int experienceLevel = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EXPERIENCE_LEVEL));
-//            int duration = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_DURATION));
-//            String equipment = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EQUIPMENT));
-//            String videoFileName = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_VIDEO_FILE_NAME));
-//            logMessage("Exercise " + indexValue);
-//            logMessage("Name: " + name);
-//            logMessage("Experience Level: " + experienceLevel);
-//            logMessage("Duration: " + duration);
-//            logMessage("Equipment: " + equipment);
-//            logMessage("VideoFileName: " + videoFileName);
-//
-//        } else {
-//            Log.i(getClass().getSimpleName(), "Exercise not found");
-//        }
-//    }
 
     private class CustomAdapter extends ArrayAdapter<Exercise> {
 
