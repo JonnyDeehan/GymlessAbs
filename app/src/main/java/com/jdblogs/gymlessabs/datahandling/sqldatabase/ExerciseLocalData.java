@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.jdblogs.gymlessabs.models.Exercise;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,28 +49,6 @@ public class ExerciseLocalData {
         return database.insert(EXERCISE_TABLE, null, values);
     }
 
-    public Cursor selectRecord(int exerciseId) {
-        String[] cols = new String[]{EXERCISE_ID, EXERCISE_NAME,
-                EXERCISE_EXPERIENCE_LEVEL, EXERCISE_DURATION,
-                EXERCISE_EQUIPMENT, EXERCISE_VIDEO_FILE_NAME};
-        return database.query(true, EXERCISE_TABLE, cols,
-                ExerciseLocalData.EXERCISE_ID + "=" + exerciseId,
-                null, null, null, null, null);
-    }
-
-    public Cursor searchExercises(String stringQuery){
-        String[] cols = new String[]{EXERCISE_ID, EXERCISE_NAME,
-                EXERCISE_EXPERIENCE_LEVEL, EXERCISE_DURATION,
-                EXERCISE_EQUIPMENT, EXERCISE_VIDEO_FILE_NAME};
-        Cursor searchCursor = database.query(true, EXERCISE_TABLE, cols, EXERCISE_NAME + " LIKE ?",
-                new String[] {"%"+ stringQuery+ "%" }, null, null, null,
-                null);
-        if(searchCursor!=null){
-            searchCursor.moveToFirst();
-        }
-        return searchCursor;
-    }
-
     public Cursor fetchExerciseByName(String inputText) throws SQLException {
         Log.w(getClass().getSimpleName(), inputText);
         Cursor mCursor = null;
@@ -77,20 +56,18 @@ public class ExerciseLocalData {
                 EXERCISE_EXPERIENCE_LEVEL, EXERCISE_DURATION,
                 EXERCISE_EQUIPMENT, EXERCISE_VIDEO_FILE_NAME};
         if (inputText == null  ||  inputText.length () == 0)  {
-            mCursor = database.query(EXERCISE_TABLE, cols,
-                    null, null, null, null, null);
-
+            mCursor = database.query(true,EXERCISE_TABLE, cols,
+                    null, null, null, null, EXERCISE_ID, null);
         }
         else {
             mCursor = database.query(true, EXERCISE_TABLE, cols,
-                    EXERCISE_NAME + " like '%" + inputText + "%'", null,
-                    null, null, null, null);
+                    EXERCISE_NAME + " LIKE '%" + inputText + "%'", null,
+                    null, null, EXERCISE_ID, null);
         }
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
         return mCursor;
-
     }
 
     public void clearExerciseTableEntries(){
@@ -106,11 +83,19 @@ public class ExerciseLocalData {
         if (count == 0) {
             Log.i("ExerciseLocalData", "Initializing data");
             for (Exercise exercise: exercises) {
-
+                Log.i("ExerciseLocalData", "Creating Record " + exercise.getExerciseId());
                 createRecord(exercise.getExerciseId(), exercise.getName(),exercise.getExperienceLevel(),
                         exercise.getDuration(),exercise.getEquipment(),
                         exercise.getVideoFileName());
+                Log.i("ExerciseLocalData", "\n" +
+                exercise.getName() + "\n" +
+                exercise.getExperienceLevel() + "\n" +
+                exercise.getDuration() + "\n" +
+                exercise.getEquipment() + "\n" +
+                exercise.getVideoFileName());
             }
+            count = DatabaseUtils.queryNumEntries(database, EXERCISE_TABLE);
+            Log.i("ExerciseLocalData", "Finished Initializing Data with " + count);
         } else {
             Log.i("ExerciseLocalData", "Data already initialized with " + count + " rows");
         }
@@ -126,10 +111,13 @@ public class ExerciseLocalData {
         }
     }
 
-    public void getAllExercises(){
+    public List<Exercise> getCompleteExerciseList(){
+        List<Exercise> exerciseList = new ArrayList<Exercise>();
         Cursor cursor = database.rawQuery("SELECT * FROM " + EXERCISE_TABLE, null);
         while(cursor.moveToNext()){
-
+            exerciseList.add(new Exercise(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),
+                    cursor.getInt(3),cursor.getString(4),cursor.getString(5)));
         }
+        return exerciseList;
     }
 }

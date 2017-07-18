@@ -48,10 +48,6 @@ Bicycle Elbow to Knee Tucks\n
 30   45   60\n
 none\n
 bicycle_elbow_to_knee_tucks\n
-Circle Crunches\n
-30   45   60\n
-none\n
-circle_crunches\n
 Clapping Crunches\n
 30   45   60\n
 none\n
@@ -308,7 +304,7 @@ Breakfast: Poached eggs with spicy tomato sauce\n
 Snack 1: Beef jerky\n
 Lunch: Chicken breast with herb butter and veggies\n
 Snack 2: Protein bar (Quest bar, 22, Atkins, reflex\n
-Dinner: Meat pie and mixed veggies/ salad\n
+Dinner: Meat pie and mixed veggies salad\n
 Sunday\n
 Breakfast: Minced beef, egg and avocado bowl\n
 Snack 1: Sliced avocado wrapped in ham\n
@@ -492,8 +488,7 @@ Monday\n
 Breakfast: Sausage muffin\n
 Snack 1: Beef jerky \n
 Lunch: Mexican Super Bowl\n
-Snack 2: \n
-Handful of mixed nuts (Cashews, macadamias)\n
+Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
 Dinner: Roasted pork belly with roast root vegetables \n
 Tuesday\n
 Breakfast: Scrambled egg and smoked salmon\n
@@ -524,11 +519,11 @@ Breakfast: Avocado and bacon muffins \n
 Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
 Lunch: Burger with balsamic onions and avocado \n
 Snack 2: Hard boiled eggs\n
-Dinner: Meat pie with mixed veggies/ salad\n
+Dinner: Meat pie with mixed veggies salad\n
 Sunday\n
 Breakfast: Baked tomato and egg breakfast \n
 Snack 1: Beef jerky \n
-Lunch: Mixed green salad, with grilled/ baked  salmon\n
+Lunch: Mixed green salad, with grilled baked  salmon\n
 Snack 2: Ham and cheese string\n
 Dinner: Grilled salmon steak, asparagus and brown rice \n
 Week 8\n
@@ -573,7 +568,7 @@ Breakfast: Grilled mushroom, with feta, egg and rocket \n
 Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
 Lunch: Turkey burger with onions, lettuce, tomato and cheese\n
 Snack 2: Beef jerky \n
-Dinner: Sashimi with, edamame, brown rice and choice of salad or veggies\n
+Dinner: Sashimi with, edamame, brown rice and choice of salad or veggies
     </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_meal_plan">MealPlanActivity</string>

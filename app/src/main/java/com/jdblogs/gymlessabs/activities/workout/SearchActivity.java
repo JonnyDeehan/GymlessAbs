@@ -2,7 +2,6 @@ package com.jdblogs.gymlessabs.activities.workout;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -57,7 +56,7 @@ public class SearchActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query)
             {
                 customAdapter.clear();
-                customAdapter.addAll(listAllExercises(query));
+                listExercisesOnQuery(query);
                 customAdapter.notifyDataSetChanged();
                 exerciseSearch.clearFocus();
 
@@ -68,7 +67,7 @@ public class SearchActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText)
             {
                 customAdapter.clear();
-                customAdapter.addAll(listAllExercises(newText));
+                listExercisesOnQuery(newText);
                 customAdapter.notifyDataSetChanged();
                 return false;
             }
@@ -85,61 +84,32 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void setUpDatabase(){
-        int equipmentAvailable = appContext.getEquipmentAvailable();
-        String exerciseData = getResources().getString(R.string.exercise_list);
-        workoutGenerator = new WorkoutGenerator(equipmentAvailable);
-        exerciseList = workoutGenerator.generateListOfAllExercises(exerciseData);
         exerciseLocalData = new ExerciseLocalData(this);
+        exerciseList = exerciseLocalData.getCompleteExerciseList();
     }
 
-    private List<Exercise> listAllExercises(String query){
-        exerciseList.clear();
-
-//        if(query==""){
-//
-//        }
-
-        logMessage("ExerciseList size after clearing: " + exerciseList.size());
-
-//        Cursor cursor = exerciseLocalData.searchExercises(query);
+    private void listExercisesOnQuery(String query){
+        this.exerciseList.clear();
         Cursor cursor = exerciseLocalData.fetchExerciseByName(query);
 
-        while(cursor.moveToNext()){
+        int cursorCount = cursor.getCount();
+        int exerciseCount = 0;
 
-            try {
-                if (cursor.moveToNext()) {
-//                    int id = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_ID));
-//                    String name = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_NAME));
-//                    int experienceLevel = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EXPERIENCE_LEVEL));
-//                    int duration = cursor.getInt(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_DURATION));
-//                    String equipment = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_EQUIPMENT));
-//                    String videoFileName = cursor.getString(cursor.getColumnIndex(ExerciseLocalData.EXERCISE_VIDEO_FILE_NAME));
-                    int id = cursor.getInt(0);
-                    String name = cursor.getString(1);
-                    int experienceLevel = cursor.getInt(2);
-                    int duration = cursor.getInt(3);
-                    String equipment = cursor.getString(4);
-                    String videoFileName = cursor.getString(5);
+        if(cursor!=null && cursorCount>0) {
+            do {
+                exerciseCount++;
+                int id = cursor.getInt(0);
+                String name = cursor.getString(1);
+                int experienceLevel = cursor.getInt(2);
+                int duration = cursor.getInt(3);
+                String equipment = cursor.getString(4);
+                String videoFileName = cursor.getString(5);
 
-                    logMessage("Exercise " + id);
-                    logMessage("Name: " + name);
-                    logMessage("Experience Level: " + experienceLevel);
-                    logMessage("Duration: " + duration);
-                    logMessage("Equipment: " + equipment);
-                    logMessage("VideoFileName: " + videoFileName);
+                exerciseList.add(new Exercise(id, name, experienceLevel,
+                        duration, equipment, videoFileName));
 
-                    exerciseList.add(new Exercise(id,name,experienceLevel,
-                            duration,equipment,videoFileName));
-                }
-            } catch(Error e){
-                logMessage(e.toString());
-            }
+            } while (cursor.moveToNext());
         }
-        logMessage("=========================================================================");
-
-        logMessage("ExerciseList size before returning: " + exerciseList.size());
-
-        return exerciseList;
     }
 
     public void onBackButton(View view){

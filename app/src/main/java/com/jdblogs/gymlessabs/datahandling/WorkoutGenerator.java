@@ -176,10 +176,10 @@ public class WorkoutGenerator {
                 currentExperienceLevel =ADVANCED_EXPERIENCE_LEVEL;
                 if(equipmentAvailable==0){
                     currentExerciseOffsetAmount = 5*NUMBER_OF_EXERCISES_IN_WORKOUT;
-                    currentExerciseOffsetAmount--;
+                    currentExerciseOffsetAmount-=2;
                 } else if(equipmentAvailable==1){
                     currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
-                    currentExerciseOffsetAmount=currentExerciseOffsetAmount-2;
+                    currentExerciseOffsetAmount=currentExerciseOffsetAmount-3;
                 } else
                     currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
                 break;
@@ -187,16 +187,16 @@ public class WorkoutGenerator {
                 currentExperienceLevel =ADVANCED_EXPERIENCE_LEVEL;
                 if(equipmentAvailable==0){
                     currentExerciseOffsetAmount = 5*NUMBER_OF_EXERCISES_IN_WORKOUT;
-                    currentExerciseOffsetAmount--;
+                    currentExerciseOffsetAmount-=2;
                 }
                 else if(equipmentAvailable==1){
                     currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
-                    currentExerciseOffsetAmount=currentExerciseOffsetAmount-2;
+                    currentExerciseOffsetAmount=currentExerciseOffsetAmount-3;
                 }
                 else if(equipmentAvailable==2)
-                    currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT + 1;
+                    currentExerciseOffsetAmount = 6*NUMBER_OF_EXERCISES_IN_WORKOUT;
                 else if(equipmentAvailable == 3)
-                    currentExerciseOffsetAmount = 7*NUMBER_OF_EXERCISES_IN_WORKOUT;
+                    currentExerciseOffsetAmount = (7*NUMBER_OF_EXERCISES_IN_WORKOUT) -1;
         }
     }
 

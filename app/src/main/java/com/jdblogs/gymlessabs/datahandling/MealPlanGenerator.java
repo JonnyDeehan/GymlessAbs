@@ -1,5 +1,7 @@
 package com.jdblogs.gymlessabs.datahandling;
 
+import android.util.Log;
+
 import com.jdblogs.gymlessabs.models.DailyMealPlan;
 
 import java.util.ArrayList;
@@ -36,11 +38,15 @@ public class MealPlanGenerator {
         int daysAdded = 0;
         int daysPassed = 0;
 
+        Log.i(getClass().getSimpleName(), "Passed Week: " + week);
+
         while (scanner.hasNextLine()) {
 
             currentWeek = scanner.nextLine();
+            Log.i(getClass().getSimpleName(), "Week Read: " + currentWeek);
             // OR operator is current sloppy hack to deal with first index substring of " " in week
             if(currentWeek.equals(week) || currentWeek.equals(" "+ week)) {
+                Log.i(getClass().getSimpleName(), "=============================================");
                 while (daysAdded < noOfDaysInWeek && scanner.hasNextLine()) {
                     currentDay = scanner.nextLine();
                     breakfast = scanner.nextLine();
@@ -48,6 +54,16 @@ public class MealPlanGenerator {
                     lunch = scanner.nextLine();
                     snack2 = scanner.nextLine();
                     dinner = scanner.nextLine();
+
+                    Log.i(getClass().getSimpleName(), "\n"
+                    + currentWeek+ "\n"
+                    + currentDay + "\n"
+                    + breakfast + "\n"
+                    + snack1 + "\n"
+                    + lunch + "\n"
+                    + snack2 + "\n"
+                    + dinner + "\n");
+
                     dailyMealPlan.add(new DailyMealPlan(currentWeek, currentDay, breakfast,
                             snack1, lunch, snack2, dinner));
                     daysAdded++;

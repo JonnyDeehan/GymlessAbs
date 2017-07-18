@@ -18,6 +18,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.jdblogs.gymlessabs.activities.meal.SelectMealDateActivity;
 import com.jdblogs.gymlessabs.activities.workout.ExercisePlanActivity;
 import com.jdblogs.gymlessabs.activities.workout.FavouritesActivity;
@@ -28,7 +31,7 @@ import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.WorkoutGenerator;
 import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
-
+import com.google.android.gms.ads.MobileAds;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView workoutWeek;
     private TextView workoutDay;
     private TextView titleTextView;
+    private AdView mAdView;
 
     private WorkoutGenerator workoutGenerator;
     private GlobalVariables globalVariables;
@@ -47,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
     private static final int SHUFFLE_WORKOUT_ACTIVITY_TYPE = 1;
+
+    private static final String ADMOB_APP_ID = "ca-app-pub-7198486497927461~8358712232";
 
     private String [] homeItemsList = new String[]{"Exercise Plan", "Meal Plan", "Shuffle Workout",
             "Favourites"};
@@ -57,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         globalVariables = GlobalVariables.getInstance();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
+        initializeAdMob();
         setCurrentWeekAndDay();
         updateUI();
         onUpdateLocalData();
@@ -71,6 +77,14 @@ public class HomeActivity extends AppCompatActivity {
 
         logMessage("Current Week: " + globalVariables.getWeekSelected());
         logMessage("Current Day: " + globalVariables.getDaySelected());
+    }
+
+    private void initializeAdMob(){
+        MobileAds.initialize(this, ADMOB_APP_ID);
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 
     private void setCurrentWeekAndDay(){
@@ -121,6 +135,7 @@ public class HomeActivity extends AppCompatActivity {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select the equipment you have");
+        builder.setCancelable(false);
         builder.setItems(equipment, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

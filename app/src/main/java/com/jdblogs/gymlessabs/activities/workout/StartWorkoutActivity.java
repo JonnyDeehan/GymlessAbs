@@ -240,6 +240,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
 
         // Display PopUp Message
         AlertDialog.Builder finishedWorkoutAlert = new AlertDialog.Builder(this);
+        finishedWorkoutAlert.setCancelable(false);
         finishedWorkoutAlert.setMessage("Workout Completed!\nYour progress has been logged")
                             .setPositiveButton("Finish", new DialogInterface.OnClickListener() {
                                 @Override
