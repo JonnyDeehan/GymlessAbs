@@ -5,21 +5,38 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.jdblogs.gymlessabs.R;
+import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 
 public class AboutPageActivity extends AppCompatActivity {
 
     private TextView aboutTextView;
-    private static final String ABOUT_TEXT = "Gymless Abs was created by Jonathan Deehan" +
-            " & Christopher Georgiou";
+    private GlobalVariables globalVariables;
+    private AdView mAdView;
+    private static final String ABOUT_TEXT = "Our 8 week exercise and meal plan for your abdominal " +
+            "core is the routine you've been looking for. This guided routine will help" +
+            "you reach your goal of building a stronger core and having defined abs."
+            +"Gymless Abs was created by Jonathan Deehan (Developer)" +
+            " & Christopher Georgiou (Content Creator)";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_page);
+        initializeAdMob();
 
         aboutTextView = (TextView) findViewById(R.id.aboutTextView);
         aboutTextView.setText(ABOUT_TEXT);
+    }
+
+    private void initializeAdMob(){
+        MobileAds.initialize(this, globalVariables.ADMOB_APP_ID);
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     public void onBackButton(View view){

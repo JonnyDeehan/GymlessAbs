@@ -10,6 +10,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 
@@ -23,12 +27,14 @@ public class ExercisePlanActivity extends AppCompatActivity {
 
     private GlobalVariables appContext;
     private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_plan);
         appContext = GlobalVariables.getInstance();
+        initializeAdMob();
 
         // Drop Down Week Selection
         final Spinner weekListSpinner = (Spinner) findViewById(R.id.weekSpinner);
@@ -63,6 +69,15 @@ public class ExercisePlanActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void initializeAdMob(){
+        MobileAds.initialize(this, appContext.ADMOB_APP_ID);
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+    }
+
 
     public void onBackButton(View view){
         finish();

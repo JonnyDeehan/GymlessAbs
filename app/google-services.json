@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "180528668041",
+    "firebase_url": "https://gymlessabs.firebaseio.com",
+    "project_id": "gymlessabs",
+    "storage_bucket": "gymlessabs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180528668041:android:fe4964161b62effc",
+        "android_client_info": {
+          "package_name": "com.jdblogs.gymlessabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180528668041-fut94el9rkhhp3gfa2v31gh988led9k7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jdblogs.gymlessabs",
+            "certificate_hash": "0d5aba9b344bcf0f1e1ea9e398b030c5f02702be"
+          }
+        },
+        {
+          "client_id": "180528668041-tjgo274qj1nupdon295fei29jof09ovo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCOQLIhWC755o4a1UzR1kFv4QvNkWtcOk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180528668041-tjgo274qj1nupdon295fei29jof09ovo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

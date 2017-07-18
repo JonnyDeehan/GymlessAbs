@@ -52,8 +52,6 @@ public class HomeActivity extends AppCompatActivity {
     private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
     private static final int SHUFFLE_WORKOUT_ACTIVITY_TYPE = 1;
 
-    private static final String ADMOB_APP_ID = "ca-app-pub-7198486497927461~8358712232";
-
     private String [] homeItemsList = new String[]{"Exercise Plan", "Meal Plan", "Shuffle Workout",
             "Favourites"};
 
@@ -80,11 +78,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initializeAdMob(){
-        MobileAds.initialize(this, ADMOB_APP_ID);
+        MobileAds.initialize(this, globalVariables.ADMOB_APP_ID);
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
     }
 
     private void setCurrentWeekAndDay(){

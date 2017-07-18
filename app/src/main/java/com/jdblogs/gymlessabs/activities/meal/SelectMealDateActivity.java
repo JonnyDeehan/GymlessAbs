@@ -8,6 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 
@@ -17,12 +21,14 @@ public class SelectMealDateActivity extends AppCompatActivity {
             "Week 5", "Week 6", "Week 7", "Week 8"};
 
     private GlobalVariables appContext;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_meal_date);
         appContext = GlobalVariables.getInstance();
+        initializeAdMob();
 
         // Week List
         ListAdapter dayAdapter = new ArrayAdapter<String>(this,
@@ -37,6 +43,14 @@ public class SelectMealDateActivity extends AppCompatActivity {
                 moveToActivity(intent);
             }
         });
+    }
+
+    private void initializeAdMob(){
+        MobileAds.initialize(this, appContext.ADMOB_APP_ID);
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 
     public void onBackButton(View view){

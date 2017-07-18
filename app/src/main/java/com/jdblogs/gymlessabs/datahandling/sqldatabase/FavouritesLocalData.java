@@ -82,10 +82,6 @@ public class FavouritesLocalData {
         }
     }
 
-    public void deleteFavourite(String workout){
-//        database.delete("FAVOURITES", "WORKOUT='" + workout + "'",null);
-    }
-
     public void clearFavouritesTableEntries(){
         database.execSQL("delete from "+ FAVOURITES_TABLE);
     }

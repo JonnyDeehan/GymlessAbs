@@ -28,6 +28,8 @@ public class GlobalVariables{
     public static final String PREFERENCES_CURRENT_DAY_KEY = "current_day";
     public static final String PREFERENCES_EQUIPMENT_KEY = "equipment";
 
+    public static final String ADMOB_APP_ID = "ca-app-pub-7198486497927461~8358712232";
+
     protected GlobalVariables(){};
 
     public int getEquipmentAvailable() {

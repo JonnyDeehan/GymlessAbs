@@ -16,7 +16,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
-import com.jdblogs.gymlessabs.datahandling.WorkoutGenerator;
 import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
 import java.util.ArrayList;
@@ -25,15 +24,10 @@ import java.util.List;
 public class SearchActivity extends AppCompatActivity {
 
     private List<Exercise> exerciseList = new ArrayList<Exercise>();
-    private static final String DATABASE_NAME = "exercises";
-    private WorkoutGenerator workoutGenerator;
     private GlobalVariables appContext;
     private SearchActivity.CustomAdapter customAdapter;
     private ExerciseLocalData exerciseLocalData;
     private SearchView exerciseSearch;
-
-    private static final String PREFS_NAME = "shared_prefs";
-    private static final String PREFERENCES_EQUIPMENT_KEY = "equipment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

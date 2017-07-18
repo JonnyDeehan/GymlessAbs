@@ -54,13 +54,20 @@ public class MealPlanActivity extends AppCompatActivity {
             View customView = inflater.inflate(R.layout.custom_meal_plan_layout,parent,false);
 
             final DailyMealPlan mealPlan = getItem(position);
-            TextView mealPlanInfoTextView = (TextView) customView.findViewById(R.id.mealPlanInfo);
+            TextView dayOfTheWeek = (TextView) customView.findViewById(R.id.dayTextView);
+            TextView breakfast = (TextView) customView.findViewById(R.id.breakfastInfo);
+            TextView snack1 = (TextView) customView.findViewById(R.id.snack1Info);
+            TextView lunch = (TextView) customView.findViewById(R.id.lunchInfo);
+            TextView snack2 = (TextView) customView.findViewById(R.id.snack2Info);
+            TextView dinner = (TextView) customView.findViewById(R.id.dinnerInfo);
 
             try{
-                mealPlanInfoTextView.setText(mealPlan.getWeek() + "\n" + mealPlan.getDay() + "\n"
-                        + mealPlan.getBreakfast() + "\n" + mealPlan.getSnack1() + "\n"
-                        + mealPlan.getLunch() + "\n" + mealPlan.getSnack2() + "\n"
-                        + mealPlan.getDinner());
+                dayOfTheWeek.setText(mealPlan.getDay());
+                breakfast.setText(mealPlan.getBreakfast().substring(11));
+                snack1.setText(mealPlan.getSnack1().substring(9));
+                lunch.setText(mealPlan.getLunch().substring(7));
+                snack2.setText(mealPlan.getSnack2().substring(9));
+                dinner.setText(mealPlan.getDinner().substring(8));
             } catch(Error e){
                 Log.i(getClass().getSimpleName(), e.toString());
             }
