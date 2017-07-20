@@ -17,17 +17,22 @@ public class AboutPageActivity extends AppCompatActivity {
     private GlobalVariables globalVariables;
     private AdView mAdView;
     private static final String ABOUT_TEXT = "Our 8 week exercise and meal plan for your abdominal " +
-            "core is the routine you've been looking for. This guided routine will help" +
-            "you reach your goal of building a stronger core and having defined abs."
-            +"Gymless Abs was created by Jonathan Deehan (Developer)" +
-            " & Christopher Georgiou (Content Creator)";
+            "core is the routine you've been looking for. This guided routine will help " +
+            "you reach your goal of building a stronger core and having defined abs.\n"
+            +"\nGymless Abs was created by Jonathan Deehan (Developer)" +
+            " & Christopher Georgiou (Content Creator)\n" +
+            "\nCheck out www.weightlossyoda.com for more health and fitness advice";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_page);
         initializeAdMob();
+        setUpUI();
+    }
 
+
+    private void setUpUI(){
         aboutTextView = (TextView) findViewById(R.id.aboutTextView);
         aboutTextView.setText(ABOUT_TEXT);
     }

@@ -72,9 +72,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onResume();
         setCurrentWeekAndDay();
         onUpdateLocalData();
-
-        logMessage("Current Week: " + globalVariables.getWeekSelected());
-        logMessage("Current Day: " + globalVariables.getDaySelected());
     }
 
     private void initializeAdMob(){
@@ -128,7 +125,7 @@ public class HomeActivity extends AppCompatActivity {
     private void displayEquipmentSelection(){
         // Equipment to select from: none [0], Exercise Ball [1], Chin Up Bar [2], both [3]
         CharSequence equipment[] = new CharSequence[] {"None", "Exercise Ball", "Chin Up Bar",
-                "All"};
+                "Both"};
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select the equipment you have");
@@ -179,9 +176,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onCurrentWorkoutClick(View view){
-        globalVariables.setWorkoutActivityType(NORMAL_WORKOUT_ACTIVITY_TYPE);
-        Intent intent = new Intent(HomeActivity.this, WorkoutActivity.class);
-        moveToActivity(intent);
+        // Ensure the current day is not a rest day before proceeding (days 3 and 7)
+        if((!workoutDay.getText().toString().equals("Day 3")) &&
+                (!workoutDay.getText().toString().equals("Day 7"))) {
+            globalVariables.setWorkoutActivityType(NORMAL_WORKOUT_ACTIVITY_TYPE);
+            Intent intent = new Intent(HomeActivity.this, WorkoutActivity.class);
+            moveToActivity(intent);
+        }
     }
 
     private void moveToActivity(android.content.Intent intent){

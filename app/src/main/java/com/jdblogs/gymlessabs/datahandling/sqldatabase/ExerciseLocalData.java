@@ -50,7 +50,6 @@ public class ExerciseLocalData {
     }
 
     public Cursor fetchExerciseByName(String inputText) throws SQLException {
-        Log.w(getClass().getSimpleName(), inputText);
         Cursor mCursor = null;
         String[] cols = new String[]{EXERCISE_ID, EXERCISE_NAME,
                 EXERCISE_EXPERIENCE_LEVEL, EXERCISE_DURATION,
@@ -81,23 +80,13 @@ public class ExerciseLocalData {
     public void initData(List<Exercise> exercises) {
         long count = DatabaseUtils.queryNumEntries(database, EXERCISE_TABLE);
         if (count == 0) {
-            Log.i("ExerciseLocalData", "Initializing data");
             for (Exercise exercise: exercises) {
-                Log.i("ExerciseLocalData", "Creating Record " + exercise.getExerciseId());
                 createRecord(exercise.getExerciseId(), exercise.getName(),exercise.getExperienceLevel(),
                         exercise.getDuration(),exercise.getEquipment(),
                         exercise.getVideoFileName());
-                Log.i("ExerciseLocalData", "\n" +
-                exercise.getName() + "\n" +
-                exercise.getExperienceLevel() + "\n" +
-                exercise.getDuration() + "\n" +
-                exercise.getEquipment() + "\n" +
-                exercise.getVideoFileName());
             }
-            count = DatabaseUtils.queryNumEntries(database, EXERCISE_TABLE);
-            Log.i("ExerciseLocalData", "Finished Initializing Data with " + count);
         } else {
-            Log.i("ExerciseLocalData", "Data already initialized with " + count + " rows");
+            // Already initialised data
         }
     }
 

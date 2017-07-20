@@ -24,14 +24,16 @@ public class VideoPlayerActivity extends AppCompatActivity {
         appContext = GlobalVariables.getInstance();
         selectedExercise = appContext.getCurrentExerciseSelected();
 
+        setUpVideoView();
+    }
+
+    private void setUpVideoView(){
         VideoView videoView = (VideoView)findViewById(R.id.videoView);
         String path = "android.resource://" + getPackageName() + "/raw/" +
                 removeFirstChar(selectedExercise.getVideoFileName());
         videoView.setVideoURI(Uri.parse(path));
         videoView.requestFocus();
         videoView.setMediaController(new MediaController(this));
-
-        logMessage("Starting Video with path: " + path);
 
         try {
             videoView.start();

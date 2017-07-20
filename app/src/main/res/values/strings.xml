@@ -5,10 +5,26 @@
     <string name="large_text">
 
     </string>
-    <string name="exercise_list"> 90 Degree Crunch\n
+    <string name="exercise_list"> Leg Raises\n
+30   45   60\n
+none\n
+leg_raises\n
+Pistol Crunches\n
+30   45   60\n
+none\n
+pistol_crunches\n
+90 Degree Crunch\n
 30   45   60\n
 none\n
 ninety_degree_crunch\n
+Scissors\n
+30   45   60\n
+none\n
+scissors\n
+Standing Side to Side\n
+30   45   60\n
+none\n
+standing_side_to_side\n
 Circle Crunches\n
 30   45   60\n
 none\n
@@ -17,42 +33,6 @@ Floor Side to Sides\n
 30   45   60\n
 none\n
 floor_side_to_sides\n
-Alternating Kick Throughs\n
-30   45   60\n
-none\n
-alternating_kick_throughs\n
-Ball Cauldron Stirs\n
-30   45   60\n
-Exercise Ball\n
-ball_cauldron_stirs\n
-Ball Circles\n
-30   45   60\n
-Exercise Ball\n
-ball_circles\n
-Ball Knee Tucks\n
-30   45   60\n
-Exercise Ball\n
-ball_knee_tucks\n
-Ball Pass\n
-30   45   60\n
-Exercise Ball\n
-ball_pass\n
-Ball Pike\n
-30   45   60\n
-Exercise Ball\n
-ball_pike\n
-Bent Knee Wipers\n
-30   45   60\n
-none\n
-bent_knee_wipers\n
-Bicycle Elbow to Knee Tucks\n
-30   45   60\n
-none\n
-bicycle_elbow_to_knee_tucks\n
-Clapping Crunches\n
-30   45   60\n
-none\n
-clapping_crunches\n
 Elbow to Knee Tucks\n
 30   45   60\n
 none\n
@@ -65,6 +45,30 @@ Flutters\n
 30   45   60\n
 none\n
 flutters\n
+Standing Ab Twist\n
+30   45   60\n
+none\n
+standing_ab_twist\n
+Alternating Kick Throughs\n
+30   45   60\n
+none\n
+alternating_kick_throughs\n
+Ball Pass\n
+30   45   60\n
+Exercise Ball\n
+ball_pass\n
+Bent Knee Wipers\n
+30   45   60\n
+none\n
+bent_knee_wipers\n
+Bicycle Elbow to Knee Tucks\n
+30   45   60\n
+none\n
+bicycle_elbow_to_knee_tucks\n
+Clapping Crunches\n
+30   45   60\n
+none\n
+clapping_crunches\n
 Hand Raise Tucks\n
 30   45   60\n
 none\n
@@ -73,14 +77,6 @@ Hands Back Tucks\n
 30   45   60\n
 none\n
 hands_back_tucks\n
-Hanging Alternating Kick Outs\n
-30   45   60\n
-Chin Up Bar\n
-hanging_alternating_kick_outs\n
-Hanging Bicycles\n
-30   45   60\n
-Chin Up Bar\n
-hanging_bicycles\n
 Toe Touches\n
 30   45   60\n
 none\n
@@ -93,62 +89,26 @@ Isolated Reverse Crunch\n
 30   45   60\n
 none\n
 isolated_reverse_crunch\n
-Leg Raises\n
-30   45   60\n
-none\n
-leg_raises\n
 Marching Planks\n
 30   45   60\n
 none\n
 marching_planks\n
-One Legged Ball Circles\n
-30   45   60\n
-Exercise Ball\n
-one_legged_ball_circles\n
-One Legged Roll Ups\n
-30   45   60\n
-none\n
-one_legged_roll_ups\n
 Opposite Side Plank Tucks\n
 30   45   60\n
 none\n
 opposite_side_plank_tucks\n
-Pistol Crunches\n
-30   45   60\n
-none\n
-pistol_crunches\n
 Plank Touches\n
 30   45   60\n
 none\n
 plank_touches\n
-Praying Crunch\n
-30   45   60\n
-none\n
-praying_crunch\n
 Reverse Crunch\n
 30   45   60\n
 none\n
 reverse_crunch\n
-Rolling Jack Knvies\n
-30   45   60\n
-none\n
-rolling_jack_knives\n
 Same Side Plank Tucks\n
 30   45   60\n
 none\n
 same_side_plank_tucks\n
-Scissor V Ups\n
-30   45   60\n
-none\n
-scissor_v_ups\n
-Scissors\n
-30   45   60\n
-none\n
-scissors\n
-Hanging Knee To Elbows\n
-30   45   60\n
-Chin Up Bar\n
-hanging_knee_to_elbows\n
 Hanging Knee Ups\n
 30   45   60\n
 Chin Up Bar\n
@@ -165,26 +125,10 @@ Sprinter Plank Kicks\n
 30   45   60\n
 none\n
 sprinter_plank_kicks\n
-Standing Ab Twist\n
-30   45   60\n
-none\n
-standing_ab_twist\n
-Standing Side to Side\n
-30   45   60\n
-none\n
-standing_side_to_side\n
 Star Twists\n
 30   45   60\n
 none\n
 star_twists\n
-Suspended Quad Reach\n
-30   45   60\n
-Chin Up Bar\n
-suspended_quad_reach\n
-V Up Hold\n
-30   45   60\n
-none\n
-v_up_hold\n
 V Up Twists\n
 30   45   60\n
 none\n
@@ -193,14 +137,42 @@ V Up\n
 30   45   60\n
 none\n
 v_up\n
-Wall Plank Tucks\n
-30   45   60\n
-none\n
-wall_plank_tucks\n
 Wall Planks\n
 30   45   60\n
 none\n
 wall_planks\n
+Wind Shield Wipers\n
+30   45   60\n
+none\n
+wind_shield_wipers\n
+Hanging Scissors\n
+30   45   60\n
+Chin Up Bar\n
+hanging_scissors\n
+Scissor V Ups\n
+30   45   60\n
+none\n
+scissor_v_ups\n
+Rolling Jack Knvies\n
+30   45   60\n
+none\n
+rolling_jack_knives\n
+Praying Crunch\n
+30   45   60\n
+none\n
+praying_crunch\n
+One Legged Ball Circles\n
+30   45   60\n
+Exercise Ball\n
+one_legged_ball_circles\n
+Hanging Pike\n
+30   45   60\n
+Chin Up Bar\n
+hanging_pike\n
+One Legged Roll Ups\n
+30   45   60\n
+none\n
+one_legged_roll_ups\n
 Wide Plank Holds\n
 30   45   60\n
 none\n
@@ -209,22 +181,50 @@ Wide V Up Crunch\n
 30   45   60\n
 none\n
 wide_v_up_crunch\n
-Wind Shield Wipers\n
+Hanging Bicycles\n
+30   45   60\n
+Chin Up Bar\n
+hanging_bicycles\n
+V Up Hold\n
 30   45   60\n
 none\n
-wind_shield_wipers\n
-Hanging Pike\n
+v_up_hold\n
+Hanging Alternating Kick Outs\n
 30   45   60\n
 Chin Up Bar\n
-hanging_pike\n
-Hanging Scissors\n
+hanging_alternating_kick_outs\n
+Ball Pike\n
+30   45   60\n
+Exercise Ball\n
+ball_pike\n
+Wall Plank Tucks\n
+30   45   60\n
+none\n
+wall_plank_tucks\n
+Ball Cauldron Stirs\n
+30   45   60\n
+Exercise Ball\n
+ball_cauldron_stirs\n
+Suspended Quad Reach\n
 30   45   60\n
 Chin Up Bar\n
-hanging_scissors\n
+suspended_quad_reach\n
+Ball Circles\n
+30   45   60\n
+Exercise Ball\n
+ball_circles\n
+Ball Knee Tucks\n
+30   45   60\n
+Exercise Ball\n
+ball_knee_tucks\n
 Hanging V Up\n
 30   45   60\n
 Chin Up Bar\n
 hanging_v_up\n
+Hanging Knee To Elbows\n
+30   45   60\n
+Chin Up Bar\n
+hanging_knee_to_elbows\n
     </string>
     <string name="meal_plan">Week 1\n
 Monday\n

@@ -10,7 +10,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -22,8 +21,8 @@ public class ExercisePlanActivity extends AppCompatActivity {
     private String[] weekList = new String[] {"Week 1", "Week 2", "Week 3", "Week 4",
             "Week 5", "Week 6", "Week 7", "Week 8"};
 
-    private String[] dayList = new String[] {"Day 1", "Day 2", "Day 3", "Day 4", "Day 5",
-            "Day 6", "Day 7"};
+    private String[] dayList = new String[] {"Day 1", "Day 2", "Rest Day", "Day 4", "Day 5",
+            "Day 6", "Rest Day"};
 
     private GlobalVariables appContext;
     private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
@@ -36,6 +35,12 @@ public class ExercisePlanActivity extends AppCompatActivity {
         appContext = GlobalVariables.getInstance();
         initializeAdMob();
 
+        setUpWeekDropDownMenu();
+        setUpDayListView();
+
+    }
+
+    private void setUpWeekDropDownMenu(){
         // Drop Down Week Selection
         final Spinner weekListSpinner = (Spinner) findViewById(R.id.weekSpinner);
         ListAdapter weekAdapter = new ArrayAdapter<String>(this,
@@ -45,7 +50,6 @@ public class ExercisePlanActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 appContext.setWeekSelected(weekListSpinner.getItemAtPosition(position).toString());
-                System.out.println(appContext.getWeekSelected());
             }
 
             @Override
@@ -53,7 +57,9 @@ public class ExercisePlanActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    private void setUpDayListView(){
         // Day of the Week List
         ListAdapter dayAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,dayList);
@@ -62,10 +68,12 @@ public class ExercisePlanActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ExercisePlanActivity.this, WorkoutActivity.class);
-                appContext.setDaySelected(listView.getItemAtPosition(position).toString());
-                appContext.setWorkoutActivityType(NORMAL_WORKOUT_ACTIVITY_TYPE);
-                moveToActivity(intent);
+                if(!listView.getItemAtPosition(position).toString().equals("Rest Day")) {
+                    Intent intent = new Intent(ExercisePlanActivity.this, WorkoutActivity.class);
+                    appContext.setDaySelected(listView.getItemAtPosition(position).toString());
+                    appContext.setWorkoutActivityType(NORMAL_WORKOUT_ACTIVITY_TYPE);
+                    moveToActivity(intent);
+                }
             }
         });
     }
@@ -75,7 +83,6 @@ public class ExercisePlanActivity extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
     }
 
 

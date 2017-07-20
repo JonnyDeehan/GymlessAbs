@@ -43,19 +43,10 @@ public class FavouritesActivity extends AppCompatActivity {
         favouritesLocalData = new FavouritesLocalData(this);
         workoutList = favouritesLocalData.getAllFavourites();
 
-        Log.i(getClass().getSimpleName(), "WorkoutList fetched from FavouritesLocalData has size: "
-                + workoutList.size());
-
         int workoutNum=1;
 
         for(List<Exercise> workout: workoutList){
-            Log.i(getClass().getSimpleName(), "Adding workout " + workoutNum);
             favouritesList.add("Workout: " + workoutNum);
-            for (Exercise exercise: workout) {
-                Log.i(getClass().getSimpleName(), "Adding exercise to workoutList ");
-                Log.i(getClass().getSimpleName(), exercise.getName() + " " +
-                        exercise.getVideoFileName());
-            }
             workoutNum++;
         }
 
@@ -76,7 +67,6 @@ public class FavouritesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(FavouritesActivity.this, WorkoutActivity.class);
-                Log.i(getClass().getSimpleName(), "WorkoutList size before sending: " + workoutList.size());
                 appContext.setCurrentWorkout(workoutList.get(position));
                 appContext.setWorkoutActivityType(WORKOUT_ACTIVITY_TYPE);
 

@@ -64,7 +64,6 @@ public class WorkoutActivity extends AppCompatActivity {
             currentDay = "";
             currentWeek = "";
             exerciseList = appContext.getCurrentWorkout();
-            logMessage("Exercise List Size upon appContext retrieval: " + exerciseList.size());
         } else if(workoutActivityType == SHUFFLE_WORKOUT_ACTIVITY_TYPE){
             workoutGenerator = new WorkoutGenerator(equipmentAvailable);
             String exerciseData = getResources().getString(R.string.exercise_list);
@@ -109,39 +108,26 @@ public class WorkoutActivity extends AppCompatActivity {
             int exerciseId;
             favouritesLocalData = new FavouritesLocalData(this);
 
-            logMessage("==========================================================");
-            logMessage("Favourites available before adding new favourite workout: ");
             favouritesLocalData.listAllExercises();
-            logMessage("==========================================================");
 
             int count = (int) favouritesLocalData.numberOfEntries();
 
-            logMessage("Favourites Count: " + count);
-
             if (count == 0) {
-                logMessage("Count is 0");
                 workoutId = 1;
                 exerciseId = 1;
             } else {
-                logMessage("Count is not 0");
                 workoutId = (int) (favouritesLocalData.numberOfEntries() / 7) + 1;
                 exerciseId = count + 1;
-                logMessage("Workout id: " + workoutId);
-                logMessage("Exercise id: " + exerciseId);
             }
 
             for (Exercise exercise : exerciseList) {
                 favouritesLocalData.createRecord(exerciseId, exercise.getName(), exercise.getExperienceLevel(),
                         exercise.getDuration(), exercise.getEquipment(),
                         exercise.getVideoFileName(), workoutId);
-                logMessage("Adding Exercise to Favourite Workout: " + exercise.getName()
-                        + " with Workout Id: " + workoutId);
                 exerciseId++;
             }
-            logMessage("==========================================================");
-            logMessage("Favourites available after adding new favourite workout: ");
+
             favouritesLocalData.listAllExercises();
-            logMessage("==========================================================");
 
             // Added Favourite Pop Up
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);

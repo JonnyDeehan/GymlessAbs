@@ -47,8 +47,6 @@ public class FavouritesLocalData {
         values.put(EXERCISE_VIDEO_FILE_NAME,videoFileName);
         values.put(WORKOUT_ID,workoutId);
 
-        Log.i(getClass().getSimpleName(), "createRecord: " + exerciseId + " : " + name);
-
         return database.insert(FAVOURITES_TABLE, null, values);
     }
 
@@ -90,7 +88,6 @@ public class FavouritesLocalData {
     public List<List<Exercise>> getAllFavourites(){
         Cursor cursor = database.rawQuery("SELECT * FROM " + FAVOURITES_TABLE, null);
         List<Exercise> exercises = new ArrayList<Exercise>();
-        Log.i(getClass().getSimpleName(), "Proceed to getAllFavourites: ");
         while(cursor.moveToNext()){
 
             int id = cursor.getInt(0);
@@ -101,31 +98,14 @@ public class FavouritesLocalData {
             String videoFileName = cursor.getString(5);
             int workoutId = cursor.getInt(6);
 
-            Log.i(getClass().getSimpleName(), "==========================================================");
-            Log.i(getClass().getSimpleName(), "Exercise id: " + id + "\n"
-            + "Name: " + name + "\n"
-            + "Experience Level: " + experienceLevel + "\n"
-            + "Duration: " + duration + "\n"
-            + "Equipment: " + equipment + "\n"
-            + "Video file name: " + videoFileName + "\n"
-            + "WorkoutId: " + workoutId);
-
             exercises.add(new Exercise(id,name,experienceLevel,duration,equipment,videoFileName));
 
             if(exercises.size() == NUMBER_OF_EXERCISES_IN_WORKOUT){
-                Log.i(getClass().getSimpleName(), "WorkoutList Size before adding exercise list: "
-                        + workoutList.size());
                 addWorkoutToWorkoutList(exercises);
-                Log.i(getClass().getSimpleName(), "WorkoutList Size after adding exercise list: "
-                        + workoutList.size());
                 exercises.clear();
-                Log.i(getClass().getSimpleName(), "WorkoutList Size after clearing exercise list: "
-                        + workoutList.size());
             }
 
         }
-        Log.i(getClass().getSimpleName(), "Exercises size before returning: " + exercises.size());
-        Log.i(getClass().getSimpleName(), "WorkoutList Size before returning: " + workoutList.size());
 
         return workoutList;
     }

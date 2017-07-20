@@ -71,9 +71,7 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        logMessage("Before Custom Adapter Object destroy, reference is: "  + customAdapter);
         customAdapter = null;
-        logMessage("Did destroy Custom Adapter Object, reference is: "  + customAdapter);
         exerciseLocalData.closeDatabase();
     }
 

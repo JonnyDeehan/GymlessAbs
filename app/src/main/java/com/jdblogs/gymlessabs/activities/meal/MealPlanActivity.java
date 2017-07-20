@@ -30,13 +30,20 @@ public class MealPlanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_plan);
 
-        globalVariables = GlobalVariables.getInstance();
+        generateMealPlan();
+        setUpUI();
 
+    }
+
+    private void generateMealPlan(){
+        globalVariables = GlobalVariables.getInstance();
         mealPlanGenerator = new MealPlanGenerator(globalVariables.getWeekSelected(),
                 globalVariables.getDaySelected());
         String mealPlanData = getResources().getString(R.string.meal_plan);
         mealPlanList = mealPlanGenerator.generateMealPlan(mealPlanData);
+    }
 
+    private void setUpUI(){
         ListView listView = (ListView) findViewById(R.id.mealPlanList);
         MealPlanAdapter customAdapter = new MealPlanAdapter(this,mealPlanList);
         listView.setAdapter(customAdapter);
@@ -78,11 +85,6 @@ public class MealPlanActivity extends AppCompatActivity {
 
     public void onBackButton(View view){
         finish();
-    }
-
-
-    public void logMessage(String message){
-        Log.i(getClass().getSimpleName(), message);
     }
 
 }

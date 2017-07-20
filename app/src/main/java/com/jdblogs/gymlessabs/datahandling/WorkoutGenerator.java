@@ -57,10 +57,7 @@ public class WorkoutGenerator {
         int id;
         Scanner scanner = new Scanner(exerciseData);
 
-        Log.i(getClass().getSimpleName(), "generateListOfAllExercises: ");
-
         while (scanner.hasNextLine()) {
-            Log.i(getClass().getSimpleName(), "=================================");
 
             currentName = scanner.nextLine();
             String[] durationLevels = scanner.nextLine().split(" ");
@@ -81,13 +78,9 @@ public class WorkoutGenerator {
 
             id = index+1;
 
-            Log.i(getClass().getSimpleName(), "Equipment:" + currentEquipment);
-            Log.i(getClass().getSimpleName(),"Equipment Available key: " + equipmentAvailable);
-
             switch (equipmentAvailable){
                 case 0:
                     if(currentEquipment.equals(" none")){
-                        Log.i(getClass().getSimpleName(), "No Equipment Selection...adding exercise...");
                         exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
                                 currentDuration, currentEquipment, videoFileName));
                         index++;
@@ -96,8 +89,6 @@ public class WorkoutGenerator {
                 case 1:
                     if(currentEquipment.equals(" Exercise Ball") ||
                             currentEquipment.equals(" none")){
-                        Log.i(getClass().getSimpleName(), "Exercise Ball Selection" +
-                                "...adding exercise...");
                         exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
                                 currentDuration, currentEquipment, videoFileName));
                         index++;
@@ -106,15 +97,12 @@ public class WorkoutGenerator {
                 case 2:
                     if(currentEquipment.equals(" Chin Up Bar") ||
                             currentEquipment.equals(" none")){
-                        Log.i(getClass().getSimpleName(), "Chin Up Bar Selection" +
-                                "...adding exercise...");
                         exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
                                 currentDuration, currentEquipment, videoFileName));
                         index++;
                     }
                     break;
                 case 3:
-                    Log.i(getClass().getSimpleName(), "All Equipment Selection...adding exercise...");
                     exerciseList.add(index,new Exercise(id, currentName, currentExperienceLevel,
                             currentDuration, currentEquipment, videoFileName));
                     index++;

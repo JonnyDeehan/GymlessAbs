@@ -29,7 +29,10 @@ public class SelectMealDateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_meal_date);
         appContext = GlobalVariables.getInstance();
         initializeAdMob();
+        setUpUI();
+    }
 
+    private void setUpUI(){
         // Week List
         ListAdapter dayAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,weekList);

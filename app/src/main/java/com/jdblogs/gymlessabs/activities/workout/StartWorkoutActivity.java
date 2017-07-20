@@ -2,7 +2,6 @@ package com.jdblogs.gymlessabs.activities.workout;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -11,7 +10,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -20,8 +18,6 @@ import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 import com.jdblogs.gymlessabs.models.Exercise;
 import java.util.List;
-
-import static android.R.drawable.ic_media_pause;
 
 public class StartWorkoutActivity extends AppCompatActivity {
 
@@ -49,7 +45,6 @@ public class StartWorkoutActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
 
     private static final String SHUFFLE_WORKOUT_TITLE_TEXT = "Shuffle Workout";
-    private static final String TEXT_TO_SPEECH_COUNTDOWN_GO = "Go";
     private static final int FIRST_EXERCISE_INDEX = 0;
     private static final int COUNTDOWN_BEFORE_TIMER_BEGINS = 5;
     private static final int MILLI_SECOND_CONVERSION = 1000;
@@ -102,6 +97,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
         exerciseVideo.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mp) {
                 exerciseVideo.start(); //need to make transition seamless.
+                mp.setVolume(0f,0f);
             }
         });
 
@@ -125,6 +121,12 @@ public class StartWorkoutActivity extends AppCompatActivity {
                 removeFirstChar(currentExercise.getVideoFileName());
         exerciseVideo.setVideoURI(Uri.parse(path));
         exerciseVideo.requestFocus();
+        exerciseVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setVolume(0f,0f);
+            }
+        });
         exerciseVideo.start();
 
         // Audio
@@ -246,7 +248,6 @@ public class StartWorkoutActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
-//                                    exerciseVideo = null;
                                     incrementRoutineDate();
                                     mediaPlayer.stop();
                                     finish();
@@ -293,10 +294,6 @@ public class StartWorkoutActivity extends AppCompatActivity {
         timerHandler.removeCallbacks(timerRunnable);
     }
 
-    public void logMessage(String message){
-        Log.i(getClass().getSimpleName(), message);
-    }
-
     private String removeFirstChar(String s){
         return s.substring(1);
     }
@@ -313,9 +310,6 @@ public class StartWorkoutActivity extends AppCompatActivity {
             int weekNum = Integer.parseInt(String.valueOf(appContext.getWeekSelected().charAt(5)));
             int dayNum = Integer.parseInt(String.valueOf(appContext.getDaySelected().charAt(4)));
 
-            logMessage("Week Num: " + weekNum);
-            logMessage("Day Num: " + dayNum);
-
             dayNum++;
             if(dayNum>7 && weekNum<8){
                 dayNum=1;
@@ -327,9 +321,6 @@ public class StartWorkoutActivity extends AppCompatActivity {
 
             String newWeek = "Week " + weekNum;
             String newDay = "Day " + dayNum;
-
-            Log.i(getClass().getSimpleName(), "New Week: " + newWeek);
-            Log.i(getClass().getSimpleName(), "New Day: " + newDay);
 
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
             settings.edit().putString(appContext.PREFERENCES_CURRENT_WEEK_KEY,newWeek).commit();
