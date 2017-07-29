@@ -3,6 +3,7 @@ package com.jdblogs.gymlessabs.activities.workout;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,6 +19,8 @@ import android.widget.VideoView;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 import com.jdblogs.gymlessabs.models.Exercise;
+
+import java.io.IOException;
 import java.util.List;
 
 public class StartWorkoutActivity extends AppCompatActivity {
@@ -223,8 +227,22 @@ public class StartWorkoutActivity extends AppCompatActivity {
     private void startAudioCountDown(){
         if(!didBeginCountdown) {
             didBeginCountdown = true;
-            mediaPlayer = MediaPlayer.create(this, R.raw.count_down);
-            mediaPlayer.start();
+
+            // TODO: FIX FUNCTIONALITY Exercise Name Audio
+            MediaPlayer player = new MediaPlayer();
+            String path = "android.resource://"+getPackageName()+"/raw/names/"+
+                    removeFirstChar(currentExercise.getVideoFileName());
+            try {
+                player.setDataSource(context, Uri.parse(path));
+                player.prepare();
+                player.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // CountDownAudio
+//            mediaPlayer = MediaPlayer.create(this, R.raw.count_down);
+//            mediaPlayer.start();
         }
     }
 
