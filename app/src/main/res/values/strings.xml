@@ -226,9 +226,9 @@ Hanging Knee To Elbows\n
 Chin Up Bar\n
 hanging_knee_to_elbows\n
     </string>
-    <string name="meal_plan">Week 1\n
+    <string name="meal_plan"><![CDATA[Week 1\n
 Monday\n
-Breakfast: Scrambled egg and smoked salmon\n
+Breakfast: <font color="#123456">Scrambled egg</font> and <font color="#123456">smoked salmon</font>\n
 Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
 Lunch: Beef mince and mixed veggies\n
 Snack 2: Hard boiled eggs\n
@@ -569,8 +569,7 @@ Breakfast: Grilled mushroom, with feta, egg and rocket \n
 Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
 Lunch: Turkey burger with onions, lettuce, tomato and cheese\n
 Snack 2: Beef jerky \n
-Dinner: Sashimi with, edamame, brown rice and choice of salad or veggies
-    </string>
+Dinner: Sashimi with, edamame, brown rice and choice of salad or veggies]]></string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_meal_plan">MealPlanActivity</string>
     <string name="title_activity_favourites">FavouritesActivity</string>

@@ -3,7 +3,6 @@ package com.jdblogs.gymlessabs.activities.workout;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
@@ -11,7 +10,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -19,8 +17,6 @@ import android.widget.VideoView;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 import com.jdblogs.gymlessabs.models.Exercise;
-
-import java.io.IOException;
 import java.util.List;
 
 public class StartWorkoutActivity extends AppCompatActivity {
@@ -41,6 +37,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
     private boolean workoutPaused;
     private boolean didBeginTimer;
     private boolean didBeginCountdown;
+    private boolean canSpeakExerciseName;
     private int intermediateTime;
     private Handler timerHandler;
     private long startTime;
@@ -50,7 +47,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
 
     private static final String SHUFFLE_WORKOUT_TITLE_TEXT = "Shuffle Workout";
     private static final int FIRST_EXERCISE_INDEX = 0;
-    private static final int COUNTDOWN_BEFORE_TIMER_BEGINS = 5;
+    private static final int COUNTDOWN_BEFORE_TIMER_BEGINS = 7;
     private static final int MILLI_SECOND_CONVERSION = 1000;
     private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
     private static final int SHUFFLE_WORKOUT_ACTIVITY_TYPE = 1;
@@ -143,6 +140,11 @@ public class StartWorkoutActivity extends AppCompatActivity {
         exerciseTimerTextView.setText(Integer.toString(currentExerciseDuration));
         didBeginTimer = false;
         onCountDownBeforeTimer();
+
+        // Refresh Pause State Info
+        workoutPaused = false;
+        pausePlayButton.setImageResource(ic_media_pause);
+
     }
 
     private void textToSpeechSetup(){
@@ -228,26 +230,26 @@ public class StartWorkoutActivity extends AppCompatActivity {
         if(!didBeginCountdown) {
             didBeginCountdown = true;
 
-            // TODO: FIX FUNCTIONALITY Exercise Name Audio
-            MediaPlayer player = new MediaPlayer();
-            String path = "android.resource://"+getPackageName()+"/raw/names/"+
-                    removeFirstChar(currentExercise.getVideoFileName());
-            try {
-                player.setDataSource(context, Uri.parse(path));
-                player.prepare();
-                player.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
             // CountDownAudio
-//            mediaPlayer = MediaPlayer.create(this, R.raw.count_down);
-//            mediaPlayer.start();
+            mediaPlayer = MediaPlayer.create(this, R.raw.count_down);
+            mediaPlayer.start();
+        }
+    }
+
+    private void announceExerciseName(){
+        if(!canSpeakExerciseName) {
+            canSpeakExerciseName = true;
+            String path = "android.resource://" + getPackageName() + "/raw/" +
+                    removeFirstChar(currentExercise.getVideoFileName()) + "_audio";
+
+            mediaPlayer = MediaPlayer.create(this, Uri.parse(path));
+            mediaPlayer.start();
         }
     }
 
     private void stopAudioMedia(){
         didBeginCountdown = false;
+        canSpeakExerciseName = false;
         mediaPlayer.stop();
     }
 
@@ -290,15 +292,20 @@ public class StartWorkoutActivity extends AppCompatActivity {
                 if (timeLeft == 0) {
                     onExerciseFinish();
                 }
-            } else { // Countdown before timer with TTS
+            } else {// Countdown before timer with TTS
                 long millis = System.currentTimeMillis() - startTime;
                 countDownTimeLeft = COUNTDOWN_BEFORE_TIMER_BEGINS -
                         ((int) millis / MILLI_SECOND_CONVERSION);
-                startAudioCountDown();
+                announceExerciseName();
                 timerHandler.postDelayed(this, 500);
 
+                // When Exercise Name Announced, Speak Countdown
+                if(countDownTimeLeft == 5){
+                    startAudioCountDown();
+                }
+
                 // When countdown ends, start the exercise timer
-                if(countDownTimeLeft == 0){
+                if (countDownTimeLeft == 0) {
                     didBeginTimer = true;
                     startExerciseTimer();
                 }

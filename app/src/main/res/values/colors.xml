@@ -8,4 +8,9 @@
     <color name="colorAlternative">#B4C1BF</color>
     <color name="mainMenuBackgroundColor">#B4C1BF</color>
     <color name="mealPlanColour">#FF6E4A</color>
+    <color name="menuShade1">#5C97BF</color>
+    <color name="menuShade2">#3498DB</color>
+    <color name="menuShade3">#1E90FF</color>
+    <color name="menuShade4">#638BB3</color>
+    <color name="homeMenuBackground">#3B3F45</color>
 </resources>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jdblogs.gymlessabs">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>﻿
 
     <application
         android:allowBackup="true"
@@ -9,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.main.HomeActivity"
+        <activity
+            android:name=".activities.main.HomeActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,30 +23,37 @@
         <activity
             android:name=".activities.meal.MealPlanActivity"
             android:parentActivityName=".activities.main.HomeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.workout.FavouritesActivity"
             android:parentActivityName=".activities.main.HomeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.main.SettingsActivity"
             android:parentActivityName=".activities.main.HomeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.workout.ExercisePlanActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.workout.WorkoutActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.workout.VideoPlayerActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.workout.SearchActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.workout.StartWorkoutActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.meal.SelectMealDateActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.main.AboutPageActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.workout.ExercisePlanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.workout.WorkoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.workout.VideoPlayerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.workout.SearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".activities.workout.StartWorkoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.meal.SelectMealDateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.main.AboutPageActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

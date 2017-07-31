@@ -1,10 +1,13 @@
 package com.jdblogs.gymlessabs.activities.main;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -33,6 +36,7 @@ import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
 import com.google.android.gms.ads.MobileAds;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -65,6 +69,7 @@ public class HomeActivity extends AppCompatActivity {
         setCurrentWeekAndDay();
         updateUI();
         onUpdateLocalData();
+        setUpNotificationReminder();
     }
 
     @Override
@@ -120,6 +125,16 @@ public class HomeActivity extends AppCompatActivity {
         }
         globalVariables.setEquipmentAvailable(sharedPreferences
                 .getInt(globalVariables.PREFERENCES_EQUIPMENT_KEY,0));
+    }
+
+    private void setUpNotificationReminder(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,11);
+        calendar.set(Calendar.MINUTE,22);
+        Intent intent = new Intent(getApplicationContext(),NotificationReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),alarmManager.INTERVAL_DAY,pendingIntent);
     }
 
     private void displayEquipmentSelection(){
@@ -219,12 +234,16 @@ public class HomeActivity extends AppCompatActivity {
 
             if(homeItem.equals("Exercise Plan")){
                 iconImage.setImageResource(R.drawable.ic_exercise);
+                customView.setBackgroundColor(getColor(R.color.menuShade1));
             } else if(homeItem.equals("Meal Plan")) {
                 iconImage.setImageResource(R.drawable.ic_meal);
+                customView.setBackgroundColor(getColor(R.color.menuShade2));
             } else if(homeItem.equals("Shuffle Workout")) {
                 iconImage.setImageResource(R.drawable.ic_shuffle);
+                customView.setBackgroundColor(getColor(R.color.menuShade3));
             } else if(homeItem.equals("Favourites")) {
                 iconImage.setImageResource(R.drawable.ic_favourite);
+                customView.setBackgroundColor(getColor(R.color.menuShade4));
             }
 
             Button homeItemButton = (Button) customView.findViewById(R.id.itemButton);
