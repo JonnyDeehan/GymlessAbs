@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -35,6 +37,8 @@ import com.jdblogs.gymlessabs.datahandling.WorkoutGenerator;
 import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
 import com.google.android.gms.ads.MobileAds;
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -95,6 +99,21 @@ public class HomeActivity extends AppCompatActivity {
         workoutDay = (TextView) findViewById(R.id.dayTextView);
         workoutWeek.setText(globalVariables.getWeekSelected());
         workoutDay.setText(globalVariables.getDaySelected());
+
+        float progressPercentage = 0;
+        Log.i(getClass().getSimpleName(), "Current Week and Day: " +
+                globalVariables.getWeekSelected() + " " + globalVariables.getDaySelected());
+        if(!globalVariables.getWeekSelected().equals("") &&
+                !globalVariables.getDaySelected().equals("") ) {
+            float currentWeekNumber = Integer.parseInt(globalVariables.getWeekSelected().substring(5));
+            float currentDayNumber = Integer.parseInt(globalVariables.getDaySelected().substring(4));
+            // 56 days in total (100%) first week starts at 0%, therefore -7 days to set this initially
+            progressPercentage += (((currentWeekNumber * 7) - 7) + currentDayNumber) / 56 * 100;
+        }
+        Log.i(getClass().getSimpleName(), "Progress Percentage: " + progressPercentage + "%");
+        CircularProgressBar circularProgressBar = (CircularProgressBar)findViewById(R.id.progressBar);
+        int animationDuration = 2500; // 2500ms = 2,5s
+        circularProgressBar.setProgressWithAnimation(progressPercentage, animationDuration); // Default duration = 1500ms
     }
 
     private void updateUI(){
@@ -103,10 +122,10 @@ public class HomeActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter(this,homeItemsList);
         listView.setAdapter(customAdapter);
 
-        Typeface tf = Typeface.createFromAsset(getAssets(),
-                "modernesans.ttf");
-        titleTextView= (TextView) findViewById(R.id.titleText);
-        titleTextView.setTypeface(tf);
+//        Typeface tf = Typeface.createFromAsset(getAssets(),
+//                "modernesans.ttf");
+//        titleTextView= (TextView) findViewById(R.id.titleText);
+//        titleTextView.setTypeface(tf);
     }
 
     private void onUpdateLocalData(){
@@ -128,13 +147,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setUpNotificationReminder(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,11);
-        calendar.set(Calendar.MINUTE,22);
         Intent intent = new Intent(getApplicationContext(),NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),alarmManager.INTERVAL_DAY,pendingIntent);
+        PendingIntent pendingIntent = PendingIntent.getService(this,0,intent,0);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,13);
+        calendar.set(Calendar.MINUTE,0);
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),1000*60*60*24,pendingIntent);
     }
 
     private void displayEquipmentSelection(){
@@ -234,17 +255,15 @@ public class HomeActivity extends AppCompatActivity {
 
             if(homeItem.equals("Exercise Plan")){
                 iconImage.setImageResource(R.drawable.ic_exercise);
-                customView.setBackgroundColor(getColor(R.color.menuShade1));
             } else if(homeItem.equals("Meal Plan")) {
                 iconImage.setImageResource(R.drawable.ic_meal);
-                customView.setBackgroundColor(getColor(R.color.menuShade2));
             } else if(homeItem.equals("Shuffle Workout")) {
                 iconImage.setImageResource(R.drawable.ic_shuffle);
-                customView.setBackgroundColor(getColor(R.color.menuShade3));
             } else if(homeItem.equals("Favourites")) {
                 iconImage.setImageResource(R.drawable.ic_favourite);
-                customView.setBackgroundColor(getColor(R.color.menuShade4));
             }
+
+            customView.setBackgroundResource(R.drawable.customshape); // rounded edges
 
             Button homeItemButton = (Button) customView.findViewById(R.id.itemButton);
             homeItemButton.setOnClickListener(new View.OnClickListener() {

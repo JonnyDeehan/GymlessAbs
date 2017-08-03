@@ -3,7 +3,6 @@ package com.jdblogs.gymlessabs.activities.workout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,7 +45,11 @@ public class FavouritesActivity extends AppCompatActivity {
         int workoutNum=1;
 
         for(List<Exercise> workout: workoutList){
-            favouritesList.add("Workout: " + workoutNum);
+            String exerciesNames="";
+            for(int aFewExercisesNames=0;aFewExercisesNames<3;aFewExercisesNames++){
+                exerciesNames+=workout.get(aFewExercisesNames).getName() + "...";
+            }
+            favouritesList.add("Workout " + workoutNum + ": " + exerciesNames);
             workoutNum++;
         }
 
@@ -74,8 +77,6 @@ public class FavouritesActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     public void onBackButton(View view){
         finish();

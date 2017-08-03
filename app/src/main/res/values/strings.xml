@@ -228,348 +228,348 @@ hanging_knee_to_elbows\n
     </string>
     <string name="meal_plan"><![CDATA[Week 1\n
 Monday\n
-Breakfast: <font color="#123456">Scrambled egg</font> and <font color="#123456">smoked salmon</font>\n
-Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
-Lunch: Beef mince and mixed veggies\n
-Snack 2: Hard boiled eggs\n
-Dinner: Steak burger, sweet potato fries, asparagus\n
+Breakfast: <font color="#0E84B4">Scrambled egg</font> and <font color="#0E84B4">smoked salmon</font>\n
+Snack 1: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Lunch: <font color="#0E84B4">Beef mince</font> and <font color="#337658">mixed veggies</font>\n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font>\n
+Dinner: <font color="#0E84B4">Steak burger</font>, <font color="#6668BF">sweet potato fries</font>, <font color="#337658">asparagus</font>\n
 Tuesday \n
-Breakfast: Poached egg with bacon and asparagus\n
-Snack 1: Sliced avocado wrapped in ham\n
-Lunch: Minced beef and salsa\n
-Snack 2: Chicken wings\n
-Dinner: Teriyaki Salmon steak, brown rice, broccoli\n
+Breakfast: <font color="#0E84B4">Poached egg</font> with <font color="#ffff00">bacon</font> and <font color="#337658">asparagus</font>\n
+Snack 1: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font>\n
+Lunch: <font color="#0E84B4">Minced beef</font> and salsa\n
+Snack 2: <font color="#0E84B4">Chicken wings</font>\n
+Dinner: Teriyaki <font color="#0E84B4">salmon steak</font>, <font color="#6668BF">brown rice</font>, <font color="#337658">broccoli</font>\n
 Wednesday\n
-Breakfast: Hard boiled eggs and toasted sweet potato\n
-Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
-Lunch: Beef mince and mixed veggies\n
-Snack 2: Pepperoni slices\n
-Dinner: Chicken breast sliced peppers, rice noodles with mixed veg stir fry \n
+Breakfast: <font color="#0E84B4">Hard boiled eggs</font> and <font color="#6668BF">toasted sweet potato</font>\n
+Snack 1: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Lunch: <font color="#0E84B4">Beef mince</font> and <font color="#337658">mixed veggies</font>\n
+Snack 2: <font color="#0E84B4">Pepperoni slices</font>\n
+Dinner: <font color="#0E84B4">chicken breast</font> <font color="#337658">sliced peppers</font>, <font color="#6668BF">rice noodles</font> with <font color="#337658">mixed veg stir fry</font> \n
 Thursday\n
-Breakfast: Steak and eggs\n
-Snack 1: Beef jerky\n
-Lunch: Tuna salad\n
-Snack 2: Ham and String cheese\n
-Dinner: Turkey sausages, sweet potato mash, mixed veg\n
+Breakfast: <font color="#0E84B4">Steak</font> and <font color="#0E84B4">eggs</font>\n
+Snack 1: <font color="#0E84B4">Beef jerky</font>\n
+Lunch: <font color="#0E84B4">tuna</font> <font color="#337658">salad</font>\n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">String cheese</font>\n
+Dinner: <font color="#0E84B4">Turkey sausage</font>, <font color="#6668BF">sweet potato mash</font>, <font color="#337658">mixed veg</font>\n
 Friday\n
-Breakfast: Eggs benedict with spinach \n
-Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
-Lunch: Beef mince and mixed veggies\n
-Snack 2: Cheese strings and sliced cold meat\n
-Dinner: Pork Chop, baked sweet potato, apple sauce, green beans\n
+Breakfast: <font color="#0E84B4">Eggs benedict</font> with <font color="#337658">spinach</font> \n
+Snack 1: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Lunch: <font color="#0E84B4">Beef mince</font> and <font color="#337658">mixed veggies</font>\n
+Snack 2: <font color="#ffff00">cheese string</font>s and <font color="#0E84B4">sliced cold meat</font>\n
+Dinner: <font color="#0E84B4">Pork chops</font>, <font color="#6668BF">baked sweet potato</font>, apple sauce, <font color="#337658">green beans</font>\n
 Saturday\n
-Breakfast: Sardines and hard boiled eggs\n
-Snack 1: Cold cut meat wrapped around cheese stick \n
-Lunch: Smoked salmon, rice noodles, broccoli, green beans and peas\n
-Snack 2: Sliced avocado wrapped in ham\n
-Dinner: Mackerel, mixed veg and quinoa\n
+Breakfast: <font color="#0E84B4">Sardines</font> and <font color="#0E84B4">Hard boiled eggs</font>\n
+Snack 1: <font color="#0E84B4">Cold cut meat</font> wrapped around <font color="#ffff00">cheese stick</font> \n
+Lunch: <font color="#0E84B4">smoked salmon</font>, <font color="#6668BF">rice noodles</font>, <font color="#337658">broccoli</font>, <font color="#337658">green beans</font> and peas\n
+Snack 2: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font>\n
+Dinner: <font color="#0E84B4">Mackerel</font>, mixed veg and <font color="#6668BF">quinoa</font>\n
 Sunday\n
-Breakfast: Fried egg, bacon, sautéed veggies\n
-Snack 1: Chicken slices and olives\n
-Lunch: Chicken and green veggies\n
-Snack 2: Hard boiled eggs\n
-Dinner: Spare ribs, zuchini fries, mixed veg\n
+Breakfast: <font color="#0E84B4">Fried egg</font>, <font color="#ffff00">bacon</font>, sautéed <font color="#337658">veggies</font>\n
+Snack 1: <font color="#0E84B4">Chicken slices</font> and <font color="#ffff00">olives</font>\n
+Lunch: <font color="#0E84B4">Chicken</font> and <font color="#337658">green veggies</font>\n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font>\n
+Dinner: <font color="#ffff00">Spare ribs</font>, zuchini fries, <font color="#337658">mixed veg</font>\n
 Week 2\n
 Monday\n
-Breakfast: Sausage and egg muffin\n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Lunch: Tuna cheese melt\n
-Snack 2: Beef jerky\n
-Dinner: Baked tilapia and radish relish\n
+Breakfast: <font color="#0E84B4">Sausage</font> and <font color="#0E84B4">egg muffin</font>\n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Lunch: <font color="#0E84B4">tuna</font> cheese melt\n
+Snack 2: <font color="#0E84B4">Beef jerky</font>\n
+Dinner: <font color="#0E84B4">Baked tilapia and radish relish\n
 Tuesday\n
-Breakfast: Scrambled eggs with halloumi cheese \n
-Snack 1: Sliced avocado wrapped in ham\n
-Lunch: Chilli covered salmon and spinach \n
-Snack 2: Pepperoni slices \n
-Dinner: Thai green curry with cod and mixed veggies\n
+Breakfast: <font color="#0E84B4">scrambled eggs</font> with <font color="#ffff00">halloumi cheese</font> \n
+Snack 1: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font>\n
+Lunch: Chilli covered <font color="#0E84B4">salmon</font> and <font color="#337658">spinach</font> \n
+Snack 2: <font color="#0E84B4">Pepperoni slices</font> \n
+Dinner: <font color="#ffff00">Thai green curry</font> with <font color="#0E84B4">cod</font> and <font color="#337658">mixed veggies</font>\n
 Wednesday\n
-Breakfast: Red pepper and spinach frittata \n
-Snack 1: Ham and cheese string\n
-Lunch: Beef stroganoff with zuchinni spirals\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex\n
-Dinner: Pork chops and blue cheese sauce with roast sweet potato\n
+Breakfast: Red pepper and <font color="#337658">spinach</font> <font color="#0E84B4">frittata</font> \n
+Snack 1: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Lunch: <font color="#0E84B4">Beef stroganoff</font> with <font color="#337658">zuchinni spirals</font>\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex\n
+Dinner: <font color="#0E84B4">Pork chops</font> and <font color="#ffff00">blue cheese sauce</font> with <font color="#6668BF">roast sweet potato</font>\n
 Thursday\n
 Breakfast: Diary free latte \n
-Snack 1: Hard boiled eggs \n
-Lunch: Prawn and avocado salad \n
-Snack 2: Ham and cheese string\n
-Dinner: Garlic chicken, brown rice and mixed veggies \n
+Snack 1: <font color="#0E84B4">Hard boiled eggs</font> \n
+Lunch: <font color="#0E84B4">Prawn</font> and <font color="#ffff00">avocado</font> <font color="#337658">salad</font> \n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Dinner: <font color="#0E84B4">Garlic chicken</font>, <font color="#6668BF">brown rice</font> and <font color="#337658">mixed veggies</font> \n
 Friday\n
 Breakfast: Chocolate chip banana pancakes\n
-Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
-Lunch: Avocado, bacon, and goats cheese salad\n
-Snack 2: Hard boiled eggs\n
-Dinner: Cheesy hamburger and sweet potato fries\n
+Snack 1: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Lunch: <font color="#ffff00">avocado</font>, <font color="#ffff00">bacon</font>, and <font color="#ffff00">goats cheese</font> <font color="#337658">salad</font>\n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font>\n
+Dinner: Cheesy <font color="#0E84B4">hamburger</font> and <font color="#6668BF">sweet potato fries</font>\n
 Saturday\n
-Breakfast: Poached eggs with spicy tomato sauce\n
-Snack 1: Beef jerky\n
-Lunch: Chicken breast with herb butter and veggies\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex\n
-Dinner: Meat pie and mixed veggies salad\n
+Breakfast: <font color="#0E84B4">Poached eggs</font> with spicy <font color="#337658">tomato</font> sauce\n
+Snack 1: <font color="#0E84B4">Beef jerky</font>\n
+Lunch: <font color="#0E84B4">chicken breast</font> with <font color="#ffff00">herb butter</font> and <font color="#337658">veggies</font>\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex\n
+Dinner: <font color="#0E84B4">Meat pie</font> and <font color="#337658">mixed veggies</font> <font color="#337658">salad</font>\n
 Sunday\n
-Breakfast: Minced beef, egg and avocado bowl\n
-Snack 1: Sliced avocado wrapped in ham\n
-Lunch: Minced beef and salsa\n
-Snack 2: Ham and cheese string\n
-Dinner: Pesto chicken casserole with feta and olives\n
+Breakfast: <font color="#0E84B4">Minced beef</font>, egg and <font color="#ffff00">avocado</font> bowl\n
+Snack 1: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font>\n
+Lunch: <font color="#0E84B4">Minced beef</font> and salsa\n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Dinner: <font color="#ffff00">Pesto</font> <font color="#0E84B4">chicken</font> casserole with <font color="#ffff00">feta</font> and <font color="#ffff00">olives</font>\n
 Week 3\n
 Monday\n
-Breakfast: Omelet with ham and peppers \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Lunch: Chicken, bacon and avocado salad \n
-Snack 2: Ham and cheese string\n
-Dinner: Meat balls and zuchinni spaghetti \n
+Breakfast: <font color="#0E84B4">Omelet</font> with <font color="#0E84B4">ham</font> and peppers \n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Lunch: <font color="#0E84B4">Chicken</font>, <font color="#ffff00">bacon</font> and <font color="#ffff00">avocado</font> <font color="#337658">salad</font> \n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Dinner: <font color="#0E84B4">Meat balls</font> and <font color="#337658">zuchinni spaghetti</font> \n
 Tuesday\n
 Breakfast: Chocolate chip espresso pancakes\n
-Snack 1: Ham and cheese string\n
-Lunch: Chipotle chicken and lettuce wrap\n
-Snack 2: Hard boiled eggs \n
-Dinner: Mac and cheese with rice pasta \n
+Snack 1: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Lunch: <font color="#0E84B4">Chipotle chicken</font> and <font color="#337658">lettuce wrap</font>\n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font> \n
+Dinner: <font color="#ffff00">Mac and cheese</font> with <font color="#6668BF">rice pasta</font> \n
 Wednesday\n
-Breakfast: Eggs, sausage and spinach \n
-Snack 1: Chicken slices and olives \n
-Lunch: Flat iron steak salad\n
-Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
-Dinner: Rosemary lamb burgers with pesto\n
+Breakfast: <font color="#0E84B4">Eggs, sausage</font> and <font color="#337658">spinach</font> \n
+Snack 1: <font color="#0E84B4">Chicken slices</font> and <font color="#ffff00">olives</font> \n
+Lunch: <font color="#0E84B4">Flat iron steak</font> <font color="#337658">salad</font>\n
+Snack 2: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Dinner: Rosemary <font color="#0E84B4">lamb burgers</font> with <font color="#ffff00">pesto</font>\n
 Thursday\n
-Breakfast: Bacon, sausage and egg bites\n
-Snack 1: Sliced avocado wrapped in ham \n
-Lunch: Almond butter and bacon bunless burger \n
-Snack 2: Beef jerky \n
-Dinner: Chicken and zuchinni noodle soup\n
+Breakfast: <font color="#ffff00">bacon</font>, <font color="#0E84B4">sausage</font> and <font color="#0E84B4">egg bites</font>\n
+Snack 1: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font> \n
+Lunch: <font color="#ffff00">Almond butter</font> and <font color="#ffff00">bacon</font> bunless burger \n
+Snack 2: <font color="#0E84B4">Beef jerky</font> \n
+Dinner: <font color="#0E84B4">Chicken</font> and <font color="#337658">zuchinni noodle soup</font>\n
 Friday\n
-Breakfast: Tomato and scrambled eggs \n
-Snack 1: Ham and cheese string\n
-Lunch: Pesto chicken salad\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Baked fish with veggies and jasmine rice \n
+Breakfast: <font color="#337658">tomato</font> and <font color="#0E84B4">scrambled eggs</font> \n
+Snack 1: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Lunch: <font color="#ffff00">Pesto</font> <font color="#0E84B4">chicken</font> <font color="#337658">salad</font>\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: <font color="#0E84B4">Baked fish</font> with <font color="#337658">veggies</font> and <font color="#6668BF">jasmine rice</font> \n
 Saturday\n
-Breakfast: Smoke salmon frittata \n
-Snack 1: Beef jerky \n
-Lunch: Stuffed avocado\n
-Snack 2: Hard boiled eggs \n
-Dinner: Roasted pork belly with vegetables \n
+Breakfast: <font color="#0E84B4">Smoke salmon</font> <font color="#0E84B4">frittata</font> \n
+Snack 1: <font color="#0E84B4">Beef jerky</font> \n
+Lunch: Stuffed <font color="#ffff00">avocado</font>\n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font> \n
+Dinner: Roasted <font color="#0E84B4">pork belly</font> with <font color="#337658">vegetables</font> \n
 Sunday\n
 Breakfast: Cinnamon and coconut pancakes \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Lunch: Steak and chimichurri salad \n
-Snack 2: Beef jerky \n
-Dinner: Baked fish with veggies\n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Lunch: Steak and chimichurri <font color="#337658">salad</font> \n
+Snack 2: <font color="#0E84B4">Beef jerky</font> \n
+Dinner: <font color="#0E84B4">Baked fish</font> with <font color="#337658">veggies</font>\n
 Week 4\n
 Monday\n
-Breakfast: Baked tomato and egg breakfast \n
-Snack 1: Beef jerky\n
-Lunch: Turkey and bacon wraps with basil mayo\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Roast turkey breast, with cranberry sauce, sliced almonds and baked sweet potato \n
+Breakfast: Baked <font color="#337658">tomato</font> and <font color="#0E84B4">egg</font> breakfast \n
+Snack 1: <font color="#0E84B4">Beef jerky</font>\n
+Lunch: Turkey and <font color="#ffff00">bacon</font> wraps with basil mayo\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: <font color="#0E84B4">Roast turkey breast</font>, with cranberry sauce, sliced almonds and <font color="#6668BF">baked sweet potato</font> \n
 Tuesday\n
-Breakfast: Grain-free breakfast porridge with dairy free milk \n
-Snack 1: Hard boiled eggs \n
-Lunch: Prawn and noodle bowl\n
-Snack 2: Ham and cheese string\n
-Dinner: Seared yellowfin tuna steak, jasmine rice and wilted spinach \n
+Breakfast: Grain-free breakfast <font color="#ffff00">porridge</font> with dairy free milk \n
+Snack 1: <font color="#0E84B4">Hard boiled eggs</font> \n
+Lunch: <font color="#0E84B4">Prawn</font> and noodle bowl\n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Dinner: Seared yellowfin <font color="#0E84B4">tuna steak</font>, <font color="#6668BF">jasmine rice</font> and wilted <font color="#337658">spinach</font> \n
 Wednesday\n
-Breakfast: Baked eggs in avocado \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Lunch: Steak and sriracha lettuce wrap\n
-Snack 2: Chicken slices and olives \n
-Dinner: Turkey sausage, red peppers, onions and sweet potato mash\n
+Breakfast: <font color="#0E84B4">baked eggs</font> in <font color="#ffff00">avocado</font> \n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Lunch: <font color="#0E84B4">Steak</font> and sriracha <font color="#337658">lettuce wrap</font>\n
+Snack 2: <font color="#0E84B4">Chicken slices</font> and <font color="#ffff00">olives</font> \n
+Dinner: <font color="#0E84B4">Turkey sausage</font>, red peppers, onions and <font color="#6668BF">sweet potato mash</font>\n
 Thursday\n
 Breakfast: Italian scramble \n
-Snack 1: Sliced avocado wrapped in ham \n
+Snack 1: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font> \n
 Lunch: Mexican Super Bowl\n
-Snack 2: Hard boiled eggs\n
-Dinner: Roast chicken breast with broccoli and lemon rice \n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font>\n
+Dinner: Roast <font color="#0E84B4">chicken breast</font> with <font color="#337658">broccoli</font> and lemon rice \n
 Friday\n
 Breakfast: Almond cereal with dairy free milk \n
-Snack 1: Hard boiled eggs \n
-Lunch: Avocado tuna salad\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Sirloin steak, Broccoli and sweet potato wedges\n
+Snack 1: <font color="#0E84B4">Hard boiled eggs</font> \n
+Lunch: <font color="#ffff00">avocado</font> <font color="#0E84B4">tuna</font> <font color="#337658">salad</font>\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: <font color="#0E84B4">Sirloin steak</font>, <font color="#337658">broccoli</font> and <font color="#6668BF">sweet potato wedges</font>\n
 Saturday\n
-Breakfast: Guacamole topped scrambled eggs  \n
-Snack 1: Beef jerky \n
+Breakfast: Guacamole topped <font color="#0E84B4">scrambled eggs</font>  \n
+Snack 1: <font color="#0E84B4">Beef jerky</font> \n
 Lunch: BLT bowl\n
-Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
-Dinner: Lemon baked cod, quinoa and mixed veggies \n
+Snack 2: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Dinner: Lemon baked <font color="#0E84B4">cod</font>, <font color="#6668BF">quinoa</font> and <font color="#337658">mixed veggies</font> \n
 Sunday\n
-Breakfast: Spinach sausage and mushroom frittata \n
-Snack 1: Ham and cheese string\n
-Lunch: Prawn and avocado salad with miso \n
-Snack 2: Beef jerky \n
-Dinner: Chicken, Egg fried brown rice and wilted spinach \n
+Breakfast: <font color="#337658">spinach</font> sausage and <font color="#337658">mushroom</font> <font color="#0E84B4">frittata</font> \n
+Snack 1: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Lunch: <font color="#0E84B4">Prawn</font> and <font color="#ffff00">avocado</font> <font color="#337658">salad</font> with miso \n
+Snack 2: <font color="#0E84B4">Beef jerky</font> \n
+Dinner: <font color="#0E84B4">Chicken</font>, Egg fried <font color="#6668BF">brown rice</font> and wilted <font color="#337658">spinach</font> \n
 Week 5\n
 Monday\n
-Breakfast: Baked egg in avocado centre with spinach and roasted garlic \n
-Snack 1: Beef jerky \n
-Lunch:  Burger with balsamic onion and avocado \n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Roasted pork belly with roast root vegetables  \n
+Breakfast: <font color="#0E84B4">Baked egg</font> in <font color="#ffff00">avocado</font> centre with <font color="#337658">spinach</font> and roasted garlic \n
+Snack 1: <font color="#0E84B4">Beef jerky</font> \n
+Lunch:  Burger with <font color="#337658">balsamic onion</font> and <font color="#ffff00">avocado</font> \n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: Roasted <font color="#0E84B4">pork belly</font> with roast <font color="#6668BF">root vegetables</font>  \n
 Tuesday\n
 Breakfast: Frosted “corn” flakes with dairy free milk\n
-Snack 1: Hard boiled eggs\n
-Lunch: Tuna nicoise salad\n
-Snack 2: Beef jerky \n
-Dinner: Baked cod in  butter, green beans and brown rice \n
+Snack 1: <font color="#0E84B4">Hard boiled eggs</font>\n
+Lunch: <font color="#0E84B4">tuna</font> nicoise <font color="#337658">salad</font>\n
+Snack 2: <font color="#0E84B4">Beef jerky</font> \n
+Dinner: Baked <font color="#0E84B4">cod</font> in  butter, <font color="#337658">green beans</font> and <font color="#6668BF">brown rice</font> \n
 Wednesday\n
-Breakfast: Grilled mushroom, with feta, egg and rocket \n
-Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
-Lunch: Chicken, tomatoes and avocado \n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Baked fish with veggies and jasmine rice\n
+Breakfast: Grilled <font color="#337658">mushroom</font>, with <font color="#ffff00">feta</font>, egg and <font color="#337658">rocket</font> \n
+Snack 1: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Lunch: <font color="#0E84B4">Chicken</font>, <font color="#337658">tomatoes</font> and <font color="#ffff00">avocado</font> \n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: <font color="#0E84B4">Baked fish</font> with <font color="#337658">veggies</font> and <font color="#6668BF">jasmine rice</font>\n
 Thursday\n
-Breakfast: Beef and broccoli scramble \n
-Snack 1: Sliced avocado wrapped in ham \n
-Lunch: Spicy tuna and tomato burger\n
-Snack 2: Ham and cheese string\n
-Dinner: Rosemary lamb burgers with pesto\n
+Breakfast: <font color="#0E84B4">Beef</font> and <font color="#337658">broccoli</font> scramble \n
+Snack 1: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font> \n
+Lunch: Spicy <font color="#0E84B4">tuna</font> and <font color="#337658">tomato</font> <font color="#0E84B4">burger</font>\n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Dinner: Rosemary <font color="#0E84B4">lamb burgers</font> with pesto\n
 Friday\n
 Breakfast: Cinnamon and coconut pancakes \n
-Snack 1: Hard boiled eggs \n
-Lunch: Chicken and zoodles\n
-Snack 2: Sliced avocado wrapped in ham\n
-Dinner:  Melted cheeseburger, carrot fries and mixed veggies\n
+Snack 1: <font color="#0E84B4">Hard boiled eggs</font> \n
+Lunch: <font color="#0E84B4">Chicken</font> and zoodles\n
+Snack 2: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font>\n
+Dinner:  <font color="#0E84B4">Melted cheeseburger</font>, <font color="#6668BF">carrot fries</font> and <font color="#337658">mixed veggies</font>\n
 Saturday\n
-Breakfast: Creamy kale baked eggs \n
-Snack 1: Beef jerky \n
-Lunch: Smoked salmon wrapped on sliced avocado \n
-Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
-Dinner: Teriyaki salmon, stir fried mixed veggies and sticky rice \n
+Breakfast: Creamy <font color="#337658">kale</font> <font color="#0E84B4">baked eggs</font> \n
+Snack 1: <font color="#0E84B4">Beef jerky</font> \n
+Lunch: <font color="#0E84B4">smoked salmon</font> wrapped on sliced <font color="#ffff00">avocado</font> \n
+Snack 2: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Dinner: Teriyaki salmon, stir fried <font color="#337658">mixed veggies</font> and <font color="#6668BF">sticky rice</font> \n
 Sunday\n
-Breakfast: Sausage, leek and asparagus breakfast casserole \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Lunch: Minced beef and salsa \n
-Snack 2: Ham and cheese string \n
-Dinner: Pork chops with blue cheese sauce and roast sweet potato chunks\n
+Breakfast: <font color="#0E84B4">Sausage</font>, <font color="#337658">leek</font> and <font color="#337658">asparagus</font> breakfast casserole \n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Lunch: <font color="#0E84B4">Minced beef</font> and salsa \n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font> \n
+Dinner: <font color="#0E84B4">Pork chops</font> with <font color="#ffff00">blue cheese sauce</font> and roast <font color="#6668BF">sweet potato chunks</font>\n
 Week 6\n
 Monday\n
-Breakfast: Sardines and hard boiled egg\n
-Snack 1: Ham and cheese string\n
-Lunch: Chicken, sausage and vegetable stir fry \n
-Snack 2: Beef jerky \n
-Dinner: Sashimi with, edamame, brown rice and choice of salad or veggies \n
+Breakfast: <font color="#0E84B4">Sardines</font> and <font color="#0E84B4">hard boiled egg</font>\n
+Snack 1: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Lunch: <font color="#0E84B4">Chicken</font>, <font color="#0E84B4">sausage</font> and <font color="#337658">vegetable stir fry</font> \n
+Snack 2: <font color="#0E84B4">Beef jerky</font> \n
+Dinner: <font color="#0E84B4">Sashimi</font> with, <font color="#337658">edamame</font>, <font color="#6668BF">brown rice</font> and choice of <font color="#337658">salad</font> or <font color="#337658">veggies</font> \n
 Tuesday\n
-Breakfast: Sausage and peppers frittata \n
-Snack 1: Sliced avocado wrapped in ham \n
-Lunch: Prawn and noodle bowl\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Mackerel, mixed veg and quinoa \n
+Breakfast: <font color="#0E84B4">Sausage</font> and peppers <font color="#0E84B4">frittata</font> \n
+Snack 1: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font> \n
+Lunch: <font color="#0E84B4">Prawn</font> and noodle bowl\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: <font color="#0E84B4">Mackerel</font>, <font color="#337658">mixed veg</font> and <font color="#6668BF">quinoa</font> \n
 Wednesday\n
-Breakfast: Easy nut and seed granola\n
-Snack 1: Ham and cheese strings\n
-Lunch: Chicken, bacon and avocado salad \n
-Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
-Dinner: Chicken and zuchinni noodle soup \n
+Breakfast: Easy <font color="#ffff00">nut and seed granola</font>\n
+Snack 1: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>s\n
+Lunch: <font color="#0E84B4">Chicken</font>, <font color="#ffff00">bacon</font> and <font color="#ffff00">avocado</font> <font color="#337658">salad</font> \n
+Snack 2: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Dinner: <font color="#0E84B4">Chicken</font> and <font color="#337658">zuchinni noodle soup</font> \n
 Thursday\n
-Breakfast: Breakfast porridge with dairy free milk\n
-Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
-Lunch: Smoked salmon, wrapped on thin slices of butter\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Sirloin steak, broccoli and sweet potato wedges\n
+Breakfast: Breakfast <font color="#ffff00">porridge</font> with dairy free milk\n
+Snack 1: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Lunch: <font color="#0E84B4">smoked salmon</font>, wrapped on <font color="#ffff00">thin slices of butter</font>\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: <font color="#0E84B4">Sirloin steak</font>, <font color="#337658">broccoli</font> and <font color="#6668BF">sweet potato wedges</font>\n
 Friday\n
-Breakfast: Feta and asparagus frittata\n
-Snack 1: Chicken slices and olives \n
-Lunch: Beef stroganoff with zuchinni spirals \n
-Snack 2: Hard boiled eggs \n
-Dinner: Baked cod in  butter, green beans and brown rice \n
+Breakfast: <font color="#ffff00">Feta</font> and <font color="#337658">asparagus</font> <font color="#0E84B4">frittata</font>\n
+Snack 1: <font color="#0E84B4">Chicken slices</font> and <font color="#ffff00">olives</font> \n
+Lunch: <font color="#0E84B4">Beef stroganoff</font> with <font color="#337658">zuchinni spirals</font> \n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font> \n
+Dinner: Baked <font color="#0E84B4">cod</font> in  <font color="#ffff00">butter</font>, <font color="#337658">green beans</font> and <font color="#6668BF">brown rice</font> \n
 Saturday\n
-Breakfast: Kale and chive egg muffins \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Breakfast: <font color="#337658">kale</font> and chive <font color="#0E84B4">egg muffins</font> \n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
 Lunch: BLT bowl\n
-Snack 2: Beef jerky \n
-Dinner: Garlic chicken, brown rice and mixed veggies \n
+Snack 2: <font color="#0E84B4">Beef jerky</font> \n
+Dinner: <font color="#0E84B4">Garlic chicken</font>, <font color="#6668BF">brown rice</font> and <font color="#337658">mixed veggies</font> \n
 Sunday\n
 Breakfast: Chocolate chip banana pancakes \n
-Snack 1: Hard boiled eggs\n
-Lunch: Spicy tuna and tomato burger \n
-Snack 2: Ham and cheese string \n
-Dinner: Steak burger, sweet potato fries and asparagus \n
+Snack 1: <font color="#0E84B4">Hard boiled eggs</font>\n
+Lunch: Spicy <font color="#0E84B4">tuna</font> and <font color="#337658">tomato</font> <font color="#0E84B4">burger</font> \n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font> \n
+Dinner: <font color="#0E84B4">Steak burger</font>, <font color="#6668BF">sweet potato fries</font> and <font color="#337658">asparagus</font> \n
 Week 7\n
 Monday\n
-Breakfast: Sausage muffin\n
-Snack 1: Beef jerky \n
+Breakfast: <font color="#0E84B4">Sausage muffin</font>\n
+Snack 1: <font color="#0E84B4">Beef jerky</font> \n
 Lunch: Mexican Super Bowl\n
-Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
-Dinner: Roasted pork belly with roast root vegetables \n
+Snack 2: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Dinner: Roasted <font color="#0E84B4">pork belly</font> with roast <font color="#6668BF">root vegetables</font> \n
 Tuesday\n
-Breakfast: Scrambled egg and smoked salmon\n
-Snack 1: Beef jerky\n
-Lunch: Tuna cheese melt \n
-Snack 2: Hard boiled eggs\n
-Dinner: Teriyaki salmon, stir fried mixed veggies and sticky rice \n
+Breakfast: <font color="#0E84B4">Scrambled egg</font> and <font color="#0E84B4">smoked salmon</font>\n
+Snack 1: <font color="#0E84B4">Beef jerky</font>\n
+Lunch: <font color="#0E84B4">tuna</font> cheese melt \n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font>\n
+Dinner: Teriyaki <font color="#0E84B4">salmon</font>, stir fried <font color="#337658">mixed veggies</font> and <font color="#6668BF">sticky rice</font> \n
 Wednesday\n
-Breakfast: Fried egg, bacon and sautéed veggies \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
+Breakfast: <font color="#0E84B4">Fried egg</font>, <font color="#ffff00">bacon</font> and sautéed <font color="#337658">veggies</font> \n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
 Lunch: Mexican Super Bowl\n
-Snack 2: Sliced avocado wrapped in ham \n
-Dinner: Chicken and melted mozzarella, brown rice and mixed veggies\n
+Snack 2: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font> \n
+Dinner: <font color="#0E84B4">Chicken</font> and melted <font color="#ffff00">mozzarella</font>, <font color="#6668BF">brown rice</font> and <font color="#337658">mixed veggies</font>\n
 Thursday\n
 Breakfast: Strawberry granola \n
-Snack 1: Hard boiled eggs \n
-Lunch: Steak and chimichurri salad \n
-Snack 2: Ham and cheese string\n
-Dinner: Roast chicken breast, broccoli and lemon rice \n
+Snack 1: <font color="#0E84B4">Hard boiled eggs</font> \n
+Lunch: Steak and chimichurri <font color="#337658">salad</font> \n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Dinner: Roast <font color="#0E84B4">chicken breast</font>, <font color="#337658">broccoli</font> and <font color="#6668BF">lemon rice</font> \n
 Friday\n
 Breakfast: Diary free latte \n
-Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
-Lunch: Turkey and bacon wraps with basil mayo\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Mac and cheese with rice pasta \n
+Snack 1: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Lunch: <font color="#0E84B4">Turkey</font> and <font color="#ffff00">bacon</font> wraps with basil mayo\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: <font color="#ffff00">Mac and cheese</font> with <font color="#6668BF">rice pasta</font> \n
 Saturday\n
-Breakfast: Avocado and bacon muffins \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Lunch: Burger with balsamic onions and avocado \n
-Snack 2: Hard boiled eggs\n
-Dinner: Meat pie with mixed veggies salad\n
+Breakfast: <font color="#ffff00">avocado</font> and <font color="#ffff00">bacon</font> muffins \n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Lunch: <font color="#0E84B4">Burger</font> with <font color="#337658">balsamic onions</font> and <font color="#ffff00">avocado</font> \n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font>\n
+Dinner: <font color="#0E84B4">Meat pie</font> with <font color="#337658">mixed veggies</font> <font color="#337658">salad</font>\n
 Sunday\n
-Breakfast: Baked tomato and egg breakfast \n
-Snack 1: Beef jerky \n
-Lunch: Mixed green salad, with grilled baked  salmon\n
-Snack 2: Ham and cheese string\n
-Dinner: Grilled salmon steak, asparagus and brown rice \n
+Breakfast: Baked <font color="#337658">tomato</font> and <font color="#0E84B4">egg</font> breakfast \n
+Snack 1: <font color="#0E84B4">Beef jerky</font> \n
+Lunch: Mixed green <font color="#337658">salad</font>, with <font color="#0E84B4">grilled baked  salmon</font>\n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Dinner: Grilled <font color="#0E84B4">salmon steak</font>, <font color="#337658">asparagus</font> and <font color="#6668BF">brown rice</font> \n
 Week 8\n
 Monday\n
-Breakfast: Red pepper and spinach frittata\n
-Snack 1: Ham and cheese string\n
-Lunch: Steak and sriracha lettuce wrap\n
-Snack 2: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Dinner: Seared yellowfin tuna steak, jasmine rice and wilted spinach \n
+Breakfast: Red pepper and <font color="#337658">spinach</font> <font color="#0E84B4">frittata</font>\n
+Snack 1: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Lunch: <font color="#0E84B4">Steak</font> and sriracha <font color="#337658">lettuce wrap</font>\n
+Snack 2: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Dinner: Seared yellowfin <font color="#0E84B4">tuna steak</font>, <font color="#6668BF">jasmine rice</font> and wilted <font color="#337658">spinach</font> \n
 Tuesday\n
-Breakfast: Grain free cereal with dairy free milk\n
-Snack 1: Hard boiled eggs \n
-Lunch: Stuffed Avocado\n
-Snack 2: Handful of mixed nuts (Cashews, macadamias)\n
-Dinner: Prawns, egg fried brown rice and wilted spinach \n
+Breakfast: <font color="#ffff00">Grain free cereal</font> with dairy free milk\n
+Snack 1: <font color="#0E84B4">Hard boiled eggs</font> \n
+Lunch: Stuffed <font color="#ffff00">avocado</font>\n
+Snack 2: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Dinner: <font color="#0E84B4">Prawns</font>, egg fried <font color="#6668BF">brown rice</font> and wilted <font color="#337658">spinach</font> \n
 Wednesday\n
-Breakfast: Creamy kale baked eggs \n
-Snack 1: Ham and cheese string\n
-Lunch: Almond butter and bacon bunless burger \n
-Snack 2: Beef jerky\n
-Dinner: Turkey sausage, red peppers, onions and sweet potato mash \n
+Breakfast: Creamy <font color="#337658">kale</font> <font color="#0E84B4">baked eggs</font> \n
+Snack 1: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Lunch: <font color="#ffff00">Almond butter</font> and <font color="#ffff00">bacon</font> bunless <font color="#0E84B4">burger</font> \n
+Snack 2: <font color="#0E84B4">Beef jerky</font>\n
+Dinner: <font color="#0E84B4">Turkey sausage</font>, red peppers, onions and <font color="#6668BF">sweet potato mash</font> \n
 Thursday\n
-Breakfast: Baked eggs in avocado \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Lunch: Chipotle chicken lettuce wrap\n
-Snack 2: Sliced avocado wrapped in ham \n
-Dinner: Chicken and melted mozzarella with brown rice and mixed veggies \n
+Breakfast: <font color="#0E84B4">Baked eggs</font> in <font color="#ffff00">avocado</font> \n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Lunch: <font color="#0E84B4">Chipotle chicken</font> <font color="#337658">lettuce wrap</font>\n
+Snack 2: Sliced <font color="#ffff00">avocado</font> wrapped in <font color="#0E84B4">ham</font> \n
+Dinner: <font color="#0E84B4">Chicken</font> and melted <font color="#ffff00">mozzarella</font> with <font color="#6668BF">brown rice</font> and <font color="#337658">mixed veggies</font> \n
 Friday\n
-Breakfast: Breakfast pizza frittata\n
-Snack 1: Handful of mixed nuts (Cashews, macadamias)\n
-Lunch: Smoked salmon wrapped on sliced avocado \n
-Snack 2: Ham and cheese string\n
-Dinner: Sirloin steak, broccoli and sweet potato wedges\n
+Breakfast: Breakfast pizza <font color="#0E84B4">frittata</font>\n
+Snack 1: Handful of <font color="#ffff00">mixed nuts</font> (Cashews, macadamias)\n
+Lunch: <font color="#0E84B4">Smoked salmon</font> wrapped on sliced <font color="#ffff00">avocado</font> \n
+Snack 2: <font color="#0E84B4">ham</font> and <font color="#ffff00">cheese string</font>\n
+Dinner: <font color="#0E84B4">Sirloin steak</font>, <font color="#337658">broccoli</font> and <font color="#6668BF">sweet potato wedges</font>\n
 Saturday\n
 Breakfast: Dairy free latte \n
-Snack 1: Beef jerky \n
-Lunch: Pesto chicken salad \n
-Snack 2: Hard boiled eggs \n
-Dinner: Melted cheeseburger, carrot fries and mixed veggies \n
+Snack 1: <font color="#0E84B4">Beef jerky</font> \n
+Lunch: <font color="#ffff00">Pesto</font> <font color="#0E84B4">chicken</font> <font color="#337658">salad</font> \n
+Snack 2: <font color="#0E84B4">Hard boiled eggs</font> \n
+Dinner: <font color="#0E84B4">Melted cheeseburger</font>, <font color="#6668BF">carrot fries</font> and <font color="#337658">mixed veggies</font> \n
 Sunday\n
-Breakfast: Grilled mushroom, with feta, egg and rocket \n
-Snack 1: Protein bar (Quest bar, 22, Atkins, reflex)\n
-Lunch: Turkey burger with onions, lettuce, tomato and cheese\n
-Snack 2: Beef jerky \n
-Dinner: Sashimi with, edamame, brown rice and choice of salad or veggies]]></string>
+Breakfast: Grilled <font color="#337658">mushroom</font>, with <font color="#ffff00">feta</font>, egg and <font color="#337658">rocket</font> \n
+Snack 1: <font color="#0E84B4">Protein bar</font> (Quest bar, 22, Atkins, reflex)\n
+Lunch: <font color="#0E84B4">Turkey burger</font> with onions, <font color="#337658">lettuce</font>, <font color="#337658">tomato</font> and <font color="#ffff00">cheese</font>\n
+Snack 2: <font color="#0E84B4">Beef jerky</font> \n
+Dinner: <font color="#0E84B4">Sashimi</font> with, <font color="#337658">edamame</font>, <font color="#6668BF">brown rice</font> and choice of <font color="#337658">salad</font> or <font color="#337658">veggies</font>]]></string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_meal_plan">MealPlanActivity</string>
     <string name="title_activity_favourites">FavouritesActivity</string>

@@ -13,4 +13,8 @@
     <color name="menuShade3">#1E90FF</color>
     <color name="menuShade4">#638BB3</color>
     <color name="homeMenuBackground">#3B3F45</color>
+    <color name="discordBackground">#2f3136</color>
+    <color name="discordBlueText">#0E84B4</color>
+    <color name="discordGreenText">#337658</color>
+    <color name="discordPurple">#6668BF</color>
 </resources>

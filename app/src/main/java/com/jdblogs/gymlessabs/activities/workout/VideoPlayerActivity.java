@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.VideoView;
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
@@ -15,6 +16,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
 
     private GlobalVariables appContext;
     private Exercise selectedExercise;
+    private TextView currentExerciseNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class VideoPlayerActivity extends AppCompatActivity {
 
         appContext = GlobalVariables.getInstance();
         selectedExercise = appContext.getCurrentExerciseSelected();
+        currentExerciseNameTextView = (TextView) findViewById(R.id.currentExerciseName);
+        currentExerciseNameTextView.setText(selectedExercise.getName());
 
         setUpVideoView();
     }

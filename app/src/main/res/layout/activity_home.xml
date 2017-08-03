@@ -5,41 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/homeMenuBackground"
+    android:background="@color/discordBackground"
     tools:context="com.jdblogs.gymlessabs.activities.main.HomeActivity"
     tools:layout_editor_absoluteY="25dp"
     tools:layout_editor_absoluteX="0dp">
 
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="148dp"
+        android:layout_height="151dp"
+        app:background_progressbar_color="@color/colorAlternative"
+        app:background_progressbar_width="5dp"
+        app:progressbar_color="@color/discordBlueText"
+        app:progressbar_width="10dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.151" />
+
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="383dp"
+        android:layout_width="459dp"
         android:layout_height="61dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="-1dp"
-        android:background="@color/menuShade1"
+        android:background="@color/colorLight"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="9dp" />
-
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="206dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="16dp"
-        android:text="GA"
-        android:textAlignment="center"
-        android:textColor="?android:attr/colorPrimaryDark"
-        android:textSize="24sp"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="-62dp" />
 
     <ImageButton
         android:id="@+id/searchButton"
@@ -71,68 +75,54 @@
         android:id="@+id/weekTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:text="Week"
         android:textAlignment="center"
-        android:textColor="@color/colorDark"
-        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorLight"
+        app:layout_constraintBottom_toBottomOf="@+id/currentWorkoutButton"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintLeft_toLeftOf="@+id/currentWorkoutButton"
-        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="@+id/currentWorkoutButton"
         app:layout_constraintTop_toTopOf="@+id/currentWorkoutButton"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/currentWorkoutButton"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintVertical_bias="0.423" />
 
     <TextView
         android:id="@+id/dayTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Day"
-        android:textAlignment="center"
-        android:textColor="@color/colorDark"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/currentWorkoutButton"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Day"
+        android:textAlignment="center"
+        android:textColor="@color/colorLight"
+        app:layout_constraintBottom_toBottomOf="@+id/currentWorkoutButton"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintLeft_toLeftOf="@+id/currentWorkoutButton"
         app:layout_constraintRight_toRightOf="@+id/currentWorkoutButton"
         app:layout_constraintTop_toTopOf="@+id/currentWorkoutButton"
-        android:layout_marginTop="41dp"
-        app:layout_constraintHorizontal_bias="0.504" />
-
-    <ImageButton
-        android:id="@+id/currentWorkoutButton"
-        android:layout_width="141dp"
-        android:layout_height="113dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:onClick="onCurrentWorkoutClick"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125"
-        app:srcCompat="@drawable/ic_orange_exercise_circle"
-        app:layout_constraintHorizontal_bias="0.502" />
+        app:layout_constraintVertical_bias="0.966" />
 
     <ListView
         android:id="@+id/homeItemsList"
-        android:layout_width="312dp"
-        android:layout_height="299dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_width="309dp"
+        android:layout_height="277dp"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintVertical_bias="0.762" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -153,20 +143,31 @@
         app:layout_constraintVertical_bias="1.0">
     </com.google.android.gms.ads.AdView>
 
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="47dp"
-        android:layout_height="37dp"
-        ads:srcCompat="@drawable/ic_logo"
-        app:layout_constraintTop_toTopOf="parent"
+    <Button
+        android:id="@+id/currentWorkoutButton"
+        android:layout_width="128dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="onCurrentWorkoutClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="67dp"
+        android:layout_height="61dp"
+        ads:srcCompat="@drawable/galogo"
+        tools:layout_editor_absoluteY="0dp"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.757"
-        app:layout_constraintVertical_bias="0.015" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

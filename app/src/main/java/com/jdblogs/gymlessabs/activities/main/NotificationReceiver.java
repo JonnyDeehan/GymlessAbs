@@ -2,31 +2,42 @@ package com.jdblogs.gymlessabs.activities.main;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
-
 import com.jdblogs.gymlessabs.R;
 
 /**
  * Created by Jonny on 29/07/2017.
  */
 
-public class NotificationReceiver extends BroadcastReceiver {
+public class NotificationReceiver extends Service {
+    @Nullable
     @Override
-    public void onReceive(Context context, Intent intent) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent intent1 = new Intent(context,HomeActivity.class);
-        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,100,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context).
-                setSmallIcon(R.drawable.ic_exercise).
-                setContentIntent(pendingIntent).
-                setContentText("this is my notification").
-                setContentTitle("my notificaton").
-        setAutoCancel(true);
-        notificationManager.notify(100,builder.build());
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setContentTitle("Workout Reminder")
+                        .setContentText("Check your ab routine progress")
+                        .setSmallIcon(R.drawable.ic_logo);
+
+        Intent resultIntent = new Intent(this, HomeActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,resultIntent,0);
+
+        mBuilder.setContentIntent(pendingIntent);
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(1, mBuilder.build());
     }
 }

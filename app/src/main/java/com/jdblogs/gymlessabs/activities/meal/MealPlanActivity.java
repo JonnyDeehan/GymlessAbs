@@ -1,13 +1,9 @@
 package com.jdblogs.gymlessabs.activities.meal;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.GlobalVariables;
 import com.jdblogs.gymlessabs.datahandling.MealPlanGenerator;
 import com.jdblogs.gymlessabs.models.DailyMealPlan;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MealPlanActivity extends AppCompatActivity {
@@ -30,6 +23,9 @@ public class MealPlanActivity extends AppCompatActivity {
     private List<DailyMealPlan> mealPlanList = new ArrayList<DailyMealPlan>();
     private MealPlanGenerator mealPlanGenerator;
     private GlobalVariables globalVariables;
+    private TextView ingredientsTextView;
+    private TextView currentWeekTextView;
+
     private static final String FATS[] = {
             "olives",
             "bacon",
@@ -153,6 +149,21 @@ public class MealPlanActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.mealPlanList);
         MealPlanAdapter customAdapter = new MealPlanAdapter(this,mealPlanList);
         listView.setAdapter(customAdapter);
+        currentWeekTextView = (TextView) findViewById(R.id.currentWeek);
+        currentWeekTextView.setText(globalVariables.getWeekSelected());
+        ingredientsTextView = (TextView) findViewById(R.id.foodIngredientsKey);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            ingredientsTextView.setText( Html.fromHtml("<font color=\"#0E84B4\">Protein</font><br />" +
+                    "<font color=\"#ffff00\">Fats</font><br />" +
+                    "<font color=\"#337658\">Fibrous Carbs</font><br />" +
+                    "<font color=\"#6668BF\">Starchy Carbs</font><br />",Html.FROM_HTML_MODE_LEGACY));
+        }
+        else{
+            ingredientsTextView.setText( Html.fromHtml("<font color=\"#0E84B4\">Protein</font><br />" +
+                    "<font color=\"#ffff00\">Fats</font><br />" +
+                    "<font color=\"#337658\">Fibrous Carbs</font><br />" +
+                    "<font color=\"#6668BF\">Starchy Carbs</font><br />"));
+        }
     }
 
     private static class MealPlanAdapter extends ArrayAdapter<DailyMealPlan>{
@@ -206,86 +217,4 @@ public class MealPlanActivity extends AppCompatActivity {
         finish();
     }
 
-    private boolean stringContainsItemFromList(String inputStr)
-    {
-        for(int i =0; i < PROTEINS.length; i++)
-        {
-            if(inputStr.toLowerCase().contains(PROTEINS[i].toLowerCase()))
-            {
-                return true;
-            }
-        }
-        for(int i =0; i < FATS.length; i++)
-        {
-            if(inputStr.toLowerCase().contains(FATS[i].toLowerCase()))
-            {
-                return true;
-            }
-        }
-        for(int i =0; i < FIBROUS_CARBS.length; i++)
-        {
-            if(inputStr.toLowerCase().contains(FIBROUS_CARBS[i].toLowerCase()))
-            {
-                return true;
-            }
-        }
-        for(int i =0; i < STARCHY_CARBS.length; i++)
-        {
-            if(inputStr.toLowerCase().contains(STARCHY_CARBS[i].toLowerCase()))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private void checkForIngrediant(TextView myTextView, String mySearchedString){
-        StringBuilder textBuilder = new StringBuilder(myTextView.getText().toString());
-        StringBuilder searchedTextBuilder = new StringBuilder((mySearchedString));
-        SpannableString spannableString = new SpannableString(myTextView.getText().toString());
-
-        int counter = 0;
-        int index = 0;
-
-        for (int i = 0;i < textBuilder.length() - mySearchedString.length() - 1;i++)
-        {
-            counter = 0;
-            if (Character.toLowerCase(textBuilder.charAt(i)) == Character.toLowerCase(searchedTextBuilder.charAt(index)))
-            {
-                counter++;
-                index++;
-                for (int j = 1,z = i + 1;j < mySearchedString.length() - 1;j++,z++)
-                {
-                    if (Character.toLowerCase(textBuilder .charAt(z)) == Character.toLowerCase(searchedTextBuilder .charAt(index)))
-                    {
-                        counter++;
-                        index++;
-                    }
-                    else
-                    {
-                        index++;
-                        if (index % mySearchedString.length() == 0)
-                        {
-                            index = 0;
-                        }
-                        break;
-                    }
-                }
-                if (counter == mySearchedString.length() - 1) // A match
-                {
-                    spannableString.setSpan(new ForegroundColorSpan(Color.RED), i,
-                            i + mySearchedString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE); // Do the change you want(In this case changing the fore ground color to red)
-                    index = 0;
-                    continue;
-                }
-                else
-                {
-                    index = 0;
-                    continue;
-                }
-            }
-        }
-        myTextView.setText(spannableString);
-    }
 }
