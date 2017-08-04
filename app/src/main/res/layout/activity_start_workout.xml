@@ -69,20 +69,19 @@
 
     <TextView
         android:id="@+id/dayTextView"
-        android:layout_width="219dp"
-        android:layout_height="40dp"
+        android:layout_width="226dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="16dp"
         android:text="Day"
         android:textAlignment="center"
         android:textColor="@color/discordBackground"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_bias="0.503" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/endWorkoutButton"
@@ -163,35 +162,35 @@
         android:id="@+id/nextExercise"
         android:layout_width="47dp"
         android:layout_height="42dp"
+        android:onClick="onNextExercise"
+        app:srcCompat="@drawable/ic_forward_action"
+        app:layout_constraintTop_toTopOf="@+id/exerciseVideo"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/exerciseVideo"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="onNextExercise"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.243"
-        app:srcCompat="@drawable/ic_forward_action" />
+        app:layout_constraintHorizontal_bias="0.975"
+        app:layout_constraintVertical_bias="0.405" />
 
     <ImageButton
         android:id="@+id/previousExercise"
         android:layout_width="47dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="321dp"
-        android:layout_marginTop="132dp"
         android:onClick="onPreviousExercise"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:srcCompat="@drawable/ic_back_action"
+        app:layout_constraintTop_toTopOf="@+id/exerciseVideo"
+        android:layout_marginTop="53dp"
+        android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/exerciseVideo"
+        android:layout_marginBottom="8dp"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_back_action" />
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -75,7 +76,7 @@ public class WorkoutActivity extends AppCompatActivity {
 
     private void setupUIComponents(){
         currentDateText = (TextView) findViewById(R.id.currentDateText);
-        currentDateText.setText(currentWeek + "\n" + currentDay);
+        currentDateText.setText(currentWeek + " " + currentDay);
         favouriteButton = (ImageButton) findViewById(R.id.favouriteWorkoutButton);
         if(appContext.getWorkoutActivityType() == FAVOURITE_WORKOUT_ACTIVITY_TYPE){
             favouriteButton.setVisibility(View.INVISIBLE);
@@ -91,6 +92,10 @@ public class WorkoutActivity extends AppCompatActivity {
         }
         totalWorkoutDurationTextView = (TextView) findViewById(R.id.workoutDuration);
         totalWorkoutDurationTextView.setText("Workout Duration: " + (double)(totalWorkoutDuration/60) + " min");
+
+        // Set color and rounded edges for button
+        Button startWorkoutButton = (Button) findViewById(R.id.startWorkoutButton);
+        startWorkoutButton.setBackgroundResource(R.drawable.customshape);
     }
 
     public void onStartWorkoutClick(View view){
@@ -165,6 +170,8 @@ public class WorkoutActivity extends AppCompatActivity {
             }
 
             ImageButton videoButton = (ImageButton) customView.findViewById(R.id.playVideoButton);
+            // Set color and rounded edges
+            videoButton.setBackgroundResource(R.drawable.customshape);
             videoButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

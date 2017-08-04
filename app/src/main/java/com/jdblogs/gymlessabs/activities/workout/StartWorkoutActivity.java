@@ -3,6 +3,7 @@ package com.jdblogs.gymlessabs.activities.workout;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
@@ -11,6 +12,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -103,6 +105,17 @@ public class StartWorkoutActivity extends AppCompatActivity {
         });
 
         timerHandler = new Handler();
+
+        // Appearance of buttons to be blue and have rounded edges
+        pausePlayButton.setBackgroundResource(R.drawable.customshape);
+        Button endWorkoutButton = (Button) findViewById(R.id.endWorkoutButton);
+        ImageButton nextExerciseButton = (ImageButton) findViewById(R.id.nextExercise);
+        ImageButton previousExerciseButton = (ImageButton) findViewById(R.id.previousExercise);
+        ImageButton refreshTimerButton = (ImageButton) findViewById(R.id.resetExerciseButton);
+        endWorkoutButton.setBackgroundResource(R.drawable.customshape);
+        nextExerciseButton.setBackgroundResource(R.drawable.customshape);
+        previousExerciseButton.setBackgroundResource(R.drawable.customshape);
+        refreshTimerButton.setBackgroundResource(R.drawable.customshape);
     }
 
     private void fetchWorkoutData(){

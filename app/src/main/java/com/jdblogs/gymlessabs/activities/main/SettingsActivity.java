@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
@@ -19,6 +20,16 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        setupButtonAppearance();
+
+    }
+
+    private void setupButtonAppearance(){
+        Button resetExerciseData = (Button) findViewById(R.id.resetDataButton);
+        Button aboutButton = (Button) findViewById(R.id.aboutButton);
+        resetExerciseData.setBackgroundResource(R.drawable.customshape);
+        aboutButton.setBackgroundResource(R.drawable.customshape);
     }
 
     public void onAboutButton(View view){

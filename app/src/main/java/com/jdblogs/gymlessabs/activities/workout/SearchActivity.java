@@ -136,6 +136,9 @@ public class SearchActivity extends AppCompatActivity {
             }
 
             ImageButton videoButton = (ImageButton) customView.findViewById(R.id.playVideoButton);
+            // Set color and rounded edges
+            videoButton.setBackgroundResource(R.drawable.customshape);
+
             videoButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

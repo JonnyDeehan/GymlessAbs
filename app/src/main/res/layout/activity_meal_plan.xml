@@ -40,6 +40,8 @@
         android:id="@+id/mealPlanList"
         android:layout_width="376dp"
         android:layout_height="406dp"
+        android:divider="@color/menuShade1"
+        android:dividerHeight="4px"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
