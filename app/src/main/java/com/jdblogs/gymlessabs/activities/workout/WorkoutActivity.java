@@ -37,7 +37,6 @@ public class WorkoutActivity extends AppCompatActivity {
     private TextView totalWorkoutDurationTextView;
     private ImageButton favouriteButton;
     private int totalWorkoutDuration;
-
     private static final int NORMAL_WORKOUT_ACTIVITY_TYPE = 0;
     private static final int SHUFFLE_WORKOUT_ACTIVITY_TYPE = 1;
     private static final int FAVOURITE_WORKOUT_ACTIVITY_TYPE = 2;

@@ -26,106 +26,6 @@ public class MealPlanActivity extends AppCompatActivity {
     private TextView ingredientsTextView;
     private TextView currentWeekTextView;
 
-    private static final String FATS[] = {
-            "olives",
-            "bacon",
-            "avocado",
-            "mixed nuts",
-            "string cheese",
-            "cheese stick",
-            "spare ribs",
-            "cheese",
-            "halloumi cheese",
-            "thai green curry",
-            "blue cheese sauce",
-            "goats cheese",
-            "herb butter",
-            "feta",
-            "pesto",
-            "almond butter",
-            "nut and seed granola",
-            "porridge",
-            "grain free cereal",
-            "mozzarella"};
-
-    private static final String PROTEINS[] = {
-            "omelet",
-            "meatballs",
-            "meat pie",
-            "Salmon steak",
-            "tuna burger",
-            "Smoked Salmon",
-            "Scrambled egg",
-            "fried egg",
-            "beef mince",
-            "baked fish",
-            "hard boiled eggs",
-            "steak burger",
-            "poached egg",
-            "eggs benedict",
-            "ham",
-            "chicken wings",
-            "pepperoni slices",
-            "chicken breast",
-            "steak",
-            "pork belly",
-            "beef jerky",
-            "prawn",
-            "tuna",
-            "turkey sausages",
-            "lamb burger",
-            "flat iron steak",
-            "sliced cold meat(chicken, turkey, ham, beef)",
-            "pork chop",
-            "sardines",
-            "mackerel",
-            "chicken slices",
-            "protein bar",
-            "hamburger",
-            "baked tilapia(or other white fish)",
-            "cod",
-            "frittata",
-            "sashimi",
-            "beef stroganoff",
-            "sirloin steak"};
-
-    private static final String FIBROUS_CARBS[] = {"balsamic onion",
-            "mushroom",
-            "rocket",
-            "vegetables",
-            "leek",
-            "mixed veggies",
-            "edamame",
-            "asparagus",
-            "broccoli",
-            "sliced peppers",
-            "mixed veg stir fry",
-            "salad",
-            "spinach",
-            "green beans",
-            "zucchini/courgette fries",
-            "zucchini/courgette spirals",
-            "zucchini/courgette spaghetti",
-            "lettuce wrap",
-            "zucchini/courgette noodles or zoodles",
-            "tomato",
-            "kale"};
-
-    private static final String STARCHY_CARBS[] =
-            {"sweet potato fries",
-            "brown rice",
-            "rice noodles",
-            "sweet potato mash",
-            "baked sweet potato",
-            "quinoa",
-            "rice pasta",
-            "jasmine rice",
-            "root vegetables",
-            "carrot fries",
-            "sticky rice",
-            "sweet potato chunks",
-            "sweet potato wedges"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,7 +42,6 @@ public class MealPlanActivity extends AppCompatActivity {
                 globalVariables.getDaySelected());
         String mealPlanData = getResources().getString(R.string.meal_plan);
         mealPlanList = mealPlanGenerator.generateMealPlan(mealPlanData);
-        Log.i(getClass().getSimpleName(), mealPlanData);
     }
 
     private void setUpUI(){
@@ -185,13 +84,10 @@ public class MealPlanActivity extends AppCompatActivity {
             TextView snack2 = (TextView) customView.findViewById(R.id.snack2Info);
             TextView dinner = (TextView) customView.findViewById(R.id.dinnerInfo);
 
-            Log.i(getClass().getSimpleName(), "BreakfastStringText: " + mealPlan.getBreakfast());
-
             try{
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                     dayOfTheWeek.setText(Html.fromHtml(mealPlan.getDay(),Html.FROM_HTML_MODE_LEGACY));
                     breakfast.setText(Html.fromHtml(mealPlan.getBreakfast().substring(11),Html.FROM_HTML_MODE_LEGACY));
-//                    breakfast.setText(Html.fromHtml("china" + "<font color='#123456'>text</font>",Html.FROM_HTML_MODE_LEGACY));
                     snack1.setText(Html.fromHtml(mealPlan.getSnack1().substring(9),Html.FROM_HTML_MODE_LEGACY));
                     lunch.setText(Html.fromHtml(mealPlan.getLunch().substring(7),Html.FROM_HTML_MODE_LEGACY));
                     snack2.setText(Html.fromHtml(mealPlan.getSnack2().substring(9),Html.FROM_HTML_MODE_LEGACY));
@@ -199,7 +95,6 @@ public class MealPlanActivity extends AppCompatActivity {
                 }else {
                     dayOfTheWeek.setText(Html.fromHtml(mealPlan.getDay()));
                     breakfast.setText(Html.fromHtml(mealPlan.getBreakfast().substring(11)));
-//                    breakfast.setText(Html.fromHtml("china" + "<font color='#123456'>text</font>"));
                     snack1.setText(Html.fromHtml(mealPlan.getSnack1().substring(9)));
                     lunch.setText(Html.fromHtml(mealPlan.getLunch().substring(7)));
                     snack2.setText(Html.fromHtml(mealPlan.getSnack2().substring(9)));

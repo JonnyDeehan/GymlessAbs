@@ -3,7 +3,6 @@
     package="com.jdblogs.gymlessabs">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>﻿
 
     <application
         android:allowBackup="true"
@@ -54,6 +53,7 @@
         <activity
             android:name=".activities.main.AboutPageActivity"
             android:screenOrientation="portrait" />
+        <receiver android:name=".activities.main.NotificationReceiver"/>
     </application>
 
 </manifest>

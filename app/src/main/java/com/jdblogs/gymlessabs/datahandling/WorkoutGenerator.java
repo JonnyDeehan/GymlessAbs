@@ -129,6 +129,8 @@ public class WorkoutGenerator {
         return randomWorkout;
     }
 
+    // LOTS OF HACKS IN HERE (pls forgive them)
+
     private void determineExperienceLevelForCurrentWeek(){
         switch (currentWeek){
             case "Week 1":

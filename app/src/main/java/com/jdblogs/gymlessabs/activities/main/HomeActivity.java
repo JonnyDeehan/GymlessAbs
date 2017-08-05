@@ -7,11 +7,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,9 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.jdblogs.gymlessabs.activities.meal.SelectMealDateActivity;
@@ -38,7 +33,6 @@ import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
 import com.jdblogs.gymlessabs.models.Exercise;
 import com.google.android.gms.ads.MobileAds;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -49,7 +43,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private TextView workoutWeek;
     private TextView workoutDay;
-    private TextView titleTextView;
     private AdView mAdView;
 
     private WorkoutGenerator workoutGenerator;
@@ -73,7 +66,6 @@ public class HomeActivity extends AppCompatActivity {
         setCurrentWeekAndDay();
         updateUI();
         onUpdateLocalData();
-        setUpNotificationReminder();
     }
 
     @Override
@@ -121,11 +113,6 @@ public class HomeActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.homeItemsList);
         CustomAdapter customAdapter = new CustomAdapter(this,homeItemsList);
         listView.setAdapter(customAdapter);
-
-//        Typeface tf = Typeface.createFromAsset(getAssets(),
-//                "modernesans.ttf");
-//        titleTextView= (TextView) findViewById(R.id.titleText);
-//        titleTextView.setTypeface(tf);
     }
 
     private void onUpdateLocalData(){
@@ -141,6 +128,7 @@ public class HomeActivity extends AppCompatActivity {
             sharedPreferences.edit().commit();
 
             displayEquipmentSelection();
+            setUpNotificationReminder();
         }
         globalVariables.setEquipmentAvailable(sharedPreferences
                 .getInt(globalVariables.PREFERENCES_EQUIPMENT_KEY,0));
@@ -148,14 +136,16 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setUpNotificationReminder(){
         Intent intent = new Intent(getApplicationContext(),NotificationReceiver.class);
-        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(this,0,intent,0);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,13);
-        calendar.set(Calendar.MINUTE,0);
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE,21);
 
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),1000*60*60*24,pendingIntent);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                    AlarmManager.INTERVAL_DAY, pendingIntent);
+
     }
 
     private void displayEquipmentSelection(){
@@ -195,7 +185,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        exerciseLocalData.closeDatabase();
     }
 
     // == onClick Methods =========================================================================
