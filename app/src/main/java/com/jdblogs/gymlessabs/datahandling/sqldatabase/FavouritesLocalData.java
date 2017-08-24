@@ -1,3 +1,8 @@
+/*
+ * Created by Jonny Deehan on 12/06/2017.
+ * Copyright (c) 2017. All rights reserved.
+ */
+
 package com.jdblogs.gymlessabs.datahandling.sqldatabase;
 
 import android.content.ContentValues;
@@ -7,13 +12,8 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.jdblogs.gymlessabs.models.Exercise;
-
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by jonathandeehan on 12/06/2017.
- */
 
 public class FavouritesLocalData {
 

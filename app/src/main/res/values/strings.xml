@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Gymless Abs</string>
     <string name="title_activity_exercise_plan">ExercisePlanActivity</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="home_page_ad_unit_id">insertAdID</string>
+    <string name="about_page_ad_unit_id">insertAdID</string>
+    <string name="meal_selection_page_ad_unit_id">insertAdID</string>
+    <string name="exercise_plan_page_ad_unit_id">insertAdID</string>
     <string name="large_text">
 
     </string>

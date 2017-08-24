@@ -1,3 +1,8 @@
+/*
+ * Created by Jonny Deehan
+ * Copyright (c) 2017. All rights reserved.
+ */
+
 package com.jdblogs.gymlessabs.activities.main;
 
 import android.app.AlertDialog;
@@ -9,7 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.jdblogs.gymlessabs.R;
 import com.jdblogs.gymlessabs.datahandling.sqldatabase.ExerciseLocalData;
 import com.jdblogs.gymlessabs.datahandling.sqldatabase.FavouritesLocalData;

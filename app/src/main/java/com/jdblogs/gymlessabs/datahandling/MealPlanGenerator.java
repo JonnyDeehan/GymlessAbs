@@ -1,16 +1,14 @@
+/*
+ * Created by Jonny Deehan on 27/06/2017.
+ * Copyright (c) 2017. All rights reserved.
+ */
+
 package com.jdblogs.gymlessabs.datahandling;
 
-import android.util.Log;
-
 import com.jdblogs.gymlessabs.models.DailyMealPlan;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-/**
- * Created by jonathandeehan on 27/06/2017.
- */
 
 public class MealPlanGenerator {
 

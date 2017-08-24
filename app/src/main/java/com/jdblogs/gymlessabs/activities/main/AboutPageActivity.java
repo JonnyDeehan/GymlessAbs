@@ -1,10 +1,14 @@
+/*
+ * Created by Jonny Deehan
+ * Copyright (c) 2017. All rights reserved.
+ */
+
 package com.jdblogs.gymlessabs.activities.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;

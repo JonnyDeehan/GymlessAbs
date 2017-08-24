@@ -1,3 +1,8 @@
+/*
+ * Created by Jonny Deehan on 29/07/2017.
+ * Copyright (c) 2017. All rights reserved.
+ */
+
 package com.jdblogs.gymlessabs.activities.main;
 
 import android.app.NotificationManager;
@@ -6,12 +11,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-
 import com.jdblogs.gymlessabs.R;
-
-/**
- * Created by Jonny on 29/07/2017.
- */
 
 public class NotificationReceiver extends BroadcastReceiver
 {

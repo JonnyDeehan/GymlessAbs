@@ -1,13 +1,14 @@
+/*
+ * Created by Jonny Deehan on 12/06/2017.
+ * Copyright (c) 2017. All rights reserved.
+ */
+
 package com.jdblogs.gymlessabs.datahandling.sqldatabase;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-/**
- * Created by jonathandeehan on 12/06/2017.
- */
 
 public class DatabaseAssistant extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "GymlessAbs";

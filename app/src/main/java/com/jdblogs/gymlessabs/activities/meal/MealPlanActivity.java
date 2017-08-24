@@ -1,3 +1,8 @@
+/*
+ * Created by Jonny Deehan
+ * Copyright (c) 2017. All rights reserved.
+ */
+
 package com.jdblogs.gymlessabs.activities.meal;
 
 import android.content.Context;

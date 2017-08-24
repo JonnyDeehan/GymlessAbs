@@ -1,8 +1,9 @@
-package com.jdblogs.gymlessabs.models;
-
-/**
- * Created by jonathandeehan on 13/06/2017.
+/*
+ * Created by Jonny Deehan 13/06/2017.
+ * Copyright (c) 2017. All rights reserved.
  */
+
+package com.jdblogs.gymlessabs.models;
 
 public class Exercise {
 

@@ -1,14 +1,12 @@
+/*
+ * Created by Jonny Deehan on 12/06/2017.
+ * Copyright (c) 2017. All rights reserved.
+ */
+
 package com.jdblogs.gymlessabs.datahandling;
 
-import android.app.Application;
-
 import com.jdblogs.gymlessabs.models.Exercise;
-
 import java.util.List;
-
-/**
- * Created by jonathandeehan on 12/06/2017.
- */
 
 public class GlobalVariables{
 
@@ -28,7 +26,7 @@ public class GlobalVariables{
     public static final String PREFERENCES_CURRENT_DAY_KEY = "current_day";
     public static final String PREFERENCES_EQUIPMENT_KEY = "equipment";
 
-    public static final String ADMOB_APP_ID = "ca-app-pub-7198486497927461~8358712232";
+    public static final String ADMOB_APP_ID = "insertAppID";
 
     protected GlobalVariables(){};
 

@@ -1,16 +1,15 @@
-package com.jdblogs.gymlessabs.datahandling;
+/*
+ * Created by Jonny Deehan on 16/06/2017.
+ * Copyright (c) 2017. All rights reserved.
+ */
 
-import android.util.Log;
+package com.jdblogs.gymlessabs.datahandling;
 
 import com.jdblogs.gymlessabs.models.Exercise;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-
-/**
- * Created by jonathandeehan on 16/06/2017.
- */
 
 public class WorkoutGenerator {
 
